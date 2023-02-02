@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.269">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Wim Bernasco">
+<meta name="dcterms.date" content="2022-03-22">
+
+<title>TT_book - 8&nbsp; Development of crime in population</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./10_TT_202211.html" rel="next">
+<link href="./08_TT_202205.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating slimcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Development of crime in population</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">TT_book</a> 
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Preface</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01_TT_202201.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Exploration and vizualization of Starbuck coffee use</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02_TT_202202.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Research of Board Games</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03_TT_202202.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Wrangling dates-time data</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05_TT_202203.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Researching Spanish soccer data</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06_TT_202204.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Long to wide (and vv) transformations</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08_TT_202205.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Revenue and expenditure in sport</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09_TT_202205.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Development of crime in population</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10_TT_202211.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Student mobility in Europe</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./summary.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Summary</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">References</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="toc-section-number">8.1</span>  Introduction</a></li>
+  <li><a href="#start-up" id="toc-start-up" class="nav-link" data-scroll-target="#start-up"><span class="toc-section-number">8.2</span>  Start-up</a></li>
+  <li><a href="#read-both-files-from-disk-and-assign-each-a-name." id="toc-read-both-files-from-disk-and-assign-each-a-name." class="nav-link" data-scroll-target="#read-both-files-from-disk-and-assign-each-a-name."><span class="toc-section-number">8.3</span>  Read both files from disk and assign each a name.</a></li>
+  <li><a href="#explore-data" id="toc-explore-data" class="nav-link" data-scroll-target="#explore-data"><span class="toc-section-number">8.4</span>  Explore data</a></li>
+  <li><a href="#visualize-plot-population-and-crime-development" id="toc-visualize-plot-population-and-crime-development" class="nav-link" data-scroll-target="#visualize-plot-population-and-crime-development"><span class="toc-section-number">8.5</span>  Visualize (plot) population and crime development</a></li>
+  <li><a href="#calculate-corrected-rate" id="toc-calculate-corrected-rate" class="nav-link" data-scroll-target="#calculate-corrected-rate"><span class="toc-section-number">8.6</span>  Calculate corrected rate</a></li>
+  <li><a href="#visualize-development-of-corrected-crime-rates" id="toc-visualize-development-of-corrected-crime-rates" class="nav-link" data-scroll-target="#visualize-development-of-corrected-crime-rates"><span class="toc-section-number">8.7</span>  Visualize development of corrected crime rates</a></li>
+  <li><a href="#crime-before-and-after-covid" id="toc-crime-before-and-after-covid" class="nav-link" data-scroll-target="#crime-before-and-after-covid"><span class="toc-section-number">8.8</span>  Crime before and after covid</a></li>
+  <li><a href="#do-anything-else-with-the-data-that-you-find-fun-or-seems" id="toc-do-anything-else-with-the-data-that-you-find-fun-or-seems" class="nav-link" data-scroll-target="#do-anything-else-with-the-data-that-you-find-fun-or-seems"><span class="toc-section-number">8.9</span>  Do anything else with the data that you find fun or seems</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Development of crime in population</span></h1>
+<p class="subtitle lead">NSC-R Tidy Tuesday May 2022</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Wim Bernasco </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">March 22, 2022</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="introduction" class="level2 page-columns page-full" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">8.1</span> Introduction</h2>
+<p>Below you find the materials Wim Bernasco prepared for the Tidy Tuesday workshop on May 24th 2022. <a href="https://nscrweb.netlify.app/posts/2022-05-24-nsc-r-tidy-tuesday/">Here</a> is the original link to this workshop and the materials. You find links to two small datasets. One (<code>crime.csv</code>) contains the number of police recorded residential burglaries, bike thefts and assaults in the Netherlands per month between January 2012 and April 2022. The other (<code>population.csv</code>) contains the number of inhabitants of the Netherlands during the same period, per first day of the month. In the workshop he tried to make sense of long-term temporal trends in these crimes, and hopefully also make useful statements about how things changed when the COVID pandemic arrived around February 2020. He worked out eight steps in the analysis.</p>
+<div class="page-columns page-full"><p></p><div class="no-row-height column-margin column-container"><span class="">Acknowledgement: Franziska Yasrebi-de Kom corrected errors and provided fruitfull suggestions for improvement of the first draft.</span></div></div>
+</section>
+<section id="start-up" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="start-up"><span class="header-section-number">8.2</span> Start-up</h2>
+<p>Create a new folder on the computer where you run R, and store the two datafiles crime.csv and residents.csv in the folder.</p>
+<p>You will normally load libraries here at the top of your script, but in this example I will load libraries at the point where I need their functionality. This shows when and why they are needed.</p>
+<p>If your project is reasonably small and all files (data, scripts, and output files) can be stored in a single folder without creating confusion, setting a working folder is a good idea. All reading from and writing to disk will be done from and to this folder.</p>
+<pre><code>setwd("X:/YYY/ZZZ") # for example: setwd("C:/Users/bernasco/crime_trends_NL")</code></pre>
+<p>Note: In this script I will use the new <code>|&gt;</code> piping symbol. It is equivalent to <code>%&gt;%</code> but has two advantages, which are<br>
+- (1) it is shorter (2 instead of 3 symbols), and<br>
+- (2) it does not require you to load a library, as it has been built into base R</p>
+</section>
+<section id="read-both-files-from-disk-and-assign-each-a-name." class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="read-both-files-from-disk-and-assign-each-a-name."><span class="header-section-number">8.3</span> Read both files from disk and assign each a name.</h2>
+<p>Any name will do, but I suggest “crime” and ” residents”. Read data using the <code>read_csv</code> function in package <code>readr</code>. <code>read_csv</code> has a few advantages over <code>read.csv</code> but the latter will also do.</p>
+<p><code>read_csv</code> is in the <code>readr</code> library, so we load <code>readr</code> first. I added <code>tidyverse</code> also already.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)     <span class="co"># read_csv function</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'readr' was built under R version 4.1.3</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'tidyverse' was built under R version 4.1.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>-- Attaching packages --------------------------------------- tidyverse 1.3.2 --
+v ggplot2 3.4.0     v dplyr   1.1.0
+v tibble  3.1.8     v stringr 1.5.0
+v tidyr   1.3.0     v forcats 1.0.0
+v purrr   1.0.1     </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'ggplot2' was built under R version 4.1.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'tibble' was built under R version 4.1.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'tidyr' was built under R version 4.1.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'purrr' was built under R version 4.1.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'dplyr' was built under R version 4.1.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'stringr' was built under R version 4.1.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'forcats' was built under R version 4.1.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>-- Conflicts ------------------------------------------ tidyverse_conflicts() --
+x dplyr::filter() masks stats::filter()
+x dplyr::lag()    masks stats::lag()</code></pre>
+</div>
+</div>
+<p>Note: in the live workshop we stumbled upon an error caused by our assumption that “crimes.csv” and “population.csv” had dates coded with dashes (like in “2022-05-24”) but my Excel version had written it with slashes (like in “2022/05/24”). Verify that after reading the files, their ‘date’ column has type ‘date’, not type ‘character’. You can use <code>glimpse</code> to verify this.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>crimes <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/crimes.csv"</span>)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>population <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/population.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="explore-data" class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="explore-data"><span class="header-section-number">8.4</span> Explore data</h2>
+<p>Explore the structure of the files. How many rows (observations), how many columns (variables), what are the variable names? What are their types: Are they integers, characters, dates, factors, .? keys? First explore the crime data.How many observations and how many variables (rows and columns)?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>crimes <span class="sc">|&gt;</span> <span class="fu">dim</span>()        <span class="co"># dim(crimes)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 372   3</code></pre>
+</div>
+</div>
+<p>For glimpse, slice-sample and count, we need library dplyr library(dplyr). Display the names and types of the variables, and show values for the first few observations column-wise. Note: verify that column date has type ‘date’</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>crimes <span class="sc">|&gt;</span> <span class="fu">glimpse</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 372
+Columns: 3
+$ date       &lt;date&gt; 2012-01-01, 2012-02-01, 2012-03-01, 2012-04-01, 2012-05-01~
+$ frequency  &lt;dbl&gt; 9787, 8237, 7944, 5955, 6198, 5493, 6168, 6481, 6102, 8178,~
+$ crime_type &lt;chr&gt; "burglary", "burglary", "burglary", "burglary", "burglary",~</code></pre>
+</div>
+</div>
+<p>Show the first few cases row-wise</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>crimes <span class="sc">|&gt;</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 x 3
+  date       frequency crime_type
+  &lt;date&gt;         &lt;dbl&gt; &lt;chr&gt;     
+1 2012-01-01      9787 burglary  
+2 2012-02-01      8237 burglary  
+3 2012-03-01      7944 burglary  
+4 2012-04-01      5955 burglary  
+5 2012-05-01      6198 burglary  
+6 2012-06-01      5493 burglary  </code></pre>
+</div>
+</div>
+<p>Show a random sample of 10 cases rather than the first ones. This will usually have more variation in values</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>crimes <span class="sc">|&gt;</span> <span class="fu">slice_sample</span>(<span class="at">n=</span><span class="dv">10</span>) <span class="sc">|&gt;</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 x 3
+  date       frequency crime_type
+  &lt;date&gt;         &lt;dbl&gt; &lt;chr&gt;     
+1 2014-10-01     12151 bike theft
+2 2019-02-01      5526 bike theft
+3 2018-05-01      7470 bike theft
+4 2012-02-01      7748 bike theft
+5 2017-06-01      3213 burglary  
+6 2015-03-01      5324 burglary  </code></pre>
+</div>
+</div>
+<p>Frequency table of crime types</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>crimes <span class="sc">|&gt;</span> <span class="fu">count</span>(crime_type)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 x 2
+  crime_type     n
+  &lt;chr&gt;      &lt;int&gt;
+1 assault      124
+2 bike theft   124
+3 burglary     124</code></pre>
+</div>
+</div>
+<p>You will see we have data for 124 months: 10 full years (2012-2021) + 4 months (Jan-April 2022)</p>
+<p>Next explore the population data</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>population <span class="sc">|&gt;</span> <span class="fu">dim</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 123   2</code></pre>
+</div>
+</div>
+<p>Note: verify that column date has type ‘date’.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>population <span class="sc">|&gt;</span> <span class="fu">glimpse</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 123
+Columns: 2
+$ date       &lt;date&gt; 2012-01-01, 2012-02-01, 2012-03-01, 2012-04-01, 2012-05-01~
+$ population &lt;dbl&gt; 16730348, 16731280, 16735690, 16737631, 16739764, 16742830,~</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>population <span class="sc">|&gt;</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 x 2
+  date       population
+  &lt;date&gt;          &lt;dbl&gt;
+1 2012-01-01   16730348
+2 2012-02-01   16731280
+3 2012-03-01   16735690
+4 2012-04-01   16737631
+5 2012-05-01   16739764
+6 2012-06-01   16742830</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>population <span class="sc">|&gt;</span> <span class="fu">slice_sample</span>(<span class="at">n=</span><span class="dv">10</span>) <span class="sc">|&gt;</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 x 2
+  date       population
+  &lt;date&gt;          &lt;dbl&gt;
+1 2015-12-01   16975465
+2 2016-08-01   17022674
+3 2012-11-01   16778726
+4 2020-08-01   17430920
+5 2020-12-01   17476482
+6 2016-12-01   17079787</code></pre>
+</div>
+</div>
+</section>
+<section id="visualize-plot-population-and-crime-development" class="level2 page-columns page-full" data-number="8.5">
+<h2 data-number="8.5" class="anchored" data-anchor-id="visualize-plot-population-and-crime-development"><span class="header-section-number">8.5</span> Visualize (plot) population and crime development</h2>
+<p>Visualize (plot) the development of the population size of the Netherlands between January 2012 and April 2022, and do the same for the frequencies of residential burglary, bike theft and assault.The ggplot function is in the ggplot2 library.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Plot population as a scatterplot.</p>
+<div class="cell page-columns page-full">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>population <span class="sc">|&gt;</span> </span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> population))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+<div class="no-row-height column-margin column-container"><div class="cell-output-display">
+<p><img src="09_TT_202205_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
+</div></div><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>  <span class="co"># or as a line graph</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>  population <span class="sc">|&gt;</span> </span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> population))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+<div class="no-row-height column-margin column-container"><div class="cell-output-display">
+<p><img src="09_TT_202205_files/figure-html/unnamed-chunk-11-2.png" class="img-fluid" width="672"></p>
+</div></div></div>
+<p>Keep it simple first. You can finetune later.Plot burglary frequencies</p>
+<div class="cell page-columns page-full">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>  crimes <span class="sc">%&gt;%</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(crime_type <span class="sc">==</span> <span class="st">"burglary"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x=</span>date, <span class="at">y=</span>frequency))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+<div class="no-row-height column-margin column-container"><div class="cell-output-display">
+<p><img src="09_TT_202205_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
+</div></div></div>
+<p>You should see a seasonal pattern with highs in Winter (nov-jan) and lows in summer. Plot bike theft</p>
+<div class="cell page-columns page-full">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a> crimes <span class="sc">%&gt;%</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(crime_type <span class="sc">==</span> <span class="st">"bike theft"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> frequency)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+<div class="no-row-height column-margin column-container"><div class="cell-output-display">
+<p><img src="09_TT_202205_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="672"></p>
+</div></div></div>
+<p>You should also see a seasonal pattern, but with peaks in autumn (dep-nov)</p>
+<p>Plot assault</p>
+<div class="cell page-columns page-full">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>crimes <span class="sc">%&gt;%</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(crime_type <span class="sc">==</span> <span class="st">"assault"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> frequency))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+<div class="no-row-height column-margin column-container"><div class="cell-output-display">
+<p><img src="09_TT_202205_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="672"></p>
+</div></div></div>
+<p>The seasonal pattern for assault shows peaks in spring (apr-jun). Plot the three crime types in a single graph and distinguish them by color.</p>
+<div class="cell page-columns page-full">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>crimes <span class="sc">|&gt;</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> frequency, <span class="at">color =</span> crime_type)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+<div class="no-row-height column-margin column-container"><div class="cell-output-display">
+<p><img src="09_TT_202205_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid" width="672"></p>
+</div></div></div>
+<p>Plot them in separate panels.</p>
+<div class="cell page-columns page-full">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>crimes <span class="sc">|&gt;</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> frequency)) <span class="sc">+</span></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># scales = "free_y" allows each panel to have its own</span></span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>    <span class="co">#  Y-axis scaling</span></span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">facet_wrap</span>(<span class="at">facets =</span> <span class="st">"crime_type"</span>, <span class="at">scales =</span> <span class="st">"free_y"</span>, <span class="at">ncol =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+<div class="no-row-height column-margin column-container"><div class="cell-output-display">
+<p><img src="09_TT_202205_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" width="672"></p>
+</div></div></div>
+<p>I would not advise it, but you can combine panels and color (if you do, hide the legend to prevent redundancy)</p>
+<div class="cell page-columns page-full">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>crimes <span class="sc">|&gt;</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> frequency, <span class="at">color =</span> crime_type)) <span class="sc">+</span></span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">facet_wrap</span>(<span class="at">facets =</span> <span class="st">"crime_type"</span>, <span class="at">scales =</span> <span class="st">"free_y"</span>, <span class="at">ncol =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">legend.position=</span><span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+<div class="no-row-height column-margin column-container"><div class="cell-output-display">
+<p><img src="09_TT_202205_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid" width="672"></p>
+</div></div></div>
+</section>
+<section id="calculate-corrected-rate" class="level2 page-columns page-full" data-number="8.6">
+<h2 data-number="8.6" class="anchored" data-anchor-id="calculate-corrected-rate"><span class="header-section-number">8.6</span> Calculate corrected rate</h2>
+<p>Create a residential burglary rate by relating number of residential burglaries to the size of the population, and think about how you can adjust for different months having a different numbers of days (28-31). To do this, you will need to merge (join) the “crime” dataframe with the “residents” dataframe by year and month.</p>
+<p>Merge crime and population by date (year and month).</p>
+
+<div class="no-row-height column-margin column-container"><div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a> crime_population <span class="ot">&lt;-</span> </span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># merge with crime type category labels</span></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">left_join</span>(crimes, population, <span class="at">by =</span> <span class="st">"date"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div><p>To calculate the number of days in the month of a date, you can use the <code>day_in_month</code> function which is in the <code>lubridate</code> library. Divide monthly crime frequency by number of days in the month to obtain the daily crime frequency, and divide by 100,000 to obtain daily crime rates per 100,000 population.</p>
+<p>Further, I multiply the result by mean days per month to obtain the MONTHLY crime rate, but this is arbitrary (daily, weekly, of annual rates would be fine as well)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(lubridate)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'lubridate' was built under R version 4.1.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'lubridate'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>  crime_population_corrected <span class="ot">&lt;-</span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>    crime_population <span class="sc">|&gt;</span></span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a>           <span class="co"># corrected for different month lengths</span></span>
+<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a>           <span class="at">rate =</span> frequency <span class="sc">/</span> <span class="fu">days_in_month</span>(date) <span class="sc">*</span> </span>
+<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a>             (<span class="fl">365.25</span><span class="sc">/</span><span class="dv">12</span>) <span class="sc">/</span> (population <span class="sc">/</span> <span class="dv">100000</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="visualize-development-of-corrected-crime-rates" class="level2 page-columns page-full" data-number="8.7">
+<h2 data-number="8.7" class="anchored" data-anchor-id="visualize-development-of-corrected-crime-rates"><span class="header-section-number">8.7</span> Visualize development of corrected crime rates</h2>
+<div class="cell page-columns page-full">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>crime_population_corrected <span class="sc">|&gt;</span></span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x=</span>date, <span class="at">y=</span>rate, <span class="at">color=</span>crime_type)) <span class="sc">+</span></span>
+<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">facet_wrap</span>(<span class="at">facets =</span> <span class="st">"crime_type"</span>, <span class="at">scales=</span><span class="st">"free_y"</span>, <span class="at">ncol=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 3 rows containing missing values (`geom_line()`).</code></pre>
+</div>
+
+<div class="no-row-height column-margin column-container"><div class="cell-output-display">
+<p><img src="09_TT_202205_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid" width="672"></p>
+</div></div></div>
+<p>You got this warning:</p>
+<pre><code>#    Warning message:
+#    Removed 3 row(s) containing missing values    </code></pre>
+<p>So where are these three missing values?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>crime_population_corrected <span class="sc">|&gt;</span></span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># select observations with NA (missing) values on 'rate'</span></span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(<span class="fu">is.na</span>(rate))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 x 5
+  date       frequency crime_type population  rate
+  &lt;date&gt;         &lt;dbl&gt; &lt;chr&gt;           &lt;dbl&gt; &lt;dbl&gt;
+1 2022-04-01      1645 burglary           NA    NA
+2 2022-04-01      7096 bike theft         NA    NA
+3 2022-04-01      3416 assault            NA    NA</code></pre>
+</div>
+</div>
+<p>Aha! The population data of April 2022 were not yet online! This means we have valid data on both crime and population Jan 2012 to March 2022.</p>
+</section>
+<section id="crime-before-and-after-covid" class="level2 page-columns page-full" data-number="8.8">
+<h2 data-number="8.8" class="anchored" data-anchor-id="crime-before-and-after-covid"><span class="header-section-number">8.8</span> Crime before and after covid</h2>
+<p>What can we say about the development of crime since February 2020, relative to the developments between 2012 and 2020? How can you quantify this with the data at hand?<br>
+Let’s look at burglary and start with making a plot that highlights the distinction between the periods before and during the pandemic.</p>
+<p>First we create a new variable/column that contains an indicator for whether the month is a pandemic month or not.</p>
+<p>Define the date the pandemic started (a single number of the type ‘date’)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>covid_start <span class="ot">&lt;-</span> <span class="fu">as_date</span>(<span class="st">"2020-02-01"</span>)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Note: The expression: date &gt;= covid_start returns TRUE (1) for ‘covid_start’ and all later dates, and returns FALSE (0) for all dates before ‘covid_start’. The labels parameter assigns ‘before’ to 0 and ‘during’ to 1</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>crime_population_corrected_covid <span class="ot">&lt;-</span>  </span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>  crime_population_corrected <span class="sc">|&gt;</span></span>
+<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">covid =</span> <span class="fu">factor</span>(date <span class="sc">&gt;=</span> covid_start , </span>
+<span id="cb55-4"><a href="#cb55-4" aria-hidden="true" tabindex="-1"></a>                        <span class="at">labels=</span><span class="fu">c</span>(<span class="st">"before"</span>, <span class="st">"during"</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We could just add a vertical line at the month that the pandemic started (February 2022)</p>
+<div class="cell page-columns page-full">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>crime_population_corrected_covid <span class="sc">|&gt;</span></span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(crime_type <span class="sc">==</span> <span class="st">"burglary"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x=</span>date, <span class="at">y=</span>rate)) <span class="sc">+</span></span>
+<span id="cb56-5"><a href="#cb56-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># add a red vertical line at given point on X-axis</span></span>
+<span id="cb56-6"><a href="#cb56-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> covid_start, <span class="at">color=</span><span class="st">"red"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 1 row containing missing values (`geom_line()`).</code></pre>
+</div>
+
+<div class="no-row-height column-margin column-container"><div class="cell-output-display">
+<p><img src="09_TT_202205_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid" width="672"></p>
+</div></div></div>
+<p>Alternatively, we could create a two-category variable indicating the before-after distinction, and then plot by color</p>
+<div class="cell page-columns page-full">
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>crime_population_corrected_covid <span class="sc">|&gt;</span></span>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(crime_type <span class="sc">==</span> <span class="st">"burglary"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb58-4"><a href="#cb58-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x=</span>date, <span class="at">y=</span>rate, <span class="at">color=</span>covid))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 1 row containing missing values (`geom_line()`).</code></pre>
+</div>
+
+<div class="no-row-height column-margin column-container"><div class="cell-output-display">
+<p><img src="09_TT_202205_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid" width="672"></p>
+</div></div></div>
+<p>A combined graph for the three crime types</p>
+<div class="cell page-columns page-full">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>crime_population_corrected_covid <span class="sc">|&gt;</span></span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x=</span>date, <span class="at">y=</span>rate, <span class="at">color=</span>covid)) <span class="sc">+</span></span>
+<span id="cb60-4"><a href="#cb60-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="at">facets =</span> <span class="st">"crime_type"</span>, <span class="at">scales=</span><span class="st">"free_y"</span>, <span class="at">ncol=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 1 row containing missing values (`geom_line()`).</code></pre>
+</div>
+
+<div class="no-row-height column-margin column-container"><div class="cell-output-display">
+<p><img src="09_TT_202205_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid" width="672"></p>
+</div></div></div>
+<p>Note that there is a ‘hole’ in de line graphs between January 2020 and February 2020. This is because we are actually drawing two separate line graphs here, one ending Jan 2022 and one starting Feb 2022. When we create a line graph, we drawing an individual point graph and then connect consecutive points with lines. So there really is nothing between Jan 2020 and Feb 2020.</p>
+<p>As we think of time as continuous (by day, or even hour), we may want to create a ‘before covid’ line that continues to Feb 2020.One way to do this is to explicitly draw two line graphs in the same plot. As you see this quickly becomes complicated ….</p>
+<p>Note: I used “#F8766D” and “#00BFC4” to get the same colors that ggplot uses by default when there are two categories in a discrete variable</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>crime_population_corrected <span class="sc">|&gt;</span></span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">precovid_rate =</span> <span class="fu">if_else</span>(date <span class="sc">&lt;=</span> <span class="fu">as_date</span>(<span class="st">"2020-02-01"</span>),</span>
+<span id="cb62-3"><a href="#cb62-3" aria-hidden="true" tabindex="-1"></a>                                 rate, <span class="fu">as.numeric</span>(<span class="cn">NA</span>)),</span>
+<span id="cb62-4"><a href="#cb62-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">postcovid_rate =</span><span class="fu">if_else</span>(date <span class="sc">&gt;=</span> <span class="fu">as_date</span>(<span class="st">"2020-02-01"</span>),</span>
+<span id="cb62-5"><a href="#cb62-5" aria-hidden="true" tabindex="-1"></a>                                 rate, <span class="fu">as.numeric</span>(<span class="cn">NA</span>))) <span class="sc">|&gt;</span></span>
+<span id="cb62-6"><a href="#cb62-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb62-7"><a href="#cb62-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x=</span>date, <span class="at">y=</span>precovid_rate), <span class="at">color=</span><span class="st">"#F8766D"</span>) <span class="sc">+</span></span>
+<span id="cb62-8"><a href="#cb62-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x=</span>date, <span class="at">y=</span>postcovid_rate), <span class="at">color=</span><span class="st">"#00BFC4"</span>) <span class="sc">+</span></span>
+<span id="cb62-9"><a href="#cb62-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"rate"</span>) <span class="sc">+</span></span>
+<span id="cb62-10"><a href="#cb62-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="at">facets =</span> <span class="st">"crime_type"</span>, <span class="at">scales=</span><span class="st">"free_y"</span>, <span class="at">ncol=</span><span class="dv">1</span>)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 26 rows containing missing values (`geom_line()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 98 rows containing missing values (`geom_line()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="09_TT_202205_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Now let us quantify the trends. We first calculate annual rates as we are presently not interested in the seasonal variations.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a>annual_rates_changes <span class="ot">&lt;-</span></span>
+<span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a>  crime_population_corrected <span class="sc">|&gt;</span></span>
+<span id="cb65-3"><a href="#cb65-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># create a variable indicating the year</span></span>
+<span id="cb65-4"><a href="#cb65-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year =</span> <span class="fu">year</span>(date)) <span class="sc">|&gt;</span></span>
+<span id="cb65-5"><a href="#cb65-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># select only years 2012-2021 because we have not full 2022 data</span></span>
+<span id="cb65-6"><a href="#cb65-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">&lt;</span> <span class="dv">2022</span>) <span class="sc">|&gt;</span></span>
+<span id="cb65-7"><a href="#cb65-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># for each year and crime type, calculate annual crime rate</span></span>
+<span id="cb65-8"><a href="#cb65-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year, crime_type) <span class="sc">|&gt;</span></span>
+<span id="cb65-9"><a href="#cb65-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">annual_rate =</span> <span class="fu">sum</span>(rate)) <span class="sc">|&gt;</span></span>
+<span id="cb65-10"><a href="#cb65-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Now calculate relative change: </span></span>
+<span id="cb65-11"><a href="#cb65-11" aria-hidden="true" tabindex="-1"></a>  <span class="co">#   By what proportion does this year's rate differ</span></span>
+<span id="cb65-12"><a href="#cb65-12" aria-hidden="true" tabindex="-1"></a>  <span class="co">#   from previous year's rate?</span></span>
+<span id="cb65-13"><a href="#cb65-13" aria-hidden="true" tabindex="-1"></a>  <span class="co"># We do this for each crime type separately</span></span>
+<span id="cb65-14"><a href="#cb65-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(crime_type) <span class="sc">|&gt;</span></span>
+<span id="cb65-15"><a href="#cb65-15" aria-hidden="true" tabindex="-1"></a>  <span class="co"># sort by year </span></span>
+<span id="cb65-16"><a href="#cb65-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(year) <span class="sc">|&gt;</span></span>
+<span id="cb65-17"><a href="#cb65-17" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Copy last year's rate</span></span>
+<span id="cb65-18"><a href="#cb65-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">lag_annual_rate =</span> <span class="fu">lag</span>(annual_rate)) <span class="sc">|&gt;</span></span>
+<span id="cb65-19"><a href="#cb65-19" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Relative change</span></span>
+<span id="cb65-20"><a href="#cb65-20" aria-hidden="true" tabindex="-1"></a>  <span class="co"># See, e.g. https://www.youtube.com/watch?v=muAkepkjpZI</span></span>
+<span id="cb65-21"><a href="#cb65-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">annual_change =</span> ((annual_rate <span class="sc">-</span> lag_annual_rate) <span class="sc">/</span> lag_annual_rate))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`summarise()` has grouped output by 'year'. You can override using the
+`.groups` argument.</code></pre>
+</div>
+</div>
+<p>Just to check that what you did generates the intended result: lag_annual_rate(2015) == annual_rate(2014) lag_annual_rate(2014) == annual_rate(2013) lag_annual_rate(2013) == annual_rate(2012) lag_annual_rate(2012) == NA (because annual_rate(2011) is unknown)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a>annual_rates_changes <span class="sc">|&gt;</span></span>
+<span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(crime_type <span class="sc">==</span> <span class="st">"assault"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb67-3"><a href="#cb67-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 x 5
+# Groups:   crime_type [1]
+   year crime_type annual_rate lag_annual_rate annual_change
+  &lt;dbl&gt; &lt;chr&gt;            &lt;dbl&gt;           &lt;dbl&gt;         &lt;dbl&gt;
+1  2012 assault           336.             NA        NA     
+2  2013 assault           309.            336.       -0.0801
+3  2014 assault           295.            309.       -0.0456
+4  2015 assault           281.            295.       -0.0496
+5  2016 assault           271.            281.       -0.0335
+6  2017 assault           258.            271.       -0.0501</code></pre>
+</div>
+</div>
+<p>Plot relative changes</p>
+<div class="cell page-columns page-full">
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a>annual_rates_changes <span class="sc">|&gt;</span></span>
+<span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb69-3"><a href="#cb69-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x=</span>year, <span class="at">y=</span>annual_rate, <span class="at">color=</span>crime_type))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+<div class="no-row-height column-margin column-container"><div class="cell-output-display">
+<p><img src="09_TT_202205_files/figure-html/unnamed-chunk-30-1.png" class="img-fluid" width="672"></p>
+</div></div></div>
+<p>Define the covid years</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a>covid_years <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2020</span>, <span class="dv">2021</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Compare annual change before and during the pandemic per crime type</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a>annual_rates_changes <span class="sc">%&gt;%</span></span>
+<span id="cb71-2"><a href="#cb71-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">covid =</span> <span class="fu">factor</span>(year <span class="sc">%in%</span> covid_years, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"before"</span>, <span class="st">"during"</span>))) <span class="sc">|&gt;</span></span>
+<span id="cb71-3"><a href="#cb71-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(crime_type, covid) <span class="sc">|&gt;</span></span>
+<span id="cb71-4"><a href="#cb71-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_change =</span> <span class="fu">mean</span>(annual_change, <span class="at">na.rm=</span><span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`summarise()` has grouped output by 'crime_type'. You can override using the
+`.groups` argument.</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 x 3
+# Groups:   crime_type [3]
+  crime_type covid  mean_change
+  &lt;chr&gt;      &lt;fct&gt;        &lt;dbl&gt;
+1 assault    before     -0.0463
+2 assault    during     -0.0799
+3 bike theft before     -0.0587
+4 bike theft during     -0.0718
+5 burglary   before     -0.116 
+6 burglary   during     -0.233 </code></pre>
+</div>
+</div>
+</section>
+<section id="do-anything-else-with-the-data-that-you-find-fun-or-seems" class="level2" data-number="8.9">
+<h2 data-number="8.9" class="anchored" data-anchor-id="do-anything-else-with-the-data-that-you-find-fun-or-seems"><span class="header-section-number">8.9</span> Do anything else with the data that you find fun or seems</h2>
+<p>To make senseYou can see that there is an overall decline for each crime type (mean_change is always negative) and the decline is more pronounced (mean_change is more negative) during the pandemic than before the pandemic, in particular for assault and burglary.</p>
+<p>For more rigorous statistical tests, we would need to dive into time series analysis.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./08_TT_202205.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Revenue and expenditure in sport</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./10_TT_202211.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Student mobility in Europe</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>
