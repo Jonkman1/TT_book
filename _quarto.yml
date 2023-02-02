@@ -7,7 +7,7 @@ book:
   date: "2-2-2023"
   chapters:
     - index.qmd
-    - intro.qmd
+    - 00_intro.qmd
     - 01_TT_202201.qmd
     - 02_TT_202202.qmd
     - 03_TT_202202.qmd
@@ -16,7 +16,7 @@ book:
     - 08_TT_202205.qmd
     - 09_TT_202205.qmd
     - 10_TT_202211.qmd
-    - summary.qmd
+    - 12_summary.qmd
     - references.qmd
 
 bibliography: references.bib
