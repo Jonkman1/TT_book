@@ -1,10 +1,24 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "TT_book",
+    "objectID": "01_TT_202201.html",
+    "href": "01_TT_202201.html",
+    "title": "2  Exploration and vizualization of Starbuck coffee use",
     "section": "",
-    "text": "Preface\nThis is a Quarto book.\nTo learn more about Quarto books visit https://quarto.org/docs/books.\n\n1 + 1\n\n[1] 2"
+    "text": "3 Load data\nThe data are loaded directly from the TidyTuesday github page.\nHere are some explorative commands you can use:\n- star-df opens the dataset and shows you the variables. - names(star_df)gives you the names of the 15 variables. - glimpse(star_df)shows you the number of rows (often particpants) and columns (often variables) and also informs you about the kind of variables. - dim(star_df) informs you about number of rows and columns.\n- sum(is.na(star_df)) show you the number of missing variables.\nWhen you want to look at a specific subset with the product_name brewed coffee for example you can define this as:.\nCan you plot between calories(y) and total_fat_g (x)? Show the diffence on whip_char'and show it for the sixmilk-labs` you recoded.\nSave the plot on your computer as a png-file. Here is place in a projectmap and a submap images which I made on my computer. Change the path if necessary for your computer.\nFor counting frequencies you always can use different methods. We show some of them.\nThis is the R base-way for counting the variable whipfor example.\nThis is the grouping-way.\nThis is a better way (thanks Wim!).\nHere we do some basic cleaning. We select six variables and look only at variables of which the size is grande. We call this dataset star_clean.\nLet us plot it on different ways.The first three are similar.\nThen we plot the coffee of which the whipis 1.\nFor the next plot we first change the class of the variable milk into a character variable and save it as a different dataset.\nWe plot this new dataset on three different ways."
+  },
+  {
+    "objectID": "01_TT_202201.html#introduction",
+    "href": "01_TT_202201.html#introduction",
+    "title": "2  Exploration and vizualization of Starbuck coffee use",
+    "section": "2.1 Introduction",
+    "text": "2.1 Introduction\nOn 11 January 2022 and 25 January 2022 Sam Langton gave NSCR Tidy Tuesday presentations on the exploration and visualization of Starbuck coffee use data.In this document both presentations are combined.\n[^1]. Here you can find it on the NSCR- website. Here is the First presentation. Here is the Second presentation"
+  },
+  {
+    "objectID": "01_TT_202201.html#load-libraries.",
+    "href": "01_TT_202201.html#load-libraries.",
+    "title": "2  Exploration and vizualization of Starbuck coffee use",
+    "section": "2.2 Load libraries.",
+    "text": "2.2 Load libraries.\n\nlibrary(readr)\nlibrary(dplyr)\nlibrary(tidyr)\nlibrary(stringr)\nlibrary(ggplot2)"
   },
   {
     "objectID": "intro.html",
@@ -16,7 +30,7 @@
   {
     "objectID": "summary.html",
     "href": "summary.html",
-    "title": "2  Summary",
+    "title": "3  Summary",
     "section": "",
     "text": "In summary, this book has no content whatsoever.\n\n1 + 1\n\n[1] 2"
   },
@@ -26,5 +40,12 @@
     "title": "References",
     "section": "",
     "text": "Knuth, Donald E. 1984. “Literate Programming.” Comput.\nJ. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "TT_book",
+    "section": "",
+    "text": "Preface\nThis is a Quarto book.\nTo learn more about Quarto books visit https://quarto.org/docs/books.\n\n1 + 1\n\n[1] 2"
   }
 ]

@@ -1,0 +1,221 @@
+---
+title: "Exploration and vizualization of Starbuck coffee use"
+subtitle: "NSC-R Tidy Tuesday workshop January 2022"
+author: Sam Langton
+date: "2022-01-11"
+---
+
+## Introduction
+
+On 11 January 2022 and 25 January 2022 Sam Langton gave NSCR Tidy Tuesday presentations on the exploration and visualization of Starbuck coffee use data.In this document both presentations are combined.
+
+[^1]. Here you can find it on the NSCR- website. Here is the [First presentation](https://nscrweb.netlify.app/posts/2022-01-11-nsc-r-tidy-tuesday/). Here is the [Second presentation](https://nscrweb.netlify.app/posts/2022-01-25-nsc-r-tidy-tuesday/)
+
+## Load libraries.
+
+```{r}
+#| warning: false
+#| echo: true
+library(readr)
+library(dplyr)
+library(tidyr)
+library(stringr)
+library(ggplot2)
+```
+
+# Load data
+
+The data are loaded directly from the TidyTuesday github page.
+
+```{r}
+#| warning: false
+#| echo: true
+star_df <- read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2021/2021-12-21/starbucks.csv')
+```
+
+# Initial explore.
+
+Here are some explorative commands you can use:\
+- `star-df` opens the dataset and shows you the variables. - `names(star_df)`gives you the names of the 15 variables. - `glimpse(star_df)`shows you the number of rows (often particpants) and columns (often variables) and also informs you about the kind of variables. - `dim(star_df)` informs you about number of rows and columns.\
+- `sum(is.na(star_df))` show you the number of missing variables.
+
+```{r}
+#| warning: false
+#| echo: true
+star_df
+names(star_df)
+glimpse(star_df)
+dim(star_df)
+sum(is.na(star_df))
+```
+
+# Subset brewed coffee.
+
+When you want to look at a specific subset with the product_name brewed coffee for example you can define this as:.
+
+```{r}
+#| warning: false
+#| echo: true
+brew_df <- star_df %>% 
+  filter(str_detect(product_name, "brewed coffee"))
+```
+
+# Quick clean for the plot.
+
+-   Make another subsample and call it `big_ones_df`.\
+    -Use only the variables `product_name`, `size`, `milk`, `whip` and `calories`-`trans_fat_g`).\
+-   Use only when `size`is grande.
+-   change `whip` into a character variable.
+-   Recode categories of `milk`from 0, 1, 2, 3, 4 5 into no milk, non-fat, 2% fat, soy, coconut, whole.
+
+```{r}
+#| warning: false
+#| echo: true
+big_ones_df <- star_df %>%
+  select(product_name, size, milk, whip, calories:trans_fat_g) %>% 
+  filter(size == "grande") %>% 
+  mutate(whip_char = as.character(whip),
+         milk_labs = recode(milk,
+                            `0` = "no milk",
+                            `1` = "non-fat",
+                            `2` = "2% fat",
+                            `3` = "soy",
+                            `4` = "coconut",
+                            `5` = "whole")) # These categories are on the tt git page.
+```
+
+# What in the relationship between calories and fat?
+
+Can you plot between `calories`(y) and `total_fat_g` (x)? Show the diffence on `whip_char'and show it for the six`milk-labs\` you recoded.
+
+```{r}
+#| warning: false
+#| echo: true
+#| fig-width: 4
+#| fig-height: 3
+#| column: page-right
+my_plot_gg <- ggplot(data = big_ones_df) +
+  geom_point(mapping = aes(x = total_fat_g, y = calories, fill = whip_char),
+             size = 2, alpha = 0.8, pch = 21, colour = "black") +
+  facet_wrap(~milk_labs) +
+  labs(title = "Starbucks: fat, calories and milk types",
+       caption = "Data notes: grande drink size | Data source: tidytuesday | NSC-R workshop 11 Jan 2022",
+       fill = NULL, x = "total fat (grams)") +
+  scale_fill_manual(values = c("#036635", "#b5651d"),
+                      labels = c("Without whipped cream", "With whipped cream")) +
+  theme_bw() +
+  theme(legend.position = "bottom",
+        axis.text = element_text(size = 6),
+        axis.title = element_text(size = 8),
+        plot.title = element_text(hjust = 0.5),
+        plot.caption = element_text(size = 4))
+my_plot_gg
+```
+
+# Save.
+
+Save the plot on your computer as a png-file. Here is place in a projectmap and a submap images which I made on my computer. Change the path if necessary for your computer.
+
+```{r}
+#| warning: false
+#| echo: true
+ggsave(my_plot_gg, file = "images/starbucks_plot.png",
+       height = 12, width = 12, unit = "cm")
+```
+
+# Counting frequencies
+
+For counting frequencies you always can use different methods. We show some of them.
+
+This is the R base-way for counting the variable `whip`for example.
+
+```{r}
+table(star_df$whip)
+```
+
+This is the grouping-way.
+
+```{r}
+star_df %>%
+  group_by(whip) %>% 
+  tally() 
+```
+
+This is a better way (thanks Wim!).
+
+```{r}
+freq_df <- count(star_df, whip)
+freq_df
+```
+
+# Basic cleaning
+
+Here we do some basic cleaning. We select six variables and look only at variables of which the `size` is grande. We call this dataset `star_clean`.
+
+```{r}
+star_clean_df <- star_df %>%
+  select(product_name, size, milk, whip, calories, sugar_g) %>% 
+  filter(size == "grande") 
+```
+
+# Basic plot
+
+Let us plot it on different ways.The first three are similar.
+
+```{r}
+ggplot(data = star_clean_df, mapping = aes(x = sugar_g, y = calories)) +
+  geom_point()
+```
+
+```{r}
+ggplot(data = star_clean_df) +
+  geom_point(mapping = aes(x = sugar_g, y = calories))
+```
+
+```{r}
+ggplot() +
+  geom_point(data = star_clean_df, mapping = aes(x = sugar_g, y = calories))
+```
+
+Then we plot the coffee of which the `whip`is 1.
+
+```{r}
+star_clean_df %>%
+  filter(whip == 1) %>% 
+  ggplot() +
+  geom_point(mapping = aes(x = sugar_g, y = calories))
+```
+
+# Change milk class.
+
+For the next plot we first change the class of the variable `milk` into a character variable and save it as a different dataset.
+
+```{r}
+star_clean_df <- star_clean_df %>% 
+  mutate(milk_char = as.character(milk))
+```
+
+# Extend.
+
+We plot this new dataset on three different ways.
+
+```{r}
+ggplot(data = star_clean_df) +
+  geom_point (mapping = aes(x = sugar_g, y = calories)) +
+  geom_smooth(mapping = aes(x = sugar_g, y = calories), method = "lm") +
+  facet_wrap(~milk_char)
+```
+
+```{r}
+ggplot(data = star_clean_df, mapping = aes(x = sugar_g, y = calories)) +
+  geom_point() +
+  geom_smooth(method = "lm") +
+  facet_wrap(vars(milk_char, whip))
+```
+
+```{r}
+ggplot(data = star_clean_df) +
+  geom_point(mapping = aes(x = sugar_g, y = calories, shape = milk_char, colour = milk_char))
+```
+
+# Reference
