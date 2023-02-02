@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.269">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Asier Moreva">
+<meta name="dcterms.date" content="2022-02-08">
+
+<title>TT_book - 3&nbsp; Research of Board Games</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./09_TT_202211.html" rel="next">
+<link href="./01_TT_202201.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Research of Board Games</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">TT_book</a> 
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Preface</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01_TT_202201.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Exploration and vizualization of Starbuck coffee use</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02_TT_202202.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Research of Board Games</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09_TT_202211.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Student mobility in Europe</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./summary.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Summary</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">References</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="toc-section-number">4</span>  Introduction</a></li>
+  <li><a href="#load-packages" id="toc-load-packages" class="nav-link" data-scroll-target="#load-packages"><span class="toc-section-number">5</span>  Load packages</a></li>
+  <li><a href="#import-data" id="toc-import-data" class="nav-link" data-scroll-target="#import-data"><span class="toc-section-number">6</span>  Import data</a></li>
+  <li><a href="#explore-data" id="toc-explore-data" class="nav-link" data-scroll-target="#explore-data"><span class="toc-section-number">7</span>  Explore data</a></li>
+  <li><a href="#plot-data" id="toc-plot-data" class="nav-link" data-scroll-target="#plot-data"><span class="toc-section-number">8</span>  Plot data</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Research of Board Games</span></h1>
+<p class="subtitle lead">NSC-R Tidy Tuesday February 2022</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Asier Moreva </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">February 8, 2022</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="introduction" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Introduction</h1>
+<p>The dataset for this Tidy Tuesday is about board games! Asier Moneva explores the following research questions: “What are the top 3 best-selling board games by game type?” and “How do board game sales relate to online user ratings?”</p>
+</section>
+<section id="load-packages" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Load packages</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Today’s data are relational, which means there are multiple datasets (<code>rating</code>, <code>details</code>) that can be linked through some identifier or <code>id</code> variable or ‘key’.</p>
+</section>
+<section id="import-data" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Import data</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>ratings <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2022/2022-01-25/ratings.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>details <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2022/2022-01-25/details.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="explore-data" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Explore data</h1>
+<p>So let’s have a quick look at the data.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(ratings)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 21,831
+Columns: 10
+$ num           &lt;dbl&gt; 105, 189, 428, 72, 103, 191, 100, 3, 15, 35, 30, 182, 13~
+$ id            &lt;dbl&gt; 30549, 822, 13, 68448, 36218, 9209, 178900, 167791, 1733~
+$ name          &lt;chr&gt; "Pandemic", "Carcassonne", "Catan", "7 Wonders", "Domini~
+$ year          &lt;dbl&gt; 2008, 2000, 1995, 2010, 2008, 2004, 2015, 2016, 2015, 20~
+$ rank          &lt;dbl&gt; 106, 190, 429, 73, 104, 192, 101, 4, 16, 36, 31, 183, 14~
+$ average       &lt;dbl&gt; 7.59, 7.42, 7.14, 7.74, 7.61, 7.41, 7.60, 8.42, 8.11, 7.~
+$ bayes_average &lt;dbl&gt; 7.487, 7.309, 6.970, 7.634, 7.499, 7.305, 7.508, 8.274, ~
+$ users_rated   &lt;dbl&gt; 108975, 108738, 108024, 89982, 81561, 76171, 74419, 7421~
+$ url           &lt;chr&gt; "/boardgame/30549/pandemic", "/boardgame/822/carcassonne~
+$ thumbnail     &lt;chr&gt; "https://cf.geekdo-images.com/S3ybV1LAp-8SnHIXLLjVqA__mi~</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(details)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 21,631
+Columns: 23
+$ num                     &lt;dbl&gt; 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, ~
+$ id                      &lt;dbl&gt; 30549, 822, 13, 68448, 36218, 9209, 178900, 16~
+$ primary                 &lt;chr&gt; "Pandemic", "Carcassonne", "Catan", "7 Wonders~
+$ description             &lt;chr&gt; "In Pandemic, several virulent diseases have b~
+$ yearpublished           &lt;dbl&gt; 2008, 2000, 1995, 2010, 2008, 2004, 2015, 2016~
+$ minplayers              &lt;dbl&gt; 2, 2, 3, 2, 2, 2, 2, 1, 2, 1, 3, 2, 1, 2, 2, 2~
+$ maxplayers              &lt;dbl&gt; 4, 5, 4, 7, 4, 5, 8, 5, 2, 5, 5, 4, 5, 5, 5, 4~
+$ playingtime             &lt;dbl&gt; 45, 45, 120, 30, 30, 60, 15, 120, 30, 150, 150~
+$ minplaytime             &lt;dbl&gt; 45, 30, 60, 30, 30, 30, 15, 120, 30, 30, 90, 3~
+$ maxplaytime             &lt;dbl&gt; 45, 45, 120, 30, 30, 60, 15, 120, 30, 150, 150~
+$ minage                  &lt;dbl&gt; 8, 7, 10, 10, 13, 8, 14, 12, 10, 12, 12, 10, 1~
+$ boardgamecategory       &lt;chr&gt; "['Medical']", "['City Building', 'Medieval', ~
+$ boardgamemechanic       &lt;chr&gt; "['Action Points', 'Cooperative Game', 'Hand M~
+$ boardgamefamily         &lt;chr&gt; "['Components: Map (Global Scale)', 'Component~
+$ boardgameexpansion      &lt;chr&gt; "['Pandemic: Gen Con 2016 Promos – Z-Force Tea~
+$ boardgameimplementation &lt;chr&gt; "['Pandemic Legacy: Season 0', 'Pandemic Legac~
+$ boardgamedesigner       &lt;chr&gt; "['Matt Leacock']", "['Klaus-Jürgen Wrede']", ~
+$ boardgameartist         &lt;chr&gt; "['Josh Cappel', 'Christian Hanisch', 'Régis M~
+$ boardgamepublisher      &lt;chr&gt; "['Z-Man Games', 'Albi', 'Asmodee', 'Asmodee I~
+$ owned                   &lt;dbl&gt; 168364, 161299, 167733, 120466, 106956, 105748~
+$ trading                 &lt;dbl&gt; 2508, 1716, 2018, 1567, 2009, 930, 1110, 538, ~
+$ wanting                 &lt;dbl&gt; 625, 582, 485, 1010, 655, 692, 340, 2011, 924,~
+$ wishing                 &lt;dbl&gt; 9344, 7383, 5890, 12105, 8621, 6620, 5764, 192~</code></pre>
+</div>
+</div>
+<p>You see that the number of observations do not match!</p>
+<p>Explore whether both datasets have identical <code>id</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">identical</span>(details<span class="sc">$</span>id, ratings<span class="sc">$</span>id)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
+</div>
+</div>
+<p>Count how many <code>id</code> are missing.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(ratings<span class="sc">$</span>id <span class="sc">%in%</span> details<span class="sc">$</span>id)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+FALSE  TRUE 
+  200 21631 </code></pre>
+</div>
+</div>
+<p>Find which <code>id</code> are present in both datasets. Results not show here because of too long output.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">intersect</span>(details<span class="sc">$</span>id, ratings<span class="sc">$</span>id)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Find which <code>id</code> are absent in the dataset with the least observations</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setdiff</span>(ratings<span class="sc">$</span>id, details<span class="sc">$</span>id)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  [1] 298130 286790   2415  12369  25999 304051 262554  67499  16268 236881
+ [11] 102750  15391  10889   4875 165190 225303  18536 192323 143663  18704
+ [21]  33125 297139   7578  32922 143459 237088 311004 195158  12624 201917
+ [31]  34403  18061   5043  15049  23733 225828   6913 176633 198541  64608
+ [41]   3610  29268 244268 177566  38836 275284  10544 284617 191292  96626
+ [51]   8741   7752 136856  12900  30335 189615 183344  36238  39663 314125
+ [61] 325678 246310 109827  19475  31412  69233   5649  98978   3814 140973
+ [71] 265039  39278 188968 144378 303676  20533  13094   9860 310880 304666
+ [81] 279649  40804   8249 245060 246895  10246  14698 172088   6124  20647
+ [91] 264654 299690 147457  23616 258761 311990 132616 154841   8356 216360
+[101]  12169 226237 118561  49050 282410   2493   9398   9578   9512  24079
+[111]   3398 147616   7368 170390  36993  23999 316090  11674   9454  34129
+[121] 252901  10105 287304 164428  41611 232874   1550 252373   3909 145206
+[131]  36366 308870  24857 210350   6839 125585   9113 145400 239523  16830
+[141]  19304  40886  21437 328866 244528 252374  17996  22354 283849  14128
+[151] 305270 237834 137366  38524   3338   1221 319593   3830 102150  10154
+[161] 208800 214486  32324  86443 162888 221208 241611  17433   9736  18687
+[171] 104770   8426 247135 233284  11421  13918  31585   2103 210292 276641
+[181] 289055  15427  24994  47475  66276 205156   3047   8700 306072  14377
+[191]   1191 251026  19044 282389 296644 284839 144874 179124 150429  35499</code></pre>
+</div>
+</div>
+<p>Merge data</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">inner_join</span>(ratings, details, <span class="at">by =</span> <span class="st">"id"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Explore data</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 21,631
+Columns: 32
+$ num.x                   &lt;dbl&gt; 105, 189, 428, 72, 103, 191, 100, 3, 15, 35, 3~
+$ id                      &lt;dbl&gt; 30549, 822, 13, 68448, 36218, 9209, 178900, 16~
+$ name                    &lt;chr&gt; "Pandemic", "Carcassonne", "Catan", "7 Wonders~
+$ year                    &lt;dbl&gt; 2008, 2000, 1995, 2010, 2008, 2004, 2015, 2016~
+$ rank                    &lt;dbl&gt; 106, 190, 429, 73, 104, 192, 101, 4, 16, 36, 3~
+$ average                 &lt;dbl&gt; 7.59, 7.42, 7.14, 7.74, 7.61, 7.41, 7.60, 8.42~
+$ bayes_average           &lt;dbl&gt; 7.487, 7.309, 6.970, 7.634, 7.499, 7.305, 7.50~
+$ users_rated             &lt;dbl&gt; 108975, 108738, 108024, 89982, 81561, 76171, 7~
+$ url                     &lt;chr&gt; "/boardgame/30549/pandemic", "/boardgame/822/c~
+$ thumbnail               &lt;chr&gt; "https://cf.geekdo-images.com/S3ybV1LAp-8SnHIX~
+$ num.y                   &lt;dbl&gt; 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, ~
+$ primary                 &lt;chr&gt; "Pandemic", "Carcassonne", "Catan", "7 Wonders~
+$ description             &lt;chr&gt; "In Pandemic, several virulent diseases have b~
+$ yearpublished           &lt;dbl&gt; 2008, 2000, 1995, 2010, 2008, 2004, 2015, 2016~
+$ minplayers              &lt;dbl&gt; 2, 2, 3, 2, 2, 2, 2, 1, 2, 1, 3, 2, 1, 2, 2, 2~
+$ maxplayers              &lt;dbl&gt; 4, 5, 4, 7, 4, 5, 8, 5, 2, 5, 5, 4, 5, 5, 5, 4~
+$ playingtime             &lt;dbl&gt; 45, 45, 120, 30, 30, 60, 15, 120, 30, 150, 150~
+$ minplaytime             &lt;dbl&gt; 45, 30, 60, 30, 30, 30, 15, 120, 30, 30, 90, 3~
+$ maxplaytime             &lt;dbl&gt; 45, 45, 120, 30, 30, 60, 15, 120, 30, 150, 150~
+$ minage                  &lt;dbl&gt; 8, 7, 10, 10, 13, 8, 14, 12, 10, 12, 12, 10, 1~
+$ boardgamecategory       &lt;chr&gt; "['Medical']", "['City Building', 'Medieval', ~
+$ boardgamemechanic       &lt;chr&gt; "['Action Points', 'Cooperative Game', 'Hand M~
+$ boardgamefamily         &lt;chr&gt; "['Components: Map (Global Scale)', 'Component~
+$ boardgameexpansion      &lt;chr&gt; "['Pandemic: Gen Con 2016 Promos – Z-Force Tea~
+$ boardgameimplementation &lt;chr&gt; "['Pandemic Legacy: Season 0', 'Pandemic Legac~
+$ boardgamedesigner       &lt;chr&gt; "['Matt Leacock']", "['Klaus-Jürgen Wrede']", ~
+$ boardgameartist         &lt;chr&gt; "['Josh Cappel', 'Christian Hanisch', 'Régis M~
+$ boardgamepublisher      &lt;chr&gt; "['Z-Man Games', 'Albi', 'Asmodee', 'Asmodee I~
+$ owned                   &lt;dbl&gt; 168364, 161299, 167733, 120466, 106956, 105748~
+$ trading                 &lt;dbl&gt; 2508, 1716, 2018, 1567, 2009, 930, 1110, 538, ~
+$ wanting                 &lt;dbl&gt; 625, 582, 485, 1010, 655, 692, 340, 2011, 924,~
+$ wishing                 &lt;dbl&gt; 9344, 7383, 5890, 12105, 8621, 6620, 5764, 192~</code></pre>
+</div>
+</div>
+<p>Looks like there are some duplicated variables!</p>
+<p>Not really</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">identical</span>(df<span class="sc">$</span>year, df<span class="sc">$</span>yearpublished)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
+</div>
+</div>
+<p>What is the difference?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span>(df<span class="sc">$</span>year <span class="sc">!=</span> df<span class="sc">$</span>yearpublished)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1]   209   297   881  1030  2239  3623  4089  4723 15507 16494 21623</code></pre>
+</div>
+</div>
+<p>Ah, I see!</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>year[<span class="dv">21623</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3000</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>yearpublished[<span class="dv">21623</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -3000</code></pre>
+</div>
+</div>
+<p>Nope. Very different. Can these be row numbers (e.g.&nbsp;spreadsheet)?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">identical</span>(df<span class="sc">$</span>num.x, df<span class="sc">$</span>num.y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
+</div>
+</div>
+<p>Almost, but nope.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">identical</span>(df<span class="sc">$</span>name, df<span class="sc">$</span>primary)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span>(df<span class="sc">$</span>name <span class="sc">!=</span> df<span class="sc">$</span>primary)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  7222 10903 12599 13233 19925</code></pre>
+</div>
+</div>
+<p>Looks like there is some sort of syntax issue in <code>primary</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>name[<span class="dv">19925</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Admiral Ackbar \"It's a TRAP!\" GAME"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>primary[<span class="dv">19925</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Admiral Ackbar \"It\\'s a TRAP!\" GAME"</code></pre>
+</div>
+</div>
+<p>Bingo!</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">identical</span>(df<span class="sc">$</span>playingtime, df<span class="sc">$</span>maxplaytime)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+</div>
+<p>Let’s drop the duplicated variable</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> </span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>    <span class="sc">-</span> playingtime,</span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>    <span class="sc">-</span> primary</span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Looks like we are good now! Imagine the following:</p>
+<ul>
+<li><p>We want to buy a board game for a friend, but we don’t know which one to get.</p></li>
+<li><p>We know our friend likes to play alone with his girlfriend sometimes, but some Other times he likes to invite friends over to play.<br>
+</p></li>
+<li><p>What are the top 3 best-selling board games by game type?<br>
+</p></li>
+<li><p>How do board game sales relate to online user ratings?</p></li>
+<li><p>What are the top 3 best-selling board games by game type?</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> </span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Create new variable to define type of game based on number of players</span></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">minplayers_fct =</span> <span class="fu">case_when</span>(</span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>    minplayers <span class="sc">&lt;</span> <span class="dv">2</span> <span class="sc">~</span> <span class="st">"single player"</span>,</span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>    minplayers <span class="sc">==</span> <span class="dv">2</span> <span class="sc">~</span> <span class="st">"two players"</span>,</span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>    minplayers <span class="sc">&gt;</span> <span class="dv">2</span> <span class="sc">~</span> <span class="st">"multiplayer"</span></span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a>  ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Select only relevant variables</span></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(</span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>    name,</span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>    minplayers_fct,</span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>    owned</span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(minplayers_fct) <span class="sc">%&gt;%</span> </span>
+<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_max</span>(owned, <span class="at">n =</span> <span class="dv">3</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="table table-sm table-striped">
+<thead>
+<tr class="header">
+<th style="text-align: left;">name</th>
+<th style="text-align: left;">minplayers_fct</th>
+<th style="text-align: right;">owned</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Catan</td>
+<td style="text-align: left;">multiplayer</td>
+<td style="text-align: right;">167733</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Munchkin</td>
+<td style="text-align: left;">multiplayer</td>
+<td style="text-align: right;">78849</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Dixit</td>
+<td style="text-align: left;">multiplayer</td>
+<td style="text-align: right;">76535</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Terraforming Mars</td>
+<td style="text-align: left;">single player</td>
+<td style="text-align: right;">101872</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Scythe</td>
+<td style="text-align: left;">single player</td>
+<td style="text-align: right;">86371</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Wingspan</td>
+<td style="text-align: left;">single player</td>
+<td style="text-align: right;">83920</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Pandemic</td>
+<td style="text-align: left;">two players</td>
+<td style="text-align: right;">168364</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Carcassonne</td>
+<td style="text-align: left;">two players</td>
+<td style="text-align: right;">161299</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">7 Wonders</td>
+<td style="text-align: left;">two players</td>
+<td style="text-align: right;">120466</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>We have identified the best-sellers for each category, but best-sellers might be a product of marketing rather than an indicator of good quality. It might be the case that players buy the product because of good marketing but then find the game boring, too complicated, etc.</p>
+<p>How do board game sales relate to online user ratings?</p>
+</section>
+<section id="plot-data" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> Plot data</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(</span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> average,</span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> owned,</span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Examine if there are clear patterns by number of players</span></span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> minplayers_fct</span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>  )) <span class="sc">+</span></span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> .<span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># There seems to be three outliers that are best-sellers and also have high </span></span>
+<span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># ratings</span></span>
+<span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a>  ggrepel<span class="sc">::</span><span class="fu">geom_text_repel</span>(</span>
+<span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> df <span class="sc">%&gt;%</span> <span class="fu">filter</span>(owned <span class="sc">&gt;</span> <span class="dv">150000</span>),</span>
+<span id="cb41-13"><a href="#cb41-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">label =</span> name),</span>
+<span id="cb41-14"><a href="#cb41-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"black"</span></span>
+<span id="cb41-15"><a href="#cb41-15" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb41-16"><a href="#cb41-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">10</span>)) <span class="sc">+</span></span>
+<span id="cb41-17"><a href="#cb41-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_viridis_d</span>() <span class="sc">+</span></span>
+<span id="cb41-18"><a href="#cb41-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb41-19"><a href="#cb41-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"How do board game sales relate to online user ratings?"</span>,</span>
+<span id="cb41-20"><a href="#cb41-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"average user rating"</span>,</span>
+<span id="cb41-21"><a href="#cb41-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"number of</span><span class="sc">\n</span><span class="st">copies owned"</span>,</span>
+<span id="cb41-22"><a href="#cb41-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"Category"</span></span>
+<span id="cb41-23"><a href="#cb41-23" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb41-24"><a href="#cb41-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb41-25"><a href="#cb41-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.title.y =</span> <span class="fu">element_text</span>(</span>
+<span id="cb41-26"><a href="#cb41-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">angle =</span> <span class="dv">0</span>,</span>
+<span id="cb41-27"><a href="#cb41-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">vjust =</span> .<span class="dv">5</span></span>
+<span id="cb41-28"><a href="#cb41-28" aria-hidden="true" tabindex="-1"></a>  ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="02_TT_202202_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./01_TT_202201.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Exploration and vizualization of Starbuck coffee use</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./09_TT_202211.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Student mobility in Europe</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>
