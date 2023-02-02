@@ -3,13 +3,14 @@ project:
 
 book:
   title: "TT_book"
-  author: "Jane Doe"
+  author: "Wim Bernasco, Asier Moreva, Sam Langton, Alex Trinidad, Francisca Yasselbi-de Kom, Tim Verlaan, Harrie Jonkman"
   date: "2-2-2023"
   chapters:
     - index.qmd
     - intro.qmd
     - 01_TT_202201.qmd
     - 02_TT_202202.qmd
+    - 03_TT_202202.qmd
     - 09_TT_202211.qmd
     - summary.qmd
     - references.qmd
