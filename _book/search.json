@@ -46,7 +46,7 @@
     "href": "index.html",
     "title": "TT_book",
     "section": "",
-    "text": "Preface\nThe NSC-R Workshops is a series of weekly one-hour online instructional sessions to support participants in developing their data science skills in R, and to promote open science principles. The NSC-R workshop meetings are organized by a team affliated with the Netherlands Institute for the Study of Crime and Law Enforcement (NSCR), but they are open to everyone, regardless of affiliation or skill level. All the material of the blog you can find here\n\nThe NSC-R Workshop Team\nThe NSC-R Workshop Team coordinates the NSC-R Workshops. They discuss potential topics, invite presenters, plan the meetings and send invitations. Currently the team includes Wim Bernasco, Franziska Yasrebi-de Kom, Sam Langton, Asier Moneva and Alex Trinidad.\n\n\nContact Us and Get involved\nIf you want your e-mail address on our mailing list, please send an e-mail to Wim Bernasco.\nIf you have suggestions for workshop topics, or are interested in presenting one, please send a message to Wim Bernasco, Franziska Yasrebi-de Kom, Sam Langton, Asier Moneva or Alex Trinidad.\nHarrie Jonkman (harriejonkman@xs4all.nl) developed the NSC-R distill website. He also developed this open-source html-book."
+    "text": "The NSC-R Workshops is a series of weekly one-hour online instructional sessions to support participants in developing their data science skills in R, and to promote open science principles. The NSC-R workshop meetings are organized by a team affliated with the Netherlands Institute for the Study of Crime and Law Enforcement (NSCR), but they are open to everyone, regardless of affiliation or skill level. All the material of the blog you can find here"
   },
   {
     "objectID": "09_TT_202211.html",
@@ -214,7 +214,7 @@
     "href": "00_intro.html",
     "title": "Introduction",
     "section": "",
-    "text": "This is a book created from markdown and executable code.\nSee Knuth (1984) for additional discussion of literate programming.\n\n1 + 1\n\n[1] 2\n\n\n\n\n\n\nKnuth, Donald E. 1984. “Literate Programming.” Comput. J. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97."
+    "text": "The NSC-R Tidy Tuesday workshop sessions are inspired by the Tidy Tuesday initiative, which was aimed at providing a safe and supportive forum for individuals to practice their data processing and visualization skills in R while working with real-world data.\nChapter 1\nChapter 2\nChapter 3\nChapter 4\nChapter 5\nChapter 6\nChapter 7\nChapter 8\nChapter 9\nChapter 10"
   },
   {
     "objectID": "12_summary.html",
@@ -446,5 +446,19 @@
     "title": "8  Student mobility in Europe",
     "section": "8.6 Visualization",
     "text": "8.6 Visualization\nVisualization 1: Chord diagram (using library circlize)\nFull country names\n\nflows_erasmus_full_zeros |> \n  filter(exchanges > 0) |>\n  arrange(-exchanges) |> \n  chordDiagram()\n\n\n\n\nChord diagram\n\n\n\n\nUse the 2-letter abbreviations of countries here.\n\nflows_erasmus_full_zeros |> \n  filter(exchanges > 0) |>\n  arrange(-exchanges) |> \n  # without ungroup() the .._country_name columns will\n  # be retained\n  ungroup() |>\n  select(sending_country_code, receiving_country_code,\n         exchanges) |>\n  chordDiagram()\n\n\n\n\nChord diagram with 2-letter abbreviations\n\n\n\n\nOnly flows over 100\n\nflows_erasmus_full_zeros |> \n  filter(exchanges > 100) |>\n  arrange(-exchanges) |> \n  ungroup() |>\n  select(sending_country_code, receiving_country_code,\n         exchanges) |>\n  chordDiagram()\n\n\n\n\nChord diagram with only flows over 100\n\n\n\n\nVisulaization 2: Network representation We can also represent the countries as nodes in a network, with the student flows representing the links between them. Use package igraph here.\n\nflows_erasmus_full_zeros |>\n  filter(exchanges > 100) |>\n  graph_from_data_frame(directed = TRUE, \n                      vertices=country_labels) |>\n  plot(vertex.size=5)\n\n\n\n\nNetwork representation\n\n\n\n\nNo isolates\n\nflows_erasmus_full_zeros |>\n  filter(exchanges > 75) |>\n  graph_from_data_frame(directed = TRUE) |>\n  plot(vertex.size=5)\nflows_erasmus_full_zeros |>\n  filter(exchanges > 100) |>\n  graph_from_data_frame(directed = TRUE) |>\n  plot(vertex.size=5)\n\n\n\n\n\n\nNo isolates\n\n\n\n\n\n\n\nNo isolates\n\n\n\n\n\n\nFor alternative methods of visualizing mobility while maintaining the geographic relations, see Andrew Wheeler’s 2015 paper in Cartography and Geographic Information Science, at (behind paywall), here"
+  },
+  {
+    "objectID": "index.html#the-nsc-r-workshop-team",
+    "href": "index.html#the-nsc-r-workshop-team",
+    "title": "TT_book",
+    "section": "The NSC-R Workshop Team",
+    "text": "The NSC-R Workshop Team\nThe NSC-R Workshop Team coordinates the NSC-R Workshops. They discuss potential topics, invite presenters, plan the meetings and send invitations. Currently the team includes Wim Bernasco, Franziska Yasrebi-de Kom, Sam Langton, Asier Moneva and Alex Trinidad."
+  },
+  {
+    "objectID": "index.html#contact-us-and-get-involved",
+    "href": "index.html#contact-us-and-get-involved",
+    "title": "TT_book",
+    "section": "Contact Us and Get involved",
+    "text": "Contact Us and Get involved\nIf you want your e-mail address on our mailing list, please send an e-mail to Wim Bernasco.\nIf you have suggestions for workshop topics, or are interested in presenting one, please send a message to Wim Bernasco, Franziska Yasrebi-de Kom, Sam Langton, Asier Moneva or Alex Trinidad.\nHarrie Jonkman developed the NSC-R distill website. He also developed this open-source html-book."
   }
 ]

@@ -8,7 +8,7 @@ book:
   page-footer:
     left: |
       Wim Bernasco, Asier Moreva, Sam Langton,
-      Alex Trinidad, Francisca Yasselbi-de Kom,
+      Alex Trinidad, Francisca Yasreli-de Kom,
       Tim Verlaan & Harrie Jonkman.
     right: |
       This book was built with <a href="https://quarto.org/">Quarto</a>.
@@ -32,11 +32,13 @@ book:
     - 12_summary.qmd
     - references.qmd
 
-bibliography: references.bib
+bibliography: referencestt.bib
 
 format:
-  html:
-    theme: cosmo
+   html:
+    theme:
+      - cosmo
+    code-link: true
 
 
 editor: visual

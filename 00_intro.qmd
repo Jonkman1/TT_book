@@ -1,9 +1,29 @@
 # Introduction {.unnumbered}
 
-This is a book created from markdown and executable code.
 
-See @knuth84 for additional discussion of literate programming.
+![](images/workshop.png){width=50%}
 
-```{r}
-1 + 1
-```
+The NSC-R Tidy Tuesday workshop sessions are inspired by the Tidy Tuesday initiative, which was aimed at providing a safe and supportive forum for individuals to practice their data processing and visualization skills in R while working with real-world data.
+
+Chapter 1
+
+Chapter 2
+
+Chapter 3
+
+Chapter 4
+
+Chapter 5
+
+Chapter 6
+
+Chapter 7
+
+Chapter 8
+
+Chapter 9
+
+Chapter 10
+
+
+
