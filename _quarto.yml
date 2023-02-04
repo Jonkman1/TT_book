@@ -1,9 +1,22 @@
 project:
   type: book
+  output-dir: _book
 
 book:
   title: "TT_book"
-  author: "Wim Bernasco, Asier Moreva, Sam Langton, Alex Trinidad, Francisca Yasselbi-de Kom, Tim Verlaan, Harrie Jonkman"
+
+  page-footer:
+    left: |
+      Wim Bernasco, Asier Moreva, Sam Langton,
+      Alex Trinidad, Francisca Yasselbi-de Kom,
+      Tim Verlaan & Harrie Jonkman.
+    right: |
+      This book was built with <a href="https://quarto.org/">Quarto</a>.
+  cover-image: images/Screenshot.png
+  favicon: cover.png
+  site-url: https://ttbook.netlify.app
+  repo-url: https://github.com/Jonkman1/TT_book
+  repo-branch: main
   date: "2-2-2023"
   chapters:
     - index.qmd
@@ -24,8 +37,7 @@ bibliography: references.bib
 format:
   html:
     theme: cosmo
-  pdf:
-    documentclass: scrreprt
+
 
 editor: visual
 

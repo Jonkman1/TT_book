@@ -7,11 +7,11 @@ format:
    html
 ---
 
-# Introduction
+## Introduction
 
 \[1\^\]Wim Bernasco, Franziska Yasrebi-de Kom provided fertile suggestions on code and comments
 
-# Packages and data
+## Packages and data
 
 Install packages, the admin reuqired to get going
 
@@ -37,7 +37,7 @@ data(package="engsoccerdata")
 
 If you like sports data, [checkout](https://statsbomb.com/) for free datasets
 
-# Exploration
+## Exploration
 
 What type of dataset is `spain`? I hope a data.frame.
 

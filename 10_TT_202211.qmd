@@ -5,7 +5,7 @@ author: "Wim Bernasco"
 date: "2022-11-15"
 ---
 
-# Introduction
+## Introduction
 In this workshop, Wim Bernasco explores a Tidy Tuesday dataset about the European Union Erasmus+ student mobility program. This dataset was used in the main Tidy Tuesday of week 10 in 2022. For more information on this data, including the codebook, see the [RForDataScience GitHub registry](https://github.com/rfordatascience/tidytuesday/blob/master/data/2022/2022-03-08/readme.md).
 
 In this workshop, the focus is on exploring, analyzing, and maybe visualizing student streams between countries. Different descriptive questions will be answered:   
@@ -15,7 +15,7 @@ In this workshop, the focus is on exploring, analyzing, and maybe visualizing st
 
 
 
-# Get started
+## Get started
 Install uninstalled packages `tidyverse`, `here` and `tidytuesdayR`.
 
 ```{r}
@@ -87,7 +87,7 @@ If time permits some *visualization questions* will be answered:
 - Are there some ways of visualizing mobility data?
 
 
-# Exploration and preparation
+## Exploration and preparation
 First we explore the data:
 
 ```{r}
@@ -189,7 +189,7 @@ labeled_erasmus_full <-
 ```
 
 
-# Descriptive questions
+## Descriptive questions
 How many students are there?
 
 ```{r}
@@ -422,7 +422,7 @@ full_join(flows_erasmus_full_zeros, reverse_flows_erasmus_full_zeros,
   geom_point(aes(y=exchanges, x=reverse_exchanges) )
 ```
 
-# Modeling
+## Modeling
 Read the neighbor relations between countries
 
 ```{r}
@@ -471,7 +471,7 @@ Students appear to fancy visiting nearby countries abroad!
 
 
 
-# Visualization  
+## Visualization  
 
 *Visualization 1:* Chord diagram (using library `circlize`)
 

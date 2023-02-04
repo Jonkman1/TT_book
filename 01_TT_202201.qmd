@@ -9,7 +9,7 @@ date: "2022-01-11"
 
 On 11 January 2022 and 25 January 2022 Sam Langton gave NSCR Tidy Tuesday presentations on the exploration and visualization of Starbuck coffee use data.In this document both presentations are combined.
 
-[^1]. Here you can find it on the NSCR- website. Here is the [First presentation](https://nscrweb.netlify.app/posts/2022-01-11-nsc-r-tidy-tuesday/). Here is the [Second presentation](https://nscrweb.netlify.app/posts/2022-01-25-nsc-r-tidy-tuesday/)
+\[\^1\]. Here you can find it on the NSCR- website. Here is the [First presentation](https://nscrweb.netlify.app/posts/2022-01-11-nsc-r-tidy-tuesday/). Here is the [Second presentation](https://nscrweb.netlify.app/posts/2022-01-25-nsc-r-tidy-tuesday/)
 
 ## Load libraries.
 
@@ -23,7 +23,7 @@ library(stringr)
 library(ggplot2)
 ```
 
-# Load data
+## Load data
 
 The data are loaded directly from the TidyTuesday github page.
 
@@ -33,7 +33,7 @@ The data are loaded directly from the TidyTuesday github page.
 star_df <- read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2021/2021-12-21/starbucks.csv')
 ```
 
-# Initial explore.
+## Initial explore.
 
 Here are some explorative commands you can use:\
 - `star-df` opens the dataset and shows you the variables. - `names(star_df)`gives you the names of the 15 variables. - `glimpse(star_df)`shows you the number of rows (often particpants) and columns (often variables) and also informs you about the kind of variables. - `dim(star_df)` informs you about number of rows and columns.\
@@ -49,7 +49,7 @@ dim(star_df)
 sum(is.na(star_df))
 ```
 
-# Subset brewed coffee.
+## Subset brewed coffee.
 
 When you want to look at a specific subset with the product_name brewed coffee for example you can define this as:.
 
@@ -60,7 +60,7 @@ brew_df <- star_df %>%
   filter(str_detect(product_name, "brewed coffee"))
 ```
 
-# Quick clean for the plot.
+## Quick clean for the plot.
 
 -   Make another subsample and call it `big_ones_df`.\
     -Use only the variables `product_name`, `size`, `milk`, `whip` and `calories`-`trans_fat_g`).\
@@ -84,7 +84,7 @@ big_ones_df <- star_df %>%
                             `5` = "whole")) # These categories are on the tt git page.
 ```
 
-# What in the relationship between calories and fat?
+## What in the relationship between calories and fat?
 
 Can you plot between `calories`(y) and `total_fat_g` (x)? Show the diffence on `whip_char'and show it for the six`milk-labs\` you recoded.
 
@@ -112,7 +112,7 @@ my_plot_gg <- ggplot(data = big_ones_df) +
 my_plot_gg
 ```
 
-# Save.
+## Save.
 
 Save the plot on your computer as a png-file. Here is place in a projectmap and a submap images which I made on my computer. Change the path if necessary for your computer.
 
@@ -123,7 +123,7 @@ ggsave(my_plot_gg, file = "images/starbucks_plot.png",
        height = 12, width = 12, unit = "cm")
 ```
 
-# Counting frequencies
+## Counting frequencies
 
 For counting frequencies you always can use different methods. We show some of them.
 
@@ -148,7 +148,7 @@ freq_df <- count(star_df, whip)
 freq_df
 ```
 
-# Basic cleaning
+## Basic cleaning
 
 Here we do some basic cleaning. We select six variables and look only at variables of which the `size` is grande. We call this dataset `star_clean`.
 
@@ -158,7 +158,7 @@ star_clean_df <- star_df %>%
   filter(size == "grande") 
 ```
 
-# Basic plot
+## Basic plot
 
 Let us plot it on different ways.The first three are similar.
 
@@ -186,7 +186,7 @@ star_clean_df %>%
   geom_point(mapping = aes(x = sugar_g, y = calories))
 ```
 
-# Change milk class.
+## Change milk class.
 
 For the next plot we first change the class of the variable `milk` into a character variable and save it as a different dataset.
 
@@ -195,7 +195,7 @@ star_clean_df <- star_clean_df %>%
   mutate(milk_char = as.character(milk))
 ```
 
-# Extend.
+## Extend.
 
 We plot this new dataset on three different ways.
 
@@ -218,4 +218,4 @@ ggplot(data = star_clean_df) +
   geom_point(mapping = aes(x = sugar_g, y = calories, shape = milk_char, colour = milk_char))
 ```
 
-# Reference
+## Reference

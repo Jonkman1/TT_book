@@ -97,6 +97,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <meta name="quarto:offset" content="./">
 <link href="./12_summary.html" rel="next">
 <link href="./09_TT_202205.html" rel="prev">
+<link href="./cover.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -149,6 +150,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">TT_book</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/Jonkman1/TT_book" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+</div>
     </div>
       </div>
       <div class="mt-2 flex-shrink-0 align-items-center">
@@ -227,12 +231,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="toc-section-number">9</span>  Introduction</a></li>
-  <li><a href="#get-started" id="toc-get-started" class="nav-link" data-scroll-target="#get-started"><span class="toc-section-number">10</span>  Get started</a></li>
-  <li><a href="#exploration-and-preparation" id="toc-exploration-and-preparation" class="nav-link" data-scroll-target="#exploration-and-preparation"><span class="toc-section-number">11</span>  Exploration and preparation</a></li>
-  <li><a href="#descriptive-questions" id="toc-descriptive-questions" class="nav-link" data-scroll-target="#descriptive-questions"><span class="toc-section-number">12</span>  Descriptive questions</a></li>
-  <li><a href="#modeling" id="toc-modeling" class="nav-link" data-scroll-target="#modeling"><span class="toc-section-number">13</span>  Modeling</a></li>
-  <li><a href="#visualization" id="toc-visualization" class="nav-link" data-scroll-target="#visualization"><span class="toc-section-number">14</span>  Visualization</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="toc-section-number">8.1</span>  Introduction</a></li>
+  <li><a href="#get-started" id="toc-get-started" class="nav-link" data-scroll-target="#get-started"><span class="toc-section-number">8.2</span>  Get started</a></li>
+  <li><a href="#exploration-and-preparation" id="toc-exploration-and-preparation" class="nav-link" data-scroll-target="#exploration-and-preparation"><span class="toc-section-number">8.3</span>  Exploration and preparation</a></li>
+  <li><a href="#descriptive-questions" id="toc-descriptive-questions" class="nav-link" data-scroll-target="#descriptive-questions"><span class="toc-section-number">8.4</span>  Descriptive questions</a></li>
+  <li><a href="#modeling" id="toc-modeling" class="nav-link" data-scroll-target="#modeling"><span class="toc-section-number">8.5</span>  Modeling</a></li>
+  <li><a href="#visualization" id="toc-visualization" class="nav-link" data-scroll-target="#visualization"><span class="toc-section-number">8.6</span>  Visualization</a></li>
   </ul>
 </nav>
     </div>
@@ -269,14 +273,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<section id="introduction" class="level1" data-number="9">
-<h1 data-number="9"><span class="header-section-number">9</span> Introduction</h1>
+<section id="introduction" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">8.1</span> Introduction</h2>
 <p>In this workshop, Wim Bernasco explores a Tidy Tuesday dataset about the European Union Erasmus+ student mobility program. This dataset was used in the main Tidy Tuesday of week 10 in 2022. For more information on this data, including the codebook, see the <a href="https://github.com/rfordatascience/tidytuesday/blob/master/data/2022/2022-03-08/readme.md">RForDataScience GitHub registry</a>.</p>
 <p>In this workshop, the focus is on exploring, analyzing, and maybe visualizing student streams between countries. Different descriptive questions will be answered:</p>
 <p><a href="https://nscrweb.netlify.app/posts/2022-11-15-nsc-r-tidy-tuesday/">Here</a> you find the link to the NSC-R Tidy Tuesday page.</p>
 </section>
-<section id="get-started" class="level1" data-number="10">
-<h1 data-number="10"><span class="header-section-number">10</span> Get started</h1>
+<section id="get-started" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="get-started"><span class="header-section-number">8.2</span> Get started</h2>
 <p>Install uninstalled packages <code>tidyverse</code>, <code>here</code> and <code>tidytuesdayR</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span> <span class="fu">require</span>(<span class="st">"tidyverse"</span>)) <span class="fu">install.packages</span>(</span>
@@ -355,8 +359,8 @@ Note
 <p>If time permits some <em>visualization questions</em> will be answered:<br>
 - Are there some ways of visualizing mobility data?</p>
 </section>
-<section id="exploration-and-preparation" class="level1" data-number="11">
-<h1 data-number="11"><span class="header-section-number">11</span> Exploration and preparation</h1>
+<section id="exploration-and-preparation" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="exploration-and-preparation"><span class="header-section-number">8.3</span> Exploration and preparation</h2>
 <p>First we explore the data:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>erasmus <span class="sc">|&gt;</span> <span class="fu">names</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -581,8 +585,8 @@ i Specify the column types or set `show_col_types = FALSE` to quiet this message
 <span id="cb30-26"><a href="#cb30-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">uncount</span>(participants) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="descriptive-questions" class="level1 page-columns page-full" data-number="12">
-<h1 data-number="12"><span class="header-section-number">12</span> Descriptive questions</h1>
+<section id="descriptive-questions" class="level2 page-columns page-full" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="descriptive-questions"><span class="header-section-number">8.4</span> Descriptive questions</h2>
 <p>How many students are there?</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>labeled_erasmus_full <span class="sc">|&gt;</span></span>
@@ -1094,8 +1098,8 @@ possible_mobility_names &lt;-
 </div>
 </div>
 </section>
-<section id="modeling" class="level1" data-number="13">
-<h1 data-number="13"><span class="header-section-number">13</span> Modeling</h1>
+<section id="modeling" class="level2" data-number="8.5">
+<h2 data-number="8.5" class="anchored" data-anchor-id="modeling"><span class="header-section-number">8.5</span> Modeling</h2>
 <p>Read the neighbor relations between countries</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a>adjacency <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="fu">here</span>(<span class="st">"C:/Users/Gebruiker/Desktop/TidyTuesday/TT_20221115/adjacency.csv"</span>)) <span class="sc">|&gt;</span></span>
@@ -1179,8 +1183,8 @@ i Specify the column types or set `show_col_types = FALSE` to quiet this message
 </div>
 <p>Students appear to fancy visiting nearby countries abroad!</p>
 </section>
-<section id="visualization" class="level1 page-columns page-full" data-number="14">
-<h1 data-number="14"><span class="header-section-number">14</span> Visualization</h1>
+<section id="visualization" class="level2 page-columns page-full" data-number="8.6">
+<h2 data-number="8.6" class="anchored" data-anchor-id="visualization"><span class="header-section-number">8.6</span> Visualization</h2>
 <p><em>Visualization 1:</em> Chord diagram (using library <code>circlize</code>)</p>
 <p>Full country names</p>
 <div class="cell page-columns page-full">
@@ -1434,6 +1438,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">Wim Bernasco, Asier Moreva, Sam Langton, Alex Trinidad, Francisca Yasselbi-de Kom, Tim Verlaan &amp; Harrie Jonkman.</div>   
+    <div class="nav-footer-right">This book was built with <a href="https://quarto.org/">Quarto</a>.</div>
+  </div>
+</footer>
 
 
 

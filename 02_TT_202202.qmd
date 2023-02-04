@@ -6,10 +6,10 @@ date: "2022-02-08"
 format:
     html 
 ---
-# Introduction
+## Introduction
 The dataset for this Tidy Tuesday is about board games! Asier Moneva explores the following research questions: “What are the top 3 best-selling board games by game type?” and “How do board game sales relate to online user ratings?”
 
-# Load packages
+## Load packages
 
 ```{r}
 #| warning: false
@@ -20,7 +20,7 @@ library(ggplot2)
 
 Today's data are relational, which means there are multiple datasets (`rating`, `details`) that can be linked through some identifier or `id` variable or 'key'.
 
-# Import data
+## Import data
 
 ```{r}
 #| warning: false
@@ -34,7 +34,7 @@ ratings <- readr::read_csv("https://raw.githubusercontent.com/rfordatascience/ti
 details <- readr::read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2022/2022-01-25/details.csv")
 ```
 
-# Explore data
+## Explore data
 
 So let's have a quick look at the data.
 
@@ -213,7 +213,7 @@ We have identified the best-sellers for each category, but best-sellers might be
 
 How do board game sales relate to online user ratings?
 
-# Plot data
+## Plot data
 
 ```{r}
 #| warning: false

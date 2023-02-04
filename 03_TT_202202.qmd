@@ -5,21 +5,18 @@ author: Alex Trinidad
 date: "2022-02-22"
 format:
     html 
-     
 ---
 
-# Introduction
+## Introduction
+
 The dataset for this Tidy Tuesday is about animal rescues! Alex Trinidad explores the temporal trends of animal rescues using lubridate package (Grolemund & Wickham, 2011).
 
-
-
-# Load packages and data
+## Load packages and data
 
 Install TT package (if necessary)
-```
-install.packages("tidytuesdayR")
-install.packages("tidyverse")
-```
+
+    install.packages("tidytuesdayR")
+    install.packages("tidyverse")
 
 ```{r}
 #| warning: false
@@ -43,7 +40,7 @@ Data as tbl
 mydata <- mydatalist$animal_rescues
 ```
 
-# Explore the data
+## Explore the data
 
 ```{r}
 glimpse(mydata)
@@ -114,7 +111,7 @@ Another way to do this (Nick van Doormaal suggestion).
 mydataselection$animal_group_parent <- tolower(mydataselection$animal_group_parent)
 ```
 
-# Working with Date-Time Data
+## Working with Date-Time Data
 
 Now we are ready to work with Data-Time Data. We want to separate the date in year, month, day, hour....
 

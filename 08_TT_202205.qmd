@@ -118,7 +118,7 @@ ttdt_selection %>%
   count(sports)
 ```
 
-# Visualizations
+## Visualizations
 
 Plot measures per sport
 
@@ -208,7 +208,7 @@ myselection <- myselection %>%
          rev_per_total = total_rev_menwomen / total_par)
 ```
 
-### Revenues
+**Revenues**
 
 Now look at revenue in sports (Mean revenues per sport)
 
@@ -227,7 +227,7 @@ Plot mean revenues per sport
       geom_bar() +
       labs(x = "Mean Revenues", y = "Sports") 
 
-# Get rid of scientific notation
+**Get rid of scientific notation**
 
 ```{r}
 options(scipen = 999)
@@ -304,7 +304,7 @@ myselection %>%
 
 ```
 
-### Expenditures in Sport
+**Expenditures in Sport**
 
 Plot mean expenditure
 
@@ -465,7 +465,7 @@ gridExtra::grid.arrange(plotmeanexp, plotmeanexp_pa)
 gridExtra::grid.arrange(plotmeandifexp, plotmeandifexp_pa)
 ```
 
-# Relationship between expenditure and revenue
+**Relationship between expenditure and revenue**
 
 ```{r}
 plotmeandifexp_pa <- myselection %>% 
