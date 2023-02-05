@@ -2,11 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://ttbook.netlify.app/index.html</loc>
-    <lastmod>2023-02-04T13:38:35.914Z</lastmod>
+    <lastmod>2023-02-05T16:34:24.332Z</lastmod>
   </url>
   <url>
     <loc>https://ttbook.netlify.app/00_intro.html</loc>
-    <lastmod>2023-02-04T13:00:24.119Z</lastmod>
+    <lastmod>2023-02-05T16:30:47.929Z</lastmod>
   </url>
   <url>
     <loc>https://ttbook.netlify.app/02_TT_202202.html</loc>
@@ -31,5 +31,13 @@
   <url>
     <loc>https://ttbook.netlify.app/10_TT_202211.html</loc>
     <lastmod>2023-02-04T12:44:47.418Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ttbook.netlify.app/references.html</loc>
+    <lastmod>2023-02-05T16:34:28.974Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ttbook.netlify.app/12_summary.html</loc>
+    <lastmod>2023-02-05T16:34:23.158Z</lastmod>
   </url>
 </urlset>

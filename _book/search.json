@@ -219,9 +219,9 @@
   {
     "objectID": "12_summary.html",
     "href": "12_summary.html",
-    "title": "9  Summary",
+    "title": "Summary",
     "section": "",
-    "text": "In summary, this book has no content whatsoever.\n\n1 + 1\n\n[1] 2"
+    "text": "In summary, xxxx"
   },
   {
     "objectID": "02_TT_202202.html#introduction",
@@ -460,5 +460,19 @@
     "title": "TT_book",
     "section": "Contact Us and Get involved",
     "text": "Contact Us and Get involved\nIf you want your e-mail address on our mailing list, please send an e-mail to Wim Bernasco.\nIf you have suggestions for workshop topics, or are interested in presenting one, please send a message to Wim Bernasco, Franziska Yasrebi-de Kom, Sam Langton, Asier Moneva or Alex Trinidad.\nHarrie Jonkman developed the NSC-R distill website. He also developed this open-source html-book."
+  },
+  {
+    "objectID": "references.html#referencec",
+    "href": "references.html#referencec",
+    "title": "References",
+    "section": "Referencec",
+    "text": "Referencec"
+  },
+  {
+    "objectID": "references.html#references",
+    "href": "references.html#references",
+    "title": "11  References",
+    "section": "11.1 References",
+    "text": "11.1 References"
   }
 ]
