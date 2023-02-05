@@ -454,3 +454,6 @@ ggplot(data = byyear) +
     color = "Animal"
   )
 ```
+
+# References
+[@trinidad_nsc-r_nodate]

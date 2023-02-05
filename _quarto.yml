@@ -32,7 +32,7 @@ book:
     - 12_summary.qmd
     - references.qmd
 
-bibliography: referencestt.bib
+bibliography: references/referencestt.bib
 
 format:
    html:
