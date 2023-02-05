@@ -63,6 +63,8 @@ The 'participants' field is a frequency weight!
 
 Open the dataset
 ```{r}
+#| warning: false
+#| echo: true
 tuesdata <- tt_load(2022, week = 10)
 erasmus <- tuesdata$erasmus
 ```
@@ -91,6 +93,8 @@ If time permits some *visualization questions* will be answered:
 First we explore the data:
 
 ```{r}
+#| warning: false
+#| echo: true
 erasmus |> names()
 erasmus |> glimpse()
 erasmus |> count(participants)
@@ -99,12 +103,16 @@ erasmus |> count(participants)
 First check number of rows
 
 ```{r}
+#| warning: false
+#| echo: true
 erasmus |> dim()
 ```
 
 Number of rows after 'expansion'. Expansion expands a frequency-weighted datafile to a regular file where each row represents a single student exchange trip.
 
 ```{r}
+#| warning: false
+#| echo: true
 erasmus |> 
   uncount(participants) |>
   dim()
@@ -113,6 +121,8 @@ erasmus |>
 From which countries do participants come?
 
 ```{r}
+#| warning: false
+#| echo: true
 erasmus |> 
   count(sending_country_code)
 ```
@@ -120,6 +130,8 @@ erasmus |>
 To which country do participants go?
 
 ```{r}
+#| warning: false
+#| echo: true
 erasmus |>
   count(receiving_country_code)
 ```
@@ -128,6 +140,8 @@ Add names to the codes. There are several options to do this.
 - *Option 1*: Explicit in-script recoding
 
 ```{r}
+#| warning: false
+#| echo: true
 erasmus |>
   mutate(sending_country_name =
            case_when(sending_country_code == "AT" ~ "Austria",
@@ -145,11 +159,15 @@ erasmus |>
 - *Option 2*: Join with look-up table in a separate CSV file
 
 ```{r}
+#| warning: false
+#| echo: true
 country_labels <- read_csv(here("C:/Users/Gebruiker/Desktop/TidyTuesday/TT_20221115/country_names.csv"))
 ```
 
 
 ```{r}
+#| warning: false
+#| echo: true
 erasmus |>
   left_join(country_labels, 
             by=c("receiving_country_code" = "country_code")) |>
@@ -160,6 +178,8 @@ erasmus |>
 Combining some of the above transformations we created a clean file
 
 ```{r}
+#| warning: false
+#| echo: true
 labeled_erasmus_full <- 
   erasmus |>
   # Keep only a subset of columns/variables
@@ -193,6 +213,8 @@ labeled_erasmus_full <-
 How many students are there?
 
 ```{r}
+#| warning: false
+#| echo: true
 labeled_erasmus_full |>
   dim()
 ```
@@ -233,6 +255,8 @@ labeled_erasmus_full |>
 Order by frequency.
 
 ```{r}
+#| warning: false
+#| echo: true
 #| label: send-count-order
 #| fig-cap: "Where do students come from, ordered"
 #| cap-location: margin
@@ -250,6 +274,8 @@ labeled_erasmus_full |>
 
 Where did they go to?
 ```{r}
+#| warning: false
+#| echo: true
 labeled_erasmus_full |> 
   count(receiving_country_name) |>
   arrange(-n) |>
@@ -257,6 +283,8 @@ labeled_erasmus_full |>
 ```
 
 ```{r}
+#| warning: false
+#| echo: true
 labeled_erasmus_full |> 
   count(receiving_country_name) |>
   arrange(-n) |>
@@ -283,6 +311,8 @@ labeled_erasmus_full |>
 Top 10 Where did they go to.
 
 ```{r}
+#| warning: false
+#| echo: true
 labeled_erasmus_full |> 
   count(receiving_country_name) |>
   arrange(-n) |> 
@@ -292,6 +322,8 @@ labeled_erasmus_full |>
 Top 10 Where did they come from
 
 ```{r}
+#| warning: false
+#| echo: true
 labeled_erasmus_full |> 
   count(sending_country_name) |>
   arrange(-n) |> 
@@ -301,6 +333,8 @@ labeled_erasmus_full |>
 Top 10 origin-destination combinations
 
 ```{r}
+#| warning: false
+#| echo: true
 labeled_erasmus_full |> 
   count(sending_country_name, receiving_country_name) |>
   arrange(-n) |> 
@@ -316,6 +350,8 @@ labeled_erasmus_full |>
 Tiny dataset of team members
 
 ```{r}
+#| warning: false
+#| echo: true
 team_members <- tibble(name = c( "Alex", "Asier", "Franziska", "Sam", "Wim")) 
 # Tiny datset of available days
 sessions <- tibble(day = c("Monday", "Tuesday", "Thursday"))
@@ -325,6 +361,8 @@ sessions <- tibble(day = c("Monday", "Tuesday", "Thursday"))
 Make all combinations of team members and available days
 
 ```{r}
+#| warning: false
+#| echo: true
 full_join(team_members, sessions, by = as.character())
 ```
 
@@ -335,6 +373,8 @@ thanks to Nick van Doormaal for this suggestion
 :::
 
 ```{r}
+#| warning: false
+#| echo: true
 expand_grid(team_members, sessions)
 full_join(team_members, team_members, by = as.character()) |>
   filter(name.x != name.y)
@@ -345,6 +385,8 @@ full_join(team_members, team_members, by = as.character()) |>
 Create all possible combinations of sending and receiving country names.
 
 ```{r}
+#| warning: false
+#| echo: true
 possible_mobility_names <- 
   full_join(country_labels, country_labels,
             by = as.character()) |>
@@ -358,6 +400,8 @@ possible_mobility_names <-
 Erasmus student mobility flows including zero flows
 
 ```{r}
+#| warning: false
+#| echo: true
 flows_erasmus_full_zeros <-
   labeled_erasmus_full |> 
   group_by(sending_country_name, receiving_country_name) |>
@@ -373,6 +417,8 @@ flows_erasmus_full_zeros <-
 Number of exchanges frequencies reversed: 581 zero flows, 37 1-person flow 
 
 ```{r}
+#| warning: false
+#| echo: true
 flows_erasmus_full_zeros |>
   ungroup() |>
   count(exchanges) |>
@@ -383,6 +429,8 @@ flows_erasmus_full_zeros |>
 Let us make a histogram of this distribution
 
 ```{r}
+#| warning: false
+#| echo: true
 #| label: mobility-histo
 #| fig-cap: "Histogram of student mobility flow"
 #| cap-location: margin
@@ -392,6 +440,8 @@ flows_erasmus_full_zeros |>
 ```
 
 ```{r}
+#| warning: false
+#| echo: true
 reverse_flows_erasmus_full_zeros <-
   flows_erasmus_full_zeros |>
   rename(sending_country_name = receiving_country_name,
@@ -400,6 +450,8 @@ reverse_flows_erasmus_full_zeros <-
 ```
 
 ```{r}
+#| warning: false
+#| echo: true
 full_join(flows_erasmus_full_zeros, reverse_flows_erasmus_full_zeros,
           by = (c("sending_country_name", "receiving_country_name"))) |> 
   ungroup() |>
@@ -411,6 +463,8 @@ full_join(flows_erasmus_full_zeros, reverse_flows_erasmus_full_zeros,
 This scatterplot is by design symetric in the diagonal
 
 ```{r}
+#| warning: false
+#| echo: true
 #| label: mobility-scatterplot
 #| fig-cap: "Relation between exchanges"
 #| cap-location: margin
@@ -426,6 +480,8 @@ full_join(flows_erasmus_full_zeros, reverse_flows_erasmus_full_zeros,
 Read the neighbor relations between countries
 
 ```{r}
+#| warning: false
+#| echo: true
 adjacency <- read_csv(here("C:/Users/Gebruiker/Desktop/TidyTuesday/TT_20221115/adjacency.csv")) |>
   rename(sending_country_name = country_name,
          receiving_country_name = neighbor) |>
@@ -453,6 +509,8 @@ model_data <-
 Number of student exchanges from A to B as a function of total numbers of outgoing students from A and of total numbers of visiting students in B
 
 ```{r}
+#| warning: false
+#| echo: true
 model_01 <- lm(formula = exchanges ~  inflow + outflow ,          , 
                data = model_data)
 tidy(model_01)
@@ -461,6 +519,8 @@ glance(model_01)
 
 Add adjacency
 ```{r}
+#| warning: false
+#| echo: true
 model_02 <- lm(formula = exchanges ~  inflow + outflow + adjacent, 
                data = model_data)
 tidy(model_02)
@@ -478,6 +538,8 @@ Students appear to fancy visiting nearby countries abroad!
 Full country names
 
 ```{r}
+#| warning: false
+#| echo: true
 #| label: chord-diagram
 #| fig-cap: "Chord diagram"
 #| cap-location: margin
@@ -490,6 +552,8 @@ flows_erasmus_full_zeros |>
 Use the 2-letter abbreviations of countries here.
 
 ```{r}
+#| warning: false
+#| echo: true
 #| label: chord-diagram-abb
 #| fig-cap: "Chord diagram with 2-letter abbreviations"
 #| cap-location: margin
@@ -507,6 +571,8 @@ flows_erasmus_full_zeros |>
 Only flows over 100
 
 ```{r}
+#| warning: false
+#| echo: true
 #| label: chord-diagram-hund
 #| fig-cap: "Chord diagram with only flows over 100"
 #| cap-location: margin
@@ -524,6 +590,8 @@ We can also represent the countries as nodes in a network, with the student flow
 
 
 ```{r}
+#| warning: false
+#| echo: true
 #| label: network-graph
 #| fig-cap: "Network representation"
 #| cap-location: margin
@@ -536,8 +604,10 @@ flows_erasmus_full_zeros |>
 
 No isolates
 ```{r}
+#| warning: false
+#| echo: true
 #| label: no isolates
-#| #| column: screen-inset-shaded
+#| column: screen-inset-shaded
 #| layout-nrow: 1
 #| fig-cap: "No isolates"
 #| cap-location: margin
