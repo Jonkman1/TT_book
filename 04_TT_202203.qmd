@@ -7,12 +7,12 @@ format:
     html 
 ---
 
-
 ## Introduction
 
 In this meeting, Tim Verlaan explains what Sankey diagrams are, and how they can be created in R.
 
-## Get started 
+## Get started
+
 ```{r}
 library(tidyr)
 library(dplyr)
@@ -23,7 +23,6 @@ library(readr)
 ```{r}
 relig_income
 ```
-
 
 ```{r}
 ?pivot_longer
@@ -38,7 +37,6 @@ pivot_longer(relig_income, !religion)
 df <- relig_income %>%
   pivot_longer(!religion, names_to = 'income', values_to = 'count')
 ```
-
 
 ```{r}
 billboard
@@ -57,16 +55,12 @@ billboard %>%
   )
 ```
 
-
-
-
 ```{r}
 install.packages("remotes")
 remotes::install_github("davidsjoberg/ggsankey")
 library(ggsankey)
 library(ggplot2)
 ```
-  
 
 ```{r}
 ?mtcars
@@ -74,7 +68,6 @@ library(ggplot2)
 df <- mtcars %>%
   make_long(cyl, vs, am, gear, carb)
 ```
-
 
 ```{r}
 ggplot(df, aes(x = x,
@@ -87,7 +80,6 @@ ggplot(df, aes(x = x,
   geom_sankey_label() 
 ```
 
-
 ```{r}
 df1 <- mtcars %>%
   select(cyl, vs, am, gear, carb) %>%
@@ -97,8 +89,6 @@ df1 <- mtcars %>%
   )
 ```
 
-
-
-  
 # References
+
 [@verlaan_nsc-rn_2022]
