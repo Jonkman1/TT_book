@@ -1,0 +1,659 @@
+---
+title: "Student mobility in Europe"
+subtitle: "NSC-R Tidy Tuesday November 2023"
+author: "Wim Bernasco"
+date: "2022-11-15"
+---
+
+## Introduction
+In this workshop, Wim Bernasco explores a Tidy Tuesday dataset about the European Union Erasmus+ student mobility program. This dataset was used in the main Tidy Tuesday of week 10 in 2022. For more information on this data, including the codebook, see the [RForDataScience GitHub registry](https://github.com/rfordatascience/tidytuesday/blob/master/data/2022/2022-03-08/readme.md).
+
+In this workshop, the focus is on exploring, analyzing, and maybe visualizing student streams between countries. Different descriptive questions will be answered [@bernasco_nsc-r_2022-6].   
+
+[Here](https://nscrweb.netlify.app/posts/2022-11-15-nsc-r-tidy-tuesday/) you find the link to the NSC-R Tidy Tuesday page.
+
+
+
+
+## Get started
+Install uninstalled packages `tidyverse`, `here` and `tidytuesdayR`.
+
+```{r}
+#| warning: false
+#| echo: true
+if (! require("tidyverse")) install.packages(
+  pkgs = "tidyverse", repos = "http://cran.us.r-project.org"
+)
+if (! require("here")) install.packages(
+  pkgs = "here", repos = "http://cran.us.r-project.org"
+)
+if (! require("tidytuesdayR")) install.packages(
+  pkgs = "tidytuesdayR", repos = "http://cran.us.r-project.org"
+)
+if (! require("broom")) install.packages(
+  pkgs = "broom", repos = "http://cran.us.r-project.org"
+)
+if (! require("circlize")) install.packages(
+  pkgs = "circlize", repos = "http://cran.us.r-project.org"
+)
+if (! require("igraph")) install.packages(
+  pkgs = "igraph", repos = "http://cran.us.r-project.org"
+)
+```
+
+Load the required libraries
+
+```{r}
+#| warning: false
+#| echo: true
+library(tidyverse)
+library(broom)
+library(here)
+library(tidytuesdayR)
+library(circlize)
+library(igraph)
+```
+
+Load the datafile
+For information [see](https://github.com/rfordatascience/tidytuesday/blob/master/data/2022/2022-03-08/readme.md)
+
+::: {.callout-note}
+The 'participants' field is a frequency weight!
+:::
+
+Open the dataset
+```{r}
+#| warning: false
+#| echo: true
+tuesdata <- tt_load(2022, week = 10)
+erasmus <- tuesdata$erasmus
+```
+
+
+There are two additional 'helper' datafiles used used in this script:
+`country_names.csv`: The full names and EU-status of the countries
+`adjacency.csv`    : Pairs of countries that are adjacent (share borders)
+
+I will address some of the following *descriptive questions*:   
+- How many students studied abroad?    
+- What are the top-10 receiving countries?   
+- What are the top-10 sending countries?   
+- Which are the 10 most frequent origin-destination country combinations?   
+- Are reverse flows (the flow from A to B and the flow from B to A) correlated?
+
+The following *modeling questions* will be answered:   
+- How does total number of students from country A to country B depend on the total number of student from A and the total number of students from B?   
+- Do adjacent countries attract more or less students than non-adjacent countries?   
+
+If time permits some *visualization questions* will be answered:   
+- Are there some ways of visualizing mobility data?
+
+
+## Exploration and preparation
+First we explore the data:
+
+```{r}
+#| warning: false
+#| echo: true
+erasmus |> names()
+erasmus |> glimpse()
+erasmus |> count(participants)
+```
+
+First check number of rows
+
+```{r}
+#| warning: false
+#| echo: true
+erasmus |> dim()
+```
+
+Number of rows after 'expansion'. Expansion expands a frequency-weighted datafile to a regular file where each row represents a single student exchange trip.
+
+```{r}
+#| warning: false
+#| echo: true
+erasmus |> 
+  uncount(participants) |>
+  dim()
+```
+
+From which countries do participants come?
+
+```{r}
+#| warning: false
+#| echo: true
+erasmus |> 
+  count(sending_country_code)
+```
+
+To which country do participants go?
+
+```{r}
+#| warning: false
+#| echo: true
+erasmus |>
+  count(receiving_country_code)
+```
+
+Add names to the codes. There are several options to do this.
+- *Option 1*: Explicit in-script recoding
+
+```{r}
+#| warning: false
+#| echo: true
+erasmus |>
+  mutate(sending_country_name =
+           case_when(sending_country_code == "AT" ~ "Austria",
+                     sending_country_code == "BE" ~ "Belgium",
+                     sending_country_code == "BG" ~ "Bulgaria",
+                     sending_country_code == "CY" ~ "Cyprus",
+                     sending_country_code == "CZ" ~ "Czechia",
+                     sending_country_code == "DE" ~ "Germany",
+                     sending_country_code == "DK" ~ "Denkmark"
+                     # .........
+           )) |>
+  count(sending_country_name)
+```
+
+- *Option 2*: Join with look-up table in a separate CSV file
+
+```{r}
+#| warning: false
+#| echo: true
+country_labels <- read_csv(here("C:/Users/Gebruiker/Desktop/TidyTuesday/TT_20221115/country_names.csv"))
+```
+
+
+```{r}
+#| warning: false
+#| echo: true
+erasmus |>
+  left_join(country_labels, 
+            by=c("receiving_country_code" = "country_code")) |>
+  rename(receiving_country_name = country_name,
+         receiving_country_status = country_status)
+```
+
+Combining some of the above transformations we created a clean file
+
+```{r}
+#| warning: false
+#| echo: true
+labeled_erasmus_full <- 
+  erasmus |>
+  # Keep only a subset of columns/variables
+  select(sending_country_code, receiving_country_code, 
+         participant_gender, academic_year, activity_mob, participants) |>
+  # insert names of receiving countries by linking to country codes
+  left_join(country_labels, 
+            by=c("receiving_country_code" = "country_code")) |>
+  # make sure the column names are clear 
+  rename(receiving_country_name = country_name,
+         receiving_country_status = country_status) |> 
+  # insert names of sending countries by linking to country codes
+  left_join(country_labels, 
+            by=c("sending_country_code" = "country_code")) |>
+  # make sure the column names are clear 
+  rename(sending_country_name = country_name,
+         sending_country_status = country_status) |> 
+  # exclude countries outside EU and with no affiliation to EU
+  filter(sending_country_status %in% c("EU", "EFTA", "UK", "Candidate"),
+         receiving_country_status %in% c("EU", "EFTA", "UK", "Candidate")) |>
+  # exclude the (many!) within-country exchanges
+  filter(sending_country_code != receiving_country_code) |>
+  # Only international mobility program
+  filter(activity_mob == "Transnational youth meetings") |>
+  # Every row becomes an individual international student trip 
+  uncount(participants) 
+```
+
+
+## Descriptive questions
+How many students are there?
+
+```{r}
+#| warning: false
+#| echo: true
+labeled_erasmus_full |>
+  dim()
+```
+
+Where did they come from?
+
+```{r}
+#| warning: false
+#| echo: true
+labeled_erasmus_full |> 
+  count(sending_country_name) |>
+  print(n=Inf)
+```
+
+Visualization as a bar graph   
+
+```{r}
+#| warning: false
+#| echo: true
+#| label: bar-graph
+#| fig-cap: "Where do students come from, horizontal"
+#| cap-location: margin
+#| fig-width: 6
+#| fig-height: 4
+labeled_erasmus_full |> 
+  count(sending_country_name) |>  
+  ggplot() + 
+  geom_col(aes(x=sending_country_name, y=n))
+```
+
+With vertical labels labels   
+
+```{r}
+#| warning: false
+#| echo: true
+#| label: send-count-ver
+#| fig-cap: "Where do students come from, vertical"
+#| cap-location: margin
+#| fig-width: 6
+#| fig-height: 4
+labeled_erasmus_full |> 
+  count(sending_country_name) |>  
+  ggplot() + 
+  geom_col(aes(x=sending_country_name, y=n)) +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+```
+
+Order by frequency.
+
+```{r}
+#| warning: false
+#| echo: true
+#| label: send-count-order
+#| fig-cap: "Where do students come from, ordered"
+#| cap-location: margin
+#| fig-width: 6
+#| fig-height: 4
+labeled_erasmus_full |> 
+  count(sending_country_code) |>  
+  arrange(-n) |>
+    # Converting character variable to factor variable
+    mutate(sending_country_code=factor(sending_country_code,
+                                     levels = unique(sending_country_code),
+                                     ordered = T)) |>
+  ggplot() + 
+  geom_col(aes(x=sending_country_code, y=n)) +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+```
+
+Where did they go to?
+```{r}
+#| warning: false
+#| echo: true
+labeled_erasmus_full |> 
+  count(receiving_country_name) |>
+  arrange(-n) |>
+  print(n=Inf)
+```
+
+```{r}
+#| warning: false
+#| echo: true
+labeled_erasmus_full |> 
+  count(receiving_country_name) |>
+  arrange(-n) |>
+  print(n=Inf)
+```
+
+Let us visualise this also, vertical and ordered.
+
+```{r}
+#| warning: false
+#| echo: true
+#| label: receive-count-order
+#| fig-cap: "How many students do countries receive, ordered"
+#| cap-location: margin
+#| fig-width: 6
+#| fig-height: 4
+labeled_erasmus_full |> 
+  count(receiving_country_code) |>  
+  arrange(-n) |>
+  mutate(receiving_country_code=factor(receiving_country_code,
+                                       levels = unique(receiving_country_code),
+                                       ordered = T)) |>
+  ggplot() + 
+  geom_col(aes(x=receiving_country_code, y=n)) +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+```
+
+Top 10 Where did they go to.
+
+```{r}
+#| warning: false
+#| echo: true
+labeled_erasmus_full |> 
+  count(receiving_country_name) |>
+  arrange(-n) |> 
+  head(n=10)
+```
+
+Top 10 Where did they come from
+
+```{r}
+#| warning: false
+#| echo: true
+labeled_erasmus_full |> 
+  count(sending_country_name) |>
+  arrange(-n) |> 
+  head(n=10)
+```
+
+Top 10 origin-destination combinations
+
+```{r}
+#| warning: false
+#| echo: true
+labeled_erasmus_full |> 
+  count(sending_country_name, receiving_country_name) |>
+  arrange(-n) |> 
+  head(n=10)
+```
+
+
+
+```
+# Intermezzo 
+(Cartesian product = cross-product = all combinations) 
+
+Tiny dataset of team members
+
+```{r}
+#| warning: false
+#| echo: true
+team_members <- tibble(name = c( "Alex", "Asier", "Franziska", "Sam", "Wim")) 
+# Tiny datset of available days
+sessions <- tibble(day = c("Monday", "Tuesday", "Thursday"))
+```
+
+
+Make all combinations of team members and available days
+
+```{r}
+#| warning: false
+#| echo: true
+full_join(team_members, sessions, by = as.character())
+```
+
+Same results, but more transparent code. 
+
+::: {.column-margin}
+thanks to Nick van Doormaal for this suggestion
+:::
+
+```{r}
+#| warning: false
+#| echo: true
+expand_grid(team_members, sessions)
+full_join(team_members, team_members, by = as.character()) |>
+  filter(name.x != name.y)
+```
+
+```
+
+Create all possible combinations of sending and receiving country names.
+
+```{r}
+#| warning: false
+#| echo: true
+possible_mobility_names <- 
+  full_join(country_labels, country_labels,
+            by = as.character()) |>
+  select(sending_country_name   = country_name.x,
+         receiving_country_name = country_name.y,
+         sending_country_code   = country_code.x,
+         receiving_country_code = country_code.y) |>
+  filter(sending_country_name != receiving_country_name)
+```
+
+Erasmus student mobility flows including zero flows
+
+```{r}
+#| warning: false
+#| echo: true
+flows_erasmus_full_zeros <-
+  labeled_erasmus_full |> 
+  group_by(sending_country_name, receiving_country_name) |>
+  # Origin, destination, count
+  count() |>
+  rename(exchanges = n) |>
+  # join with all combinations to include zero-flow pairs
+  right_join(possible_mobility_names) |> 
+  # change the NAs (= zero-flow) into 0
+  replace_na(list(exchanges=0))
+```
+
+Number of exchanges frequencies reversed: 581 zero flows, 37 1-person flow 
+
+```{r}
+#| warning: false
+#| echo: true
+flows_erasmus_full_zeros |>
+  ungroup() |>
+  count(exchanges) |>
+  arrange(exchanges) |>
+  print(n=40)
+```
+
+Let us make a histogram of this distribution
+
+```{r}
+#| warning: false
+#| echo: true
+#| label: mobility-histo
+#| fig-cap: "Histogram of student mobility flow"
+#| cap-location: margin
+#| fig-width: 6
+#| fig-height: 4
+flows_erasmus_full_zeros |>
+  ggplot() +
+  geom_histogram(aes(x=exchanges), binwidth = 5)
+```
+
+```{r}
+#| warning: false
+#| echo: true
+reverse_flows_erasmus_full_zeros <-
+  flows_erasmus_full_zeros |>
+  rename(sending_country_name = receiving_country_name,
+         receiving_country_name = sending_country_name,
+         reverse_exchanges = exchanges)
+```
+
+```{r}
+#| warning: false
+#| echo: true
+full_join(flows_erasmus_full_zeros, reverse_flows_erasmus_full_zeros,
+          by = (c("sending_country_name", "receiving_country_name"))) |> 
+  ungroup() |>
+  select(exchanges, reverse_exchanges) |>
+  cor() |> 
+  as_tibble()
+```
+
+This scatterplot is by design symetric in the diagonal
+
+```{r}
+#| warning: false
+#| echo: true
+#| label: mobility-scatterplot
+#| fig-cap: "Relation between exchanges"
+#| cap-location: margin
+#| fig-width: 6
+#| fig-height: 4
+full_join(flows_erasmus_full_zeros, reverse_flows_erasmus_full_zeros,
+          by = (c("sending_country_name", "receiving_country_name"))) |> 
+  ungroup() |>
+  select(exchanges, reverse_exchanges) |>
+  ggplot() +
+  geom_point(aes(y=exchanges, x=reverse_exchanges) )
+```
+
+## Modeling
+Read the neighbor relations between countries
+
+```{r}
+#| warning: false
+#| echo: true
+adjacency <- read_csv(here("C:/Users/Gebruiker/Desktop/TidyTuesday/TT_20221115/adjacency.csv")) |>
+  rename(sending_country_name = country_name,
+         receiving_country_name = neighbor) |>
+  # mark the rows that indicate shared borders
+  mutate(adjacent = 1) |>
+  # merge with the data that include all possible mobility streams
+  right_join(possible_mobility_names,
+             by=c("sending_country_name","receiving_country_name")) |>
+  # Set non-adjacent to 0
+  mutate(adjacent = replace_na(adjacent, 0)) 
+```
+```{r}
+model_data <- 
+  flows_erasmus_full_zeros |> 
+  inner_join(adjacency, 
+            by = c("sending_country_name","receiving_country_name")) |>  
+  group_by(sending_country_name) |>
+  # total outflow from country
+  mutate(outflow = sum(exchanges)) |>
+  group_by(receiving_country_name) |>
+  # total inflow into country
+  mutate(inflow = sum(exchanges)) 
+```
+
+Number of student exchanges from A to B as a function of total numbers of outgoing students from A and of total numbers of visiting students in B
+
+```{r}
+#| warning: false
+#| echo: true
+model_01 <- lm(formula = exchanges ~  inflow + outflow ,          , 
+               data = model_data)
+tidy(model_01)
+glance(model_01)
+```
+
+Add adjacency
+```{r}
+#| warning: false
+#| echo: true
+model_02 <- lm(formula = exchanges ~  inflow + outflow + adjacent, 
+               data = model_data)
+tidy(model_02)
+glance(model_02)
+```
+
+Students appear to fancy visiting nearby countries abroad!
+
+
+
+## Visualization  
+
+*Visualization 1:* Chord diagram (using library `circlize`)
+
+Full country names
+
+```{r}
+#| warning: false
+#| echo: true
+#| label: chord-diagram
+#| fig-cap: "Chord diagram"
+#| cap-location: margin
+#| fig-width: 6
+#| fig-height: 4
+flows_erasmus_full_zeros |> 
+  filter(exchanges > 0) |>
+  arrange(-exchanges) |> 
+  chordDiagram()
+```
+
+Use the 2-letter abbreviations of countries here.
+
+```{r}
+#| warning: false
+#| echo: true
+#| label: chord-diagram-abb
+#| fig-cap: "Chord diagram with 2-letter abbreviations"
+#| cap-location: margin
+#| fig-width: 6
+#| fig-height: 4
+flows_erasmus_full_zeros |> 
+  filter(exchanges > 0) |>
+  arrange(-exchanges) |> 
+  # without ungroup() the .._country_name columns will
+  # be retained
+  ungroup() |>
+  select(sending_country_code, receiving_country_code,
+         exchanges) |>
+  chordDiagram()
+```
+
+Only flows over 100
+
+```{r}
+#| warning: false
+#| echo: true
+#| label: chord-diagram-hund
+#| fig-cap: "Chord diagram with only flows over 100"
+#| cap-location: margin
+#| fig-width: 6
+#| fig-height: 4
+flows_erasmus_full_zeros |> 
+  filter(exchanges > 100) |>
+  arrange(-exchanges) |> 
+  ungroup() |>
+  select(sending_country_code, receiving_country_code,
+         exchanges) |>
+  chordDiagram()
+```
+
+*Visulaization 2*: Network representation
+We can also represent the countries as nodes in a network, with the student flows representing the links between them. Use package `igraph` here.
+
+
+```{r}
+#| warning: false
+#| echo: true
+#| label: network-graph
+#| fig-cap: "Network representation"
+#| cap-location: margin
+#| fig-width: 6
+#| fig-height: 4
+flows_erasmus_full_zeros |>
+  filter(exchanges > 100) |>
+  graph_from_data_frame(directed = TRUE, 
+                      vertices=country_labels) |>
+  plot(vertex.size=5)
+```
+
+No isolates
+```{r}
+#| warning: false
+#| echo: true
+#| label: no isolates
+#| column: screen-inset-shaded
+#| layout-nrow: 1
+#| fig-cap: "No isolates"
+#| cap-location: margin
+#| fig-width: 6
+#| fig-height: 4
+flows_erasmus_full_zeros |>
+  filter(exchanges > 75) |>
+  graph_from_data_frame(directed = TRUE) |>
+  plot(vertex.size=5)
+
+flows_erasmus_full_zeros |>
+  filter(exchanges > 100) |>
+  graph_from_data_frame(directed = TRUE) |>
+  plot(vertex.size=5)
+
+```
+
+
+For alternative methods of visualizing mobility while maintaining the geographic relations, see Andrew Wheeler's 2015 paper in Cartography and Geographic Information Science, at (behind paywall), [here](https://doi.org/10.1080/15230406.2014.890545)
+
+## References

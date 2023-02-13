@@ -9,11 +9,13 @@ format:
 
 ## Introduction
 
-In this meeting, Tim Verlaan explains what Sankey diagrams are, and how they can be created in R.
+In this meeting, Tim Verlaan explains what Sankey diagrams are, and how they can be created in R [@verlaan_nsc-rn_2022]
 
 ## Get started
 
 ```{r}
+#| warning: false
+#| echo: true
 library(tidyr)
 library(dplyr)
 library(readr)
@@ -21,29 +23,41 @@ library(readr)
 ```
 
 ```{r}
+#| warning: false
+#| echo: true
 relig_income
 ```
 
 ```{r}
+#| warning: false
+#| echo: true
 ?pivot_longer
 
 ```
 
 ```{r}
+#| warning: false
+#| echo: true
 pivot_longer(relig_income, !religion)
 ```
 
 ```{r}
+#| warning: false
+#| echo: true
 df <- relig_income %>%
   pivot_longer(!religion, names_to = 'income', values_to = 'count')
 ```
 
 ```{r}
+#| warning: false
+#| echo: true
 billboard
 
 ```
 
 ```{r}
+#| warning: false
+#| echo: true
 billboard %>%
   pivot_longer(
     cols = starts_with('wk'),
@@ -56,13 +70,17 @@ billboard %>%
 ```
 
 ```{r}
-install.packages("remotes")
-remotes::install_github("davidsjoberg/ggsankey")
+#| warning: false
+#| echo: true
+#install.packages("remotes")
+#remotes::install_github("davidsjoberg/ggsankey")
 library(ggsankey)
 library(ggplot2)
 ```
 
 ```{r}
+#| warning: false
+#| echo: true
 ?mtcars
 
 df <- mtcars %>%
@@ -70,6 +88,11 @@ df <- mtcars %>%
 ```
 
 ```{r}
+#| warning: false
+#| echo: true
+#| label: Sankey
+#| fig-cap: "Sankey graph"
+#| cap-location: margin
 ggplot(df, aes(x = x,
                node = node,
                next_x = next_x,
@@ -91,4 +114,4 @@ df1 <- mtcars %>%
 
 # References
 
-[@verlaan_nsc-rn_2022]
+

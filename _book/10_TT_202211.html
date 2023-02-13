@@ -85,6 +85,25 @@ code span.st { color: #4070a0; } /* String */
 code span.va { color: #19177c; } /* Variable */
 code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
 
 
@@ -247,6 +266,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#descriptive-questions" id="toc-descriptive-questions" class="nav-link" data-scroll-target="#descriptive-questions"><span class="toc-section-number">9.4</span>  Descriptive questions</a></li>
   <li><a href="#modeling" id="toc-modeling" class="nav-link" data-scroll-target="#modeling"><span class="toc-section-number">9.5</span>  Modeling</a></li>
   <li><a href="#visualization" id="toc-visualization" class="nav-link" data-scroll-target="#visualization"><span class="toc-section-number">9.6</span>  Visualization</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="toc-section-number">9.7</span>  References</a></li>
   </ul>
 </nav>
     </div>
@@ -286,7 +306,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="introduction" class="level2" data-number="9.1">
 <h2 data-number="9.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">9.1</span> Introduction</h2>
 <p>In this workshop, Wim Bernasco explores a Tidy Tuesday dataset about the European Union Erasmus+ student mobility program. This dataset was used in the main Tidy Tuesday of week 10 in 2022. For more information on this data, including the codebook, see the <a href="https://github.com/rfordatascience/tidytuesday/blob/master/data/2022/2022-03-08/readme.md">RForDataScience GitHub registry</a>.</p>
-<p>In this workshop, the focus is on exploring, analyzing, and maybe visualizing student streams between countries. Different descriptive questions will be answered:</p>
+<p>In this workshop, the focus is on exploring, analyzing, and maybe visualizing student streams between countries. Different descriptive questions will be answered <span class="citation" data-cites="bernasco_nsc-r_2022-6">(<a href="#ref-bernasco_nsc-r_2022-6" role="doc-biblioref">Bernasco 2022</a>)</span>.</p>
 <p><a href="https://nscrweb.netlify.app/posts/2022-11-15-nsc-r-tidy-tuesday/">Here</a> you find the link to the NSC-R Tidy Tuesday page.</p>
 </section>
 <section id="get-started" class="level2" data-number="9.2">
@@ -640,7 +660,7 @@ $ participants                        &lt;dbl&gt; 2, 3, 3, 4, 2, 2, 1, 3, 1, 2, 
 <div class="cell-output-display page-columns page-full">
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
-<p><img src="10_TT_202211_files/figure-html/send-count-hor-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="10_TT_202211_files/figure-html/bar-graph-1.png" class="img-fluid figure-img" width="576"></p>
 <p></p><figcaption class="figure-caption margin-caption">Where do students come from, horizontal</figcaption><p></p>
 </figure>
 </div>
@@ -656,7 +676,7 @@ $ participants                        &lt;dbl&gt; 2, 3, 3, 4, 2, 2, 1, 3, 1, 2, 
 <div class="cell-output-display page-columns page-full">
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
-<p><img src="10_TT_202211_files/figure-html/send-count-ver-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="10_TT_202211_files/figure-html/send-count-ver-1.png" class="img-fluid figure-img" width="576"></p>
 <p></p><figcaption class="figure-caption margin-caption">Where do students come from, vertical</figcaption><p></p>
 </figure>
 </div>
@@ -677,7 +697,7 @@ $ participants                        &lt;dbl&gt; 2, 3, 3, 4, 2, 2, 1, 3, 1, 2, 
 <div class="cell-output-display page-columns page-full">
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
-<p><img src="10_TT_202211_files/figure-html/send-count-order-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="10_TT_202211_files/figure-html/send-count-order-1.png" class="img-fluid figure-img" width="576"></p>
 <p></p><figcaption class="figure-caption margin-caption">Where do students come from, ordered</figcaption><p></p>
 </figure>
 </div>
@@ -782,7 +802,7 @@ $ participants                        &lt;dbl&gt; 2, 3, 3, 4, 2, 2, 1, 3, 1, 2, 
 <div class="cell-output-display page-columns page-full">
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
-<p><img src="10_TT_202211_files/figure-html/receive-count-order-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="10_TT_202211_files/figure-html/receive-count-order-1.png" class="img-fluid figure-img" width="576"></p>
 <p></p><figcaption class="figure-caption margin-caption">How many students do countries receive, ordered</figcaption><p></p>
 </figure>
 </div>
@@ -1034,7 +1054,7 @@ possible_mobility_names &lt;-
 <div class="cell-output-display page-columns page-full">
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
-<p><img src="10_TT_202211_files/figure-html/mobility-histo-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="10_TT_202211_files/figure-html/mobility-histo-1.png" class="img-fluid figure-img" width="576"></p>
 <p></p><figcaption class="figure-caption margin-caption">Histogram of student mobility flow</figcaption><p></p>
 </figure>
 </div>
@@ -1073,7 +1093,7 @@ possible_mobility_names &lt;-
 <div class="cell-output-display page-columns page-full">
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
-<p><img src="10_TT_202211_files/figure-html/mobility-scatterplot-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="10_TT_202211_files/figure-html/mobility-scatterplot-1.png" class="img-fluid figure-img" width="576"></p>
 <p></p><figcaption class="figure-caption margin-caption">Relation between exchanges</figcaption><p></p>
 </figure>
 </div>
@@ -1168,7 +1188,7 @@ possible_mobility_names &lt;-
 <div class="cell-output-display page-columns page-full">
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
-<p><img src="10_TT_202211_files/figure-html/chord-diagram-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="10_TT_202211_files/figure-html/chord-diagram-1.png" class="img-fluid figure-img" width="576"></p>
 <p></p><figcaption class="figure-caption margin-caption">Chord diagram</figcaption><p></p>
 </figure>
 </div>
@@ -1188,7 +1208,7 @@ possible_mobility_names &lt;-
 <div class="cell-output-display page-columns page-full">
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
-<p><img src="10_TT_202211_files/figure-html/chord-diagram-abb-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="10_TT_202211_files/figure-html/chord-diagram-abb-1.png" class="img-fluid figure-img" width="576"></p>
 <p></p><figcaption class="figure-caption margin-caption">Chord diagram with 2-letter abbreviations</figcaption><p></p>
 </figure>
 </div>
@@ -1206,7 +1226,7 @@ possible_mobility_names &lt;-
 <div class="cell-output-display page-columns page-full">
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
-<p><img src="10_TT_202211_files/figure-html/chord-diagram-hund-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="10_TT_202211_files/figure-html/chord-diagram-hund-1.png" class="img-fluid figure-img" width="576"></p>
 <p></p><figcaption class="figure-caption margin-caption">Chord diagram with only flows over 100</figcaption><p></p>
 </figure>
 </div>
@@ -1222,7 +1242,7 @@ possible_mobility_names &lt;-
 <div class="cell-output-display page-columns page-full">
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
-<p><img src="10_TT_202211_files/figure-html/network-graph-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="10_TT_202211_files/figure-html/network-graph-1.png" class="img-fluid figure-img" width="576"></p>
 <p></p><figcaption class="figure-caption margin-caption">Network representation</figcaption><p></p>
 </figure>
 </div>
@@ -1243,7 +1263,7 @@ possible_mobility_names &lt;-
 <div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="10_TT_202211_files/figure-html/no isolates-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="10_TT_202211_files/figure-html/no isolates-1.png" class="img-fluid figure-img" width="576"></p>
 <p></p><figcaption class="figure-caption">No isolates</figcaption><p></p>
 </figure>
 </div>
@@ -1251,7 +1271,7 @@ possible_mobility_names &lt;-
 <div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="10_TT_202211_files/figure-html/no isolates-2.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="10_TT_202211_files/figure-html/no isolates-2.png" class="img-fluid figure-img" width="576"></p>
 <p></p><figcaption class="figure-caption">No isolates</figcaption><p></p>
 </figure>
 </div>
@@ -1260,8 +1280,16 @@ possible_mobility_names &lt;-
 </div>
 </div>
 <p>For alternative methods of visualizing mobility while maintaining the geographic relations, see Andrew Wheeler’s 2015 paper in Cartography and Geographic Information Science, at (behind paywall), <a href="https://doi.org/10.1080/15230406.2014.890545">here</a></p>
+</section>
+<section id="references" class="level2" data-number="9.7">
+<h2 data-number="9.7" class="anchored" data-anchor-id="references"><span class="header-section-number">9.7</span> References</h2>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-bernasco_nsc-r_2022-6" class="csl-entry" role="doc-biblioentry">
+Bernasco, W. 2022. <span>“<span>NSC</span>-<span>R</span> <span>Workshops</span>: <span>NSC</span>-<span>R</span> <span>Tidy</span> <span>Tuesday</span>.”</span> NSCR. <a href="https://nscrweb.netlify.app/posts/2022-11-15-nsc-r-tidy-tuesday/">https://nscrweb.netlify.app/posts/2022-11-15-nsc-r-tidy-tuesday/</a>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->

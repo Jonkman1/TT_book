@@ -27,14 +27,15 @@ book:
     - 04_TT_202203.qmd
     - 05_TT_202203.qmd
     - 06_TT_202204.qmd
+    - 07_TT_202205.qmd
     - 08_TT_202205.qmd
-    - 09_TT_202205.qmd
-    - 10_TT_202211.qmd
-    - 11_TT_202301.qmd
-    - 12_summary.qmd
+    - 09_TT_202211.qmd
+    - 10_TT_202301.qmd
+    - 11_summary.qmd
     - references.qmd
 
 bibliography: referencestt.bib
+csl: apa.csl
 
 format:
    html:

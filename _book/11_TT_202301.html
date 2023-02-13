@@ -85,6 +85,25 @@ code span.st { color: #4070a0; } /* String */
 code span.va { color: #19177c; } /* Variable */
 code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
 
 
@@ -255,6 +274,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#question-8-can-we-get-a-salary-independent-of-currency" id="toc-question-8-can-we-get-a-salary-independent-of-currency" class="nav-link" data-scroll-target="#question-8-can-we-get-a-salary-independent-of-currency"><span class="toc-section-number">10.3.8</span>  Question 8: Can we get a salary independent of currency?</a></li>
   <li><a href="#question-9-compare-salary-across-genders" id="toc-question-9-compare-salary-across-genders" class="nav-link" data-scroll-target="#question-9-compare-salary-across-genders"><span class="toc-section-number">10.3.9</span>  Question 9: Compare salary across genders?</a></li>
   </ul></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="toc-section-number">10.4</span>  References</a></li>
   </ul>
 </nav>
     </div>
@@ -293,7 +313,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <section id="introduction" class="level2 page-columns page-full" data-number="10.1">
 <h2 data-number="10.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">10.1</span> Introduction</h2>
-<p>In this tutorial we will do some descriptive analysis on a salary survey in different countries and some background variables of the participants.</p>
+<p>In this tutorial we will do some descriptive analysis on a salary survey in different countries and some background variables of the participants <span class="citation" data-cites="yasrebi-de_kom_nsc-r_2023">(<a href="#ref-yasrebi-de_kom_nsc-r_2023" role="doc-biblioref">Yasrebi-de Kom 2023</a>)</span>.</p>
 
 <div class="no-row-height column-margin column-container"><div class="">
 <p>Thank you to Wim Bernasco who provided detailed feedback on the script and supervision on preparing this session.</p>
@@ -835,12 +855,12 @@ df |&gt;
 <pre><code># A tibble: 6 x 2
   gender                           mean
   &lt;chr&gt;                           &lt;dbl&gt;
-1 Man                           104556.
-2 Non-binary                     67635.
-3 Other or prefer not to answer  85163.
+1 Man                           104562.
+2 Non-binary                     67640.
+3 Other or prefer not to answer  85167.
 4 Prefer not to answer           88000 
-5 Woman                          80482.
-6 &lt;NA&gt;                           93721.</code></pre>
+5 Woman                          80487.
+6 &lt;NA&gt;                           93726.</code></pre>
 </div>
 </div>
 <p>We plot this, and now we place it in the margin.</p>
@@ -857,9 +877,17 @@ df |&gt;
 </div>
 </div>
 </div>
-
-
 </section>
+</section>
+<section id="references" class="level2" data-number="10.4">
+<h2 data-number="10.4" class="anchored" data-anchor-id="references"><span class="header-section-number">10.4</span> References</h2>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-yasrebi-de_kom_nsc-r_2023" class="csl-entry" role="doc-biblioentry">
+Yasrebi-de Kom, F. 2023. <span>“<span>NSC</span>-<span>R</span> <span>Workshops</span>: <span>NSC</span>-<span>R</span> <span>Tidy</span> <span>Tuesday</span>.”</span> NSCR. <a href="https://nscrweb.netlify.app/posts/2023-01-24-nsc-r-tidy-tuesday/">https://nscrweb.netlify.app/posts/2023-01-24-nsc-r-tidy-tuesday/</a>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->

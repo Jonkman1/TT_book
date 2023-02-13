@@ -1,0 +1,456 @@
+---
+title: "EDA on salary survey in different countries"
+subtitle: "NSC-R Tidy Tuesday January 2023"
+author: "Franziska Yasrebi-de Kom"
+date: "2023-01-24"
+---
+
+## Introduction
+
+In this tutorial we will do some descriptive analysis on a salary survey in different countries and some background variables of the participants [@yasrebi-de_kom_nsc-r_2023].
+
+::: column-margin
+Thank you to Wim Bernasco who provided detailed feedback on the script and supervision on preparing this session.
+:::
+
+## Getting started
+
+But let us first make our working environment clean and remove the environment.
+
+```{r}
+#| warning: false
+#| echo: true
+rm(list = ls())
+
+```
+
+We need two packages here. Install the needed libraries if necessary.
+
+```{r}
+#| warning: false
+#| echo: true
+# Install needed libraries
+#install.packages("tidyverse")
+#install.packages("priceR")
+```
+
+Then we have to open the needed packages. We need `tidyverse` for data wrangling functions (e.g. `readr`) and we need `priceR` for handling price and currency data necessary for this dataset and the questions you have to answer.
+
+```{r}
+#| warning: false
+#| echo: true
+library(tidyverse)   
+library(priceR)      
+```
+
+Now you can load the salary survey data.
+
+```{r}
+#| warning: false
+#| echo: true
+survey <- read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2021/2021-05-18/survey.csv')
+```
+
+## Analyses
+
+### Question 1: What kind of variables are in the dataset?
+
+::: callout-note
+'\|\>' is equal to '%\>%', the latter is included in tidyverse
+:::
+
+Let us look first at the names of the variables.
+
+```{r}
+#| warning: false
+#| echo: true
+survey |> names() 
+```
+
+And now some information on the variables. What do you see.
+
+```{r}
+#| warning: false
+#| echo: true
+survey |> dplyr::glimpse()
+```
+
+We have 26,232 rows and 19 columns. All variables, except the variables 'annual_salary' and 'other_monetary_comp', are text ('strings' in SPSS speak).
+
+### Question 2: How many people participated in the survey?\*\*
+
+You can count the number of rows.
+
+```{r}
+#| warning: false
+#| echo: true
+survey |> nrow()
+```
+
+Using `glimpse` already indicated that there are 26.232, since one row often means one participant.
+
+### Question 3: what was the distribution of the ages of the people that participated in the survey?
+
+Let us first count the age groups using variable 'how_old_are_you'.
+
+```{r}
+#| warning: false
+#| echo: true
+survey |> count(how_old_are_you)
+```
+
+By using `sort=TRUE` you sort the groups from biggest to smallest group.
+
+```{r}
+#| warning: false
+#| echo: true
+survey |> count(how_old_are_you, sort = TRUE)  
+```
+
+Now it is ordered on number. How can you order it on age group, how can we fix this? Order the categories in this variable. For this you have to construct a factor version of 'how_old_are_you'
+
+```{r}
+#| warning: false
+#| echo: true
+survey <-
+  survey |>
+  mutate(age_category = factor(how_old_are_you)) 
+```
+
+Then,show that they are different types (character vs. factor), but contain the same information
+
+```{r}
+#| warning: false
+#| echo: true
+survey |>
+  select(how_old_are_you, age_category) |>
+  head() 
+```
+
+Reorder the factor variable now in a generic way (without a function call)
+
+```{r}
+#| warning: false
+#| echo: true
+survey <-
+  survey |>
+  mutate(age_category = relevel(age_category,
+                                             "under 18",
+                                             "18-24",
+                                             "25-34",
+                                             "35-44",
+                                             "45-54",
+                                             "55-64",
+                                             "65 or over"))
+```
+
+The same result, but easier is the following:
+
+```{r}
+#| warning: false
+#| echo: true
+survey <-
+  survey |>
+  mutate(age_category = relevel(age_category,
+                                "under 18",
+                                "18-24"))
+```
+
+Now check if it looks as desired.
+
+```{r}
+#| warning: false
+#| echo: true
+survey|>
+  count(age_category)
+```
+
+Save this in a variable and l us research the age groups
+
+``` {r}\
+#| warning: false
+#| echo: true
+age <- survey |> # save it in a variable
+  count(age_category)
+```
+
+Put it in a table directly.
+
+| age-category   | number   |
+|----------------|----------|
+| \< 18          | 10       |
+| 18-24          | 1015     |
+| 25-34          | 11748    |
+| 35-44          | 9398     |
+| 45-54          | 3042     |
+| 55-64          | 931      |
+| \> 64          | 88       |
+| -------------- | -------- |
+| Total          | 26232    |
+
+You can also write it to Excel if this is easier for you. The info in quotation marks has to be changed to a folder that fits your set-up. Illustrate in Excel: data -\> text to columns.
+
+    write_csv(age,"C:/Users/FY125/Desktop/temp/Own tidy tuesday/age.csv") 
+
+Maybe this one works for you.
+
+    write_delim(age,"C:/Users/FY125/Desktop/temp/Own tidy tuesday/age_delim.csv", delim = ";") 
+
+Then you automatically get a nice csv. It depends on windows installation which of the two options work
+
+::: column-margin
+Use `knitr::kable()`, `kableExtra`, DataTable::DT()`,`gt`, apaTable` or `papaja` packages for example to write tables for articles directly!
+:::
+
+::: callout-important
+So far so good - any questions?
+:::
+
+### Plotting
+
+Plotting would also be a good idea also for showing distributions.
+
+```{r}
+#| warning: false
+#| echo: true
+#| label: fig-agecat
+#| fig-cap: "Age categories and their numbers"
+#| cap-location: margin
+survey |>
+  ggplot() +
+  geom_bar(aes(y = age_category),   # age_category variable on the y axis
+           color="black", fill = "white")
+
+```
+
+You also can do it with the blue colorline filled with redcolor.
+
+```{r}
+#| warning: false
+#| echo: true
+#| label: fig-catcol
+#| fig-cap: "Age categories and there numbers using colors"
+#| cap-location: margin
+survey |>
+  ggplot() +
+  geom_bar(aes(y = age_category),   # age_category variable on the y axis
+           color="blue", fill = "red")
+```
+
+But, let us go back to first table and add title and change axis-titles now.
+
+```{r}
+#| warning: false
+#| echo: true
+#| label: fig-agecatdef
+#| fig-cap: "Age categories and there numbers"
+#| fig-subcap: "Participants age"
+#| cap-location: margin
+survey |>
+  ggplot() +
+  geom_bar(aes(y = age_category),   # age_category variable on the y axis
+           color="black", fill = "white") +
+  labs(x ="Number of participants", y = "Age category", fill = "Age category")
+```
+
+### Question 4: make a dataframe with the variables age, gender, annual salary, currency, other_monetary_comp
+
+We call the new dataframe dt and use the function `select` of the `tidyverse` package.
+
+```{r}
+#| warning: false
+#| echo: true
+df <- survey |> dplyr::select(age_category, gender, annual_salary, currency, other_monetary_comp)
+```
+
+Look in your environment if you see the new dataframe `df` with the five variables.
+
+*Question 5*: **What is the distribution of gender in percentages**
+
+Use the `df` data, count gender, make a new variable percent.
+
+```{r}
+#| warning: false
+#| echo: true
+df |>
+  count(gender) |> 
+  mutate(percent = n/sum(n)*100) |> 
+  dplyr::select(-n) # not yet rounded
+```
+
+n is not-rounded. Show the percentage now rounded (`digits=3`)
+
+```{r}
+#| warning: false
+#| echo: true
+df |>
+  count(gender) |> 
+  mutate(percent = round((n/sum(n)*100), digits = 3)) |> 
+  dplyr::select(-n) 
+```
+
+Of course, there are always better ways.
+
+```{r}
+#| warning: false
+#| echo: true
+df |>
+  count(gender) |> 
+  mutate(percent = (n/sum(n))*100,
+         percent = round(percent,3)) 
+```
+
+::: column-margin
+Remember how we wrote this kind of table to Excel: try at home!
+:::
+
+### Question 6: Get the min, max, mean, sd, median, IQR and amount of missings for the variable annual salary
+
+Try first with one or two variables, to make it easy for yourself, for example the `mean`and the `median`
+
+```{r}
+#| warning: false
+#| echo: true
+df|> 
+  summarise(mean = mean(annual_salary),
+            median = median(annual_salary)) 
+```
+
+A different way that can be useful for multiple variables is this one.
+
+```{r}
+#| warning: false
+#| echo: true
+pv <- df |> dplyr::select(annual_salary) |> 
+  pivot_longer(cols = annual_salary, names_to = "variable_name", values_to = "value")
+```
+
+```{r}
+#| warning: false
+#| echo: true
+descriptive_stat <- pv |> 
+  group_by(variable_name) |> 
+  summarise(min = min(value, na.rm = TRUE),
+            max = max(value, na.rm = TRUE),
+            mean = mean(value, na.rm = TRUE),
+            sd   = sd(value, na.rm = TRUE),
+            median = median(value, na.rm = TRUE),
+            iqr = IQR(value, na.rm = TRUE),
+            miss   = sum(is.na(value)))
+descriptive_stat
+```
+
+Why do it like this? Because then you can use it for multiple variables. Now we can:
+
+```{r}
+#| warning: false
+#| echo: true
+pv_2 <- df |> dplyr::select(annual_salary, other_monetary_comp) |>
+  pivot_longer(cols = c(annual_salary, other_monetary_comp), names_to = "variable_name", values_to = "value")
+```
+
+```{r}
+#| warning: false
+#| echo: true
+descriptive_stat_2 <- pv_2 |> 
+  group_by(variable_name) |> 
+  summarise(min = min(value, na.rm = TRUE),
+            max = max(value, na.rm = TRUE),
+            mean = mean(value, na.rm = TRUE),
+            sd   = sd(value, na.rm = TRUE),
+            median = median(value, na.rm = TRUE),
+            iqr = IQR(value, na.rm = TRUE),
+            miss   = sum(is.na(value))) 
+
+descriptive_stat_2
+```
+
+100 variables or even more variables at once: no problem! Try to write it to a csv!
+
+### Question 7: Plot the distribution of annual salary
+
+We work out four ways. The first one is simple, but not very informative way. The second one doesn't work because it is a tibble not a vector. We show only the code of this one. In number three and four we filter to remove outliers above two different numbers.
+
+```{r}
+#| warning: false
+#| echo: true
+#| label: fig-annual
+#| fig-cap: "Plotting distributions annual salary"
+#| fig-subcap: 
+#| - "Simple non-informative distribution"
+#| - "Distribution with outliers above 1000000"
+#| - "Distribution with outliers above 300000"
+#| layout-ncol: 3
+df |> pull(annual_salary) |> hist() # simple, but not yet very informative
+#df |> dplyr::select(annual_salary) |> hist() # select would not work because it is a tibble not a vector
+df  |> filter(annual_salary < 1000000) |> pull(annual_salary) |> hist() # filter to remove outliers above 1000000
+df  |> filter(annual_salary < 300000) |> pull(annual_salary) |> hist() 
+```
+
+If you prefer using `ggplot` you can do it like this.
+
+    # not working for me
+    #| label: fig-ggplot
+    #| fig-cap: "Plotting distributions annual salary using ggplot"
+    df |>
+      filter(annual_salary < 300000) 
+      ggplot() +
+      geom_histogram(aes(x = annual_salary), color = "black", fill="white", binwidth=5000)
+
+### Question 8: Can we get a salary independent of currency?
+
+In this case we take out the participants with only USD and CAD currency and converted their 'annual-salary'to USD.
+
+```{r}
+#| warning: false
+#| echo: true
+converted<- df |> filter(currency == "USD" | currency == "CAD") |>
+  mutate(
+  USD = convert_currencies(
+    price_start = annual_salary,
+    from = currency,
+    to = "USD",
+    date = as.Date("2019-12-14"))
+  )
+```
+
+Or convert all the data.
+
+```{r}
+#| warning: false
+#| echo: true
+converted_all<- df |> filter(!currency %in% c("AUD/NZD", "Other")) |>
+  mutate(
+    USD = convert_currencies(
+      price_start = annual_salary,
+      from = currency,
+      to = "USD",
+      date = lubridate::today())
+  )
+```
+
+### Question 9: Compare salary across genders?
+
+We use the `converted-all` dataset, look for data lower than USD-300000 and show the mean
+
+```{r}
+#| warning: false
+#| echo: true
+converted_all |> group_by(gender) |> filter(USD < 300000) |>
+  summarise(mean = mean(USD)) 
+```
+
+We plot this, and now we place it in the margin.
+
+```{r}
+#| warning: false
+#| echo: true
+#| label: fig-annualggplot
+#| fig-cap: "Salary across genders"
+#| cap-location: margin
+converted_all |> filter(USD < 300000) |> group_by(gender) |> 
+  ggplot(aes(x = as.factor(gender), y = USD)) +
+  geom_boxplot()
+```
+
+## References

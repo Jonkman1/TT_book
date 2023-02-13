@@ -9,14 +9,16 @@ format:
 
 ## Introduction
 
-The dataset for this Tidy Tuesday is about animal rescues! Alex Trinidad explores the temporal trends of animal rescues using lubridate package (Grolemund & Wickham, 2011).
+The dataset for this Tidy Tuesday is about animal rescues! Alex Trinidad explores the temporal trends of animal rescues using lubridate package (Grolemund & Wickham, 2011) [@trinidad_nsc-r_nodate]
 
 ## Load packages and data
 
 Install TT package (if necessary)
 
-    install.packages("tidytuesdayR")
-    install.packages("tidyverse")
+```
+install.packages("tidytuesdayR")
+install.packages("tidyverse")
+```
 
 ```{r}
 #| warning: false
@@ -37,24 +39,32 @@ mydatalist <- tidytuesdayR::tt_load("2021-06-29")
 Data as tbl
 
 ```{r}
+#| warning: false
+#| echo: true
 mydata <- mydatalist$animal_rescues
 ```
 
 ## Explore the data
 
 ```{r}
+#| warning: false
+#| echo: true
 glimpse(mydata)
 ```
 
 Do we have missing data?
 
 ```{r}
+#| warning: false
+#| echo: true
 summary(mydata)
 ```
 
 Create a unique ID
 
 ```{r}
+#| warning: false
+#| echo: true
 mydata <- mydata %>% 
   arrange(cal_year) %>% 
   mutate(uid = paste0(seq(1:n()), LETTERS, letters))
@@ -63,12 +73,16 @@ mydata <- mydata %>%
 Are there any duplicated?
 
 ```{r}
+#| warning: false
+#| echo: true
 table(duplicated(mydata$uid))
 ```
 
 Select variables of interest.
 
 ```{r}
+#| warning: false
+#| echo: true
 mydataselection <- mydata %>% 
   select(uid, date_time_of_call, type_of_incident, animal_group_parent, borough_code)
 ```
@@ -76,6 +90,8 @@ mydataselection <- mydata %>%
 Show me the frequencies of different types of animal.
 
 ```{r}
+#| warning: false
+#| echo: true
 myfreq <- mydataselection %>% 
   group_by(animal_group_parent) %>% 
   summarise(freq = n()) %>% 
@@ -86,11 +102,15 @@ myfreq
 Remove unkonwn type of animals from the dataset.
 
 ```{r}
+#| warning: false
+#| echo: true
 mydataselection <- mydataselection %>% 
   filter(!grepl("Unknown", animal_group_parent))
 ```
 
 ```{r}
+#| warning: false
+#| echo: true
 myfreq <- mydataselection %>% 
   group_by(animal_group_parent) %>% 
   summarise(freq = n()) %>% 
@@ -101,6 +121,8 @@ myfreq <- mydataselection %>%
 Merging the cat counts.
 
 ```{r}
+#| warning: false
+#| echo: true
 mydataselection$animal_group_parent <- recode(mydataselection$animal_group_parent,
                                               "cat" = "Cat")
 ```
@@ -108,6 +130,8 @@ mydataselection$animal_group_parent <- recode(mydataselection$animal_group_paren
 Another way to do this (Nick van Doormaal suggestion).
 
 ```{r}
+#| warning: false
+#| echo: true
 mydataselection$animal_group_parent <- tolower(mydataselection$animal_group_parent)
 ```
 
@@ -118,12 +142,16 @@ Now we are ready to work with Data-Time Data. We want to separate the date in ye
 But, what variable type is the date in our data set?
 
 ```{r}
+#| warning: false
+#| echo: true
 glimpse(mydataselection)
 ```
 
 If not "date" format, transform ir
 
 ```{r}
+#| warning: false
+#| echo: true
 mydatadate <- mydataselection %>% 
   mutate(datetime = lubridate::as_datetime(date_time_of_call, 
                                    format = "%d/%m/%Y %H:%M"))
@@ -138,6 +166,8 @@ mydatadate <- mydataselection %>%
 Create separate variables for `day`, `month`, `year`, `hour`, `minute`, and `date`.
 
 ```{r}
+#| warning: false
+#| echo: true
 mydatadate <- mydataselection %>% 
   mutate(datetime = as_datetime(date_time_of_call,
                             format ="%d/%m/%Y %H:%M"),
@@ -154,6 +184,8 @@ head(mydatadate[, 6:12])
 How many cases do we have now per day?
 
 ```{r}
+#| warning: false
+#| echo: true
 caseperday <- mydatadate %>% 
   group_by(date) %>% 
   summarise(resc_counts = n())
@@ -162,6 +194,11 @@ caseperday <- mydatadate %>%
 Plot trends of cases
 
 ```{r}
+#| warning: false
+#| echo: true
+#| label: trend_cases
+#| fig-cap: "Trends of cases"
+#| cap-location: margin
 ggplot(data = caseperday, 
        aes(
          x = date,
@@ -173,6 +210,14 @@ ggplot(data = caseperday,
 And how many cases do we have per year?
 
 ```{r}
+#| warning: false
+#| echo: true
+#| label: howmany-cases
+#| fig-cap: "How many cases per year"
+#| cap-location: margin
+#| fig-width: 6
+#| fig-height: 4
+
 mydatadate %>% 
   group_by(year) %>% 
   summarise(resc_counts = n()) %>% 
@@ -187,6 +232,8 @@ mydatadate %>%
 Is there a rescue every day?
 
 ```{r}
+#| warning: false
+#| echo: true
 perday <- mydatadate %>% 
           group_by(date) %>% 
           summarise(resc_counts = n())
@@ -195,12 +242,16 @@ perday <- mydatadate %>%
 How many days are (more or less) in those years?
 
 ```{r}
+#| warning: false
+#| echo: true
 length(unique(mydatadate$year)) * 365
 ```
 
 How can I know the days that are missing? Create for this a data set with all the days
 
 ```{r}
+#| warning: false
+#| echo: true
 compdates <- data.frame(date = c(seq(ymd('2009-01-01'), 
                                      ymd('2021-12-31'), by = '1 day')))
 ```
@@ -208,6 +259,8 @@ compdates <- data.frame(date = c(seq(ymd('2009-01-01'),
 Save missing dates
 
 ```{r}
+#| warning: false
+#| echo: true
 missingdates <- anti_join(compdates, perday)
 ```
 
@@ -218,6 +271,8 @@ Add missing dates to our data set.
 This will give an error because we need the same arguments We need the same arguments
 
 ```{r}
+#| warning: false
+#| echo: true
 missingdates <- missingdates %>% 
   mutate(resc_counts = vector(mode = "numeric", length = length(.)))
 ```
@@ -225,18 +280,24 @@ missingdates <- missingdates %>%
 Add now the missing dates to our data set
 
 ```{r}
+#| warning: false
+#| echo: true
 fulldates <- rbind(perday, missingdates)
 ```
 
 Are any date duplicated?
 
 ```{r}
+#| warning: false
+#| echo: true
 table(duplicated(fulldates$date))
 ```
 
 Wim Bernasco's suggestion instead of using `anti_join()` and `rbind()`, use `left_join`.
 
 ```{r}
+#| warning: false
+#| echo: true
 fulldates <- left_join(compdates, perday, by = "date") %>% 
   replace(is.na(.), 0)
 ```
@@ -244,6 +305,8 @@ fulldates <- left_join(compdates, perday, by = "date") %>%
 Separate the date ymd
 
 ```{r}
+#| warning: false
+#| echo: true
 fulldates <- fulldates %>% 
   mutate(year = year(date),
          month = month(date),
@@ -253,6 +316,8 @@ fulldates <- fulldates %>%
 What week of the year did it happen?
 
 ```{r}
+#| warning: false
+#| echo: true
 fulldates <- fulldates %>% 
   mutate(week = week(date))
 ```
@@ -260,6 +325,8 @@ fulldates <- fulldates %>%
 What day of the week did it happen?
 
 ```{r}
+#| warning: false
+#| echo: true
 fulldates <- fulldates %>% 
   mutate(weekday = wday(date, label = TRUE))
 ```
@@ -269,12 +336,21 @@ fulldates <- fulldates %>%
 Plot by week.
 
 ```{r}
+#| warning: false
+#| echo: true
 byweek <- fulldates %>% 
   group_by(year, week) %>% 
   summarise(resc_counts = sum(resc_counts))
 ```
 
 ```{r}
+#| warning: false
+#| echo: true
+#| label: week_cases
+#| fig-cap: "How many cases every week"
+#| cap-location: margin
+#| fig-width: 6
+#| fig-height: 4
 ggplot(data = byweek) +
   geom_line(aes(x = week, y = resc_counts), size = 1) +
   facet_wrap(vars(year),scales = "free_x") 
@@ -285,6 +361,8 @@ Plot Trends by Type of Animal, so accounting the type of animals.
 First cat
 
 ```{r}
+#| warning: false
+#| echo: true
 cat <- mydatadate %>% 
   filter(animal_group_parent == "cat") %>%  
   group_by(date, animal_group_parent) %>% 
@@ -300,6 +378,8 @@ fullcat <- rbind(cat, mdatecat) %>%
 Dog now.
 
 ```{r}
+#| warning: false
+#| echo: true
 dog <- mydatadate %>% 
   filter(animal_group_parent == "dog") %>%  
   group_by(date, animal_group_parent) %>% 
@@ -316,6 +396,8 @@ fulldog <- rbind(dog, mdatedog) %>%
 Bird now.
 
 ```{r}
+#| warning: false
+#| echo: true
 bird <- mydatadate %>% 
   filter(animal_group_parent == "bird") %>%  
   group_by(date, animal_group_parent) %>% 
@@ -331,12 +413,16 @@ fullbird <- rbind(bird, mdatebird) %>%
 Three datasets together.
 
 ```{r}
+#| warning: false
+#| echo: true
 myfulldata <- rbind(fullcat,fulldog, fullbird)
 ```
 
 Dates by components
 
 ```{r}
+#| warning: false
+#| echo: true
 myfulldata <- myfulldata %>% 
   mutate(day = day(date),
          month = month(date, label = TRUE),
@@ -348,6 +434,8 @@ myfulldata <- myfulldata %>%
 By day of the week
 
 ```{r}
+#| warning: false
+#| echo: true
 bywday <- myfulldata %>% 
   group_by(year, weekday, animal_group_parent) %>% 
   summarise(resc_counts = sum(resc_counts))
@@ -356,16 +444,27 @@ bywday <- myfulldata %>%
 What levels are in weekday?
 
 ```{r}
+#| warning: false
+#| echo: true
 levels(bywday$weekday)
 ```
 
 Order these levels.
 
 ```{r}
+#| warning: false
+#| echo: true
 levelorder <- c("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun")
 ```
 
 ```{r}
+#| warning: false
+#| echo: true
+#| label: Animalrescue_weekday
+#| fig-cap: "Animal Rescue per weekday"
+#| cap-location: margin
+#| fig-width: 6
+#| fig-height: 4
 ggplot(data = bywday) +
   geom_line(aes(x = factor(weekday, level = levelorder), 
                 y = resc_counts, 
@@ -383,11 +482,15 @@ ggplot(data = bywday) +
 By week of the year
 
 ```{r}
+#| warning: false
+#| echo: true
 myfulldata <- myfulldata %>% 
   mutate(weekyear = paste0(week,month,day))
 ```
 
 ```{r}
+#| warning: false
+#| echo: true
 byweek <- myfulldata %>% 
   group_by(year, weekyear, animal_group_parent) %>% 
   summarise(resc_counts = sum(resc_counts))
@@ -396,6 +499,13 @@ byweek <- myfulldata %>%
 Plot it.
 
 ```{r}
+#| warning: false
+#| echo: true
+#| label: Animalrescue_weekyear
+#| fig-cap: "Animal Rescue per weekyear"
+#| cap-location: margin
+#| fig-width: 6
+#| fig-height: 4
 ggplot(data = byweek) +
   geom_line(aes(x = weekyear, 
                 y = resc_counts, 
@@ -413,12 +523,21 @@ ggplot(data = byweek) +
 By month of the year
 
 ```{r}
+#| warning: false
+#| echo: true
 bymonth <- myfulldata %>% 
   group_by(year, month, animal_group_parent) %>% 
   summarise(resc_counts = sum(resc_counts))
 ```
 
 ```{r}
+#| warning: false
+#| echo: true
+#| label: Animalrescue_monty
+#| fig-cap: "Animal Rescue per Month"
+#| cap-location: margin
+#| fig-width: 6
+#| fig-height: 4
 ggplot(data = bymonth) +
   geom_line(aes(x = month, 
                 y = resc_counts, 
@@ -436,12 +555,21 @@ ggplot(data = bymonth) +
 By year
 
 ```{r}
+#| warning: false
+#| echo: true
 byyear <- myfulldata %>% 
   group_by(year,animal_group_parent) %>% 
   summarise(resc_counts = sum(resc_counts))
 ```
 
 ```{r}
+#| warning: false
+#| echo: true
+#| label: Animalrescue_year
+#| fig-cap: "Animal Rescue per Year"
+#| cap-location: margin
+#| fig-width: 6
+#| fig-height: 4
 ggplot(data = byyear) +
   geom_line(aes(x = year, 
                 y = resc_counts, 
@@ -456,4 +584,5 @@ ggplot(data = byyear) +
 ```
 
 # References
-[@trinidad_nsc-r_nodate]
+
+

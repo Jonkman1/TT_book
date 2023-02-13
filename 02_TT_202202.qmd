@@ -6,8 +6,10 @@ date: "2022-02-08"
 format:
     html 
 ---
+
 ## Introduction
-The dataset for this Tidy Tuesday is about board games! Asier Moneva explores the following research questions: “What are the top 3 best-selling board games by game type?” and “How do board game sales relate to online user ratings?”
+
+The dataset for this Tidy Tuesday is about board games! Asier Moneva explores the following research questions: "What are the top 3 best-selling board games by game type?" and "How do board game sales relate to online user ratings?"[@moneva_nsc-r_2022]
 
 ## Load packages
 
@@ -75,6 +77,8 @@ intersect(details$id, ratings$id)
 Find which `id` are absent in the dataset with the least observations
 
 ```{r}
+#| warning: false
+#| echo: true
 setdiff(ratings$id, details$id)
 ```
 
@@ -145,8 +149,6 @@ Looks like there is some sort of syntax issue in `primary`
 #| echo: true
 df$name[19925]
 df$primary[19925]
-
-
 ```
 
 Bingo!
@@ -173,9 +175,9 @@ Looks like we are good now! Imagine the following:
 
 -   We want to buy a board game for a friend, but we don't know which one to get.
 
--   We know our friend likes to play alone with his girlfriend sometimes, but some Other times he likes to invite friends over to play.\
+-   We know our friend likes to play alone with his girlfriend sometimes, but some Other times he likes to invite friends over to play.
 
--   What are the top 3 best-selling board games by game type?\
+-   What are the top 3 best-selling board games by game type?
 
 -   How do board game sales relate to online user ratings?
 
@@ -218,6 +220,11 @@ How do board game sales relate to online user ratings?
 ```{r}
 #| warning: false
 #| echo: true
+#| label: patterns_players
+#| fig-cap: "Relation board game sales and online user ratings"
+#| cap-location: margin
+#| fig-width: 6
+#| fig-height: 4
 df %>% 
   ggplot(mapping = aes(
     x = average,
@@ -247,3 +254,5 @@ df %>%
     vjust = .5
   ))
 ```
+
+## References

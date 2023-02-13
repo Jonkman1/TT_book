@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Sam Langton">
-<meta name="dcterms.date" content="2022-01-11">
+<meta name="dcterms.date" content="2021-01-25">
 
 <title>TT_book - 1&nbsp; Exploration and vizualization of Starbuck coffee use</title>
 <style>
@@ -85,6 +85,25 @@ code span.st { color: #4070a0; } /* String */
 code span.va { color: #19177c; } /* Variable */
 code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
 
 
@@ -130,7 +149,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </head>
 
-<body class="nav-sidebar floating">
+<body class="nav-sidebar floating slimcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -189,32 +208,42 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05_TT_202203.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Researching Spanish soccer data</span></a>
+  <a href="./04_TT_202203.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Sankey diagrams and how to create</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06_TT_202204.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Long to wide (and vv) transformations</span></a>
+  <a href="./05_TT_202203.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Researching Spanish soccer data</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./08_TT_202205.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Revenue and expenditure in sport</span></a>
+  <a href="./06_TT_202204.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Long to wide (and vv) transformations</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./09_TT_202205.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Development of crime in population</span></a>
+  <a href="./08_TT_202205.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Revenue and expenditure in sport</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./10_TT_202211.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Student mobility in Europe</span></a>
+  <a href="./09_TT_202205.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Development of crime in population</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./12_summary.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Summary</span></a>
+  <a href="./10_TT_202211.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Student mobility in Europe</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11_TT_202301.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">EDA on salary survey in different countries</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12_summary.html" class="sidebar-item-text sidebar-link">Summary</a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -237,7 +266,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#initial-explore." id="toc-initial-explore." class="nav-link" data-scroll-target="#initial-explore."><span class="toc-section-number">1.4</span>  Initial explore.</a></li>
   <li><a href="#subset-brewed-coffee." id="toc-subset-brewed-coffee." class="nav-link" data-scroll-target="#subset-brewed-coffee."><span class="toc-section-number">1.5</span>  Subset brewed coffee.</a></li>
   <li><a href="#quick-clean-for-the-plot." id="toc-quick-clean-for-the-plot." class="nav-link" data-scroll-target="#quick-clean-for-the-plot."><span class="toc-section-number">1.6</span>  Quick clean for the plot.</a></li>
-  <li><a href="#what-in-the-relationship-between-calories-and-fat" id="toc-what-in-the-relationship-between-calories-and-fat" class="nav-link" data-scroll-target="#what-in-the-relationship-between-calories-and-fat"><span class="toc-section-number">1.7</span>  What in the relationship between calories and fat?</a></li>
+  <li><a href="#what-is-the-relationship-between-calories-and-fat" id="toc-what-is-the-relationship-between-calories-and-fat" class="nav-link" data-scroll-target="#what-is-the-relationship-between-calories-and-fat"><span class="toc-section-number">1.7</span>  What is the relationship between calories and fat?</a></li>
   <li><a href="#save." id="toc-save." class="nav-link" data-scroll-target="#save."><span class="toc-section-number">1.8</span>  Save.</a></li>
   <li><a href="#counting-frequencies" id="toc-counting-frequencies" class="nav-link" data-scroll-target="#counting-frequencies"><span class="toc-section-number">1.9</span>  Counting frequencies</a></li>
   <li><a href="#basic-cleaning" id="toc-basic-cleaning" class="nav-link" data-scroll-target="#basic-cleaning"><span class="toc-section-number">1.10</span>  Basic cleaning</a></li>
@@ -271,7 +300,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">January 11, 2022</p>
+      <p class="date">January 25, 2021</p>
     </div>
   </div>
   
@@ -281,11 +310,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<section id="introduction" class="level2" data-number="1.1">
+<section id="introduction" class="level2 page-columns page-full" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">1.1</span> Introduction</h2>
-<p>On 11 January 2022 and 25 January 2022 Sam Langton gave NSCR Tidy Tuesday presentations on the exploration and visualization of Starbuck coffee use data.In this document both presentations are combined.</p>
-<p>[^1]. Here you can find it on the NSCR- website. Here is the <a href="https://nscrweb.netlify.app/posts/2022-01-11-nsc-r-tidy-tuesday/">First presentation</a>. Here is the <a href="https://nscrweb.netlify.app/posts/2022-01-25-nsc-r-tidy-tuesday/">Second presentation</a></p>
-</section>
+<p>On 11 January 2022 and 25 January 2022 Sam Langton gave NSCR Tidy Tuesday presentations on the exploration and visualization of Starbuck coffee use data.In this document both presentations are combined <span class="citation" data-cites="langton_nsc-r_2022">(<a href="#ref-langton_nsc-r_2022" role="doc-biblioref">Langton, 2022</a>)</span>.</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p>Here you can find it on the NSCR- website. Here is the <a href="https://nscrweb.netlify.app/posts/2022-01-11-nsc-r-tidy-tuesday/">First presentation</a>. Here is the <a href="https://nscrweb.netlify.app/posts/2022-01-25-nsc-r-tidy-tuesday/">Second presentation</a></p>
+</div></div></section>
 <section id="load-libraries." class="level2" data-number="1.2">
 <h2 data-number="1.2" class="anchored" data-anchor-id="load-libraries."><span class="header-section-number">1.2</span> Load libraries.</h2>
 <div class="cell">
@@ -305,8 +336,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="initial-explore." class="level2" data-number="1.4">
 <h2 data-number="1.4" class="anchored" data-anchor-id="initial-explore."><span class="header-section-number">1.4</span> Initial explore.</h2>
-<p>Here are some explorative commands you can use:<br>
-- <code>star-df</code> opens the dataset and shows you the variables. - <code>names(star_df)</code>gives you the names of the 15 variables. - <code>glimpse(star_df)</code>shows you the number of rows (often particpants) and columns (often variables) and also informs you about the kind of variables. - <code>dim(star_df)</code> informs you about number of rows and columns.<br>
+<p>Here are some explorative commands you can use: - <code>star-df</code> opens the dataset and shows you the variables.<br>
+- <code>names(star_df)</code>gives you the names of the 15 variables.<br>
+- <code>glimpse(star_df)</code>shows you the number of rows (often particpants) and columns (often variables) and also informs you about the kind of variables.<br>
+- <code>dim(star_df)</code> informs you about number of rows and columns.<br>
 - <code>sum(is.na(star_df))</code> show you the number of missing variables.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>star_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -377,8 +410,7 @@ $ caffeine_mg     &lt;dbl&gt; 130, 193, 260, 340, 15, 20, 25, 30, 155, 235, 310,
 <section id="quick-clean-for-the-plot." class="level2" data-number="1.6">
 <h2 data-number="1.6" class="anchored" data-anchor-id="quick-clean-for-the-plot."><span class="header-section-number">1.6</span> Quick clean for the plot.</h2>
 <ul>
-<li>Make another subsample and call it <code>big_ones_df</code>.<br>
--Use only the variables <code>product_name</code>, <code>size</code>, <code>milk</code>, <code>whip</code> and <code>calories</code>-<code>trans_fat_g</code>).<br>
+<li>Make another subsample and call it <code>big_ones_df</code>. -Use only the variables <code>product_name</code>, <code>size</code>, <code>milk</code>, <code>whip</code> and <code>calories</code>-<code>trans_fat_g</code>).<br>
 </li>
 <li>Use only when <code>size</code>is grande.</li>
 <li>change <code>whip</code> into a character variable.</li>
@@ -398,8 +430,8 @@ $ caffeine_mg     &lt;dbl&gt; 130, 193, 260, 340, 15, 20, 25, 30, 155, 235, 310,
 <span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>                            <span class="st">`</span><span class="at">5</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"whole"</span>)) <span class="co"># These categories are on the tt git page.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="what-in-the-relationship-between-calories-and-fat" class="level2 page-columns page-full" data-number="1.7">
-<h2 data-number="1.7" class="anchored" data-anchor-id="what-in-the-relationship-between-calories-and-fat"><span class="header-section-number">1.7</span> What in the relationship between calories and fat?</h2>
+<section id="what-is-the-relationship-between-calories-and-fat" class="level2 page-columns page-full" data-number="1.7">
+<h2 data-number="1.7" class="anchored" data-anchor-id="what-is-the-relationship-between-calories-and-fat"><span class="header-section-number">1.7</span> What is the relationship between calories and fat?</h2>
 <p>Can you plot between <code>calories</code>(y) and <code>total_fat_g</code> (x)? Show the diffence on <code>whip_char'and show it for the six</code>milk-labs` you recoded.</p>
 <div class="cell page-columns page-full">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>my_plot_gg <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> big_ones_df) <span class="sc">+</span></span>
@@ -418,8 +450,13 @@ $ caffeine_mg     &lt;dbl&gt; 130, 193, 260, 340, 15, 20, 25, 30, 155, 235, 310,
 <span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>),</span>
 <span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">4</span>))</span>
 <span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>my_plot_gg</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display column-page-right">
-<p><img src="01_TT_202201_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="384"></p>
+<div class="cell-output-display page-columns page-full">
+<div class="quarto-figure quarto-figure-center page-columns page-full">
+<figure class="figure page-columns page-full">
+<p><img src="01_TT_202201_files/figure-html/my_plot_gg-1.png" class="img-fluid figure-img" width="576"></p>
+<p></p><figcaption class="figure-caption margin-caption">Starbucks coffeetypes</figcaption><p></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -478,38 +515,65 @@ $ caffeine_mg     &lt;dbl&gt; 130, 193, 260, 340, 15, 20, 25, 30, 155, 235, 310,
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(size <span class="sc">==</span> <span class="st">"grande"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="basic-plot" class="level2" data-number="1.11">
+<section id="basic-plot" class="level2 page-columns page-full" data-number="1.11">
 <h2 data-number="1.11" class="anchored" data-anchor-id="basic-plot"><span class="header-section-number">1.11</span> Basic plot</h2>
 <p>Let us plot it on different ways.The first three are similar.</p>
-<div class="cell">
+<div>
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> star_clean_df, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> sugar_g, <span class="at">y =</span> calories)) <span class="sc">+</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="01_TT_202201_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> star_clean_df) <span class="sc">+</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> sugar_g, <span class="at">y =</span> calories))</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> star_clean_df, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> sugar_g, <span class="at">y =</span> calories))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="01_TT_202201_files/figure-html/star_clean_df_1-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">First way</figcaption><p></p>
+</figure>
 </div>
 </div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> star_clean_df) <span class="sc">+</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> sugar_g, <span class="at">y =</span> calories))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="01_TT_202201_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="672"></p>
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="01_TT_202201_files/figure-html/star_clean_df_1-2.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Second way</figcaption><p></p>
+</figure>
 </div>
 </div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> star_clean_df, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> sugar_g, <span class="at">y =</span> calories))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="01_TT_202201_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="672"></p>
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="01_TT_202201_files/figure-html/star_clean_df_1-3.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Third way</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<p>Relation between sugar and calories</p>
+</div>
+</div>
 </div>
 </div>
 <p>Then we plot the coffee of which the <code>whip</code>is 1.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>star_clean_df <span class="sc">%&gt;%</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(whip <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> sugar_g, <span class="at">y =</span> calories))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="01_TT_202201_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid" width="672"></p>
+<div class="cell page-columns page-full">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>star_clean_df <span class="sc">%&gt;%</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(whip <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> sugar_g, <span class="at">y =</span> calories))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display page-columns page-full">
+<div class="quarto-figure quarto-figure-center page-columns page-full">
+<figure class="figure page-columns page-full">
+<p><img src="01_TT_202201_files/figure-html/my_plot_gg_whip-1.png" class="img-fluid figure-img" width="576"></p>
+<p></p><figcaption class="figure-caption margin-caption">Relation between sugar and calories with coffee whip-1</figcaption><p></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -517,42 +581,59 @@ $ caffeine_mg     &lt;dbl&gt; 130, 193, 260, 340, 15, 20, 25, 30, 155, 235, 310,
 <h2 data-number="1.12" class="anchored" data-anchor-id="change-milk-class."><span class="header-section-number">1.12</span> Change milk class.</h2>
 <p>For the next plot we first change the class of the variable <code>milk</code> into a character variable and save it as a different dataset.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>star_clean_df <span class="ot">&lt;-</span> star_clean_df <span class="sc">%&gt;%</span> </span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">milk_char =</span> <span class="fu">as.character</span>(milk))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>star_clean_df <span class="ot">&lt;-</span> star_clean_df <span class="sc">%&gt;%</span> </span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">milk_char =</span> <span class="fu">as.character</span>(milk))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="extend." class="level2" data-number="1.13">
 <h2 data-number="1.13" class="anchored" data-anchor-id="extend."><span class="header-section-number">1.13</span> Extend.</h2>
 <p>We plot this new dataset on three different ways.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> star_clean_df) <span class="sc">+</span></span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span> (<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> sugar_g, <span class="at">y =</span> calories)) <span class="sc">+</span></span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> sugar_g, <span class="at">y =</span> calories), <span class="at">method =</span> <span class="st">"lm"</span>) <span class="sc">+</span></span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>milk_char)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
+<div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> star_clean_df) <span class="sc">+</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span> (<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> sugar_g, <span class="at">y =</span> calories)) <span class="sc">+</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> sugar_g, <span class="at">y =</span> calories), <span class="at">method =</span> <span class="st">"lm"</span>) <span class="sc">+</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>milk_char)</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> star_clean_df, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> sugar_g, <span class="at">y =</span> calories)) <span class="sc">+</span></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>) <span class="sc">+</span></span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(milk_char, whip))</span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> star_clean_df) <span class="sc">+</span></span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> sugar_g, <span class="at">y =</span> calories, <span class="at">shape =</span> milk_char, <span class="at">colour =</span> milk_char))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="01_TT_202201_files/figure-html/star_clean_df_2-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">First way</figcaption><p></p>
+</figure>
 </div>
-<div class="cell-output-display">
-<p><img src="01_TT_202201_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="01_TT_202201_files/figure-html/star_clean_df_2-2.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Second way</figcaption><p></p>
+</figure>
 </div>
 </div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> star_clean_df, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> sugar_g, <span class="at">y =</span> calories)) <span class="sc">+</span></span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>) <span class="sc">+</span></span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(milk_char, whip))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
-</div>
-<div class="cell-output-display">
-<p><img src="01_TT_202201_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid" width="672"></p>
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="01_TT_202201_files/figure-html/star_clean_df_2-3.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Third way</figcaption><p></p>
+</figure>
 </div>
 </div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> star_clean_df) <span class="sc">+</span></span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> sugar_g, <span class="at">y =</span> calories, <span class="at">shape =</span> milk_char, <span class="at">colour =</span> milk_char))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="01_TT_202201_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<p>Relation between sugar and calories with coffee whip-1</p>
+</div>
+</div>
 </div>
 </div>
 </section>
@@ -560,6 +641,11 @@ $ caffeine_mg     &lt;dbl&gt; 130, 193, 260, 340, 15, 20, 25, 30, 155, 235, 310,
 <h2 data-number="1.14" class="anchored" data-anchor-id="reference"><span class="header-section-number">1.14</span> Reference</h2>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-line-spacing="2" role="doc-bibliography">
+<div id="ref-langton_nsc-r_2022" class="csl-entry" role="doc-biblioentry">
+Langton, S. (2022, January). <span>NSC</span>-<span>R</span> <span>Workshops</span>: <span>NSC</span>-<span>R</span> <span>Tidy</span> <span>Tuesday</span>. NSCR. Retrieved from <a href="https://nscrweb.netlify.app/posts/2022-01-25-nsc-r-tidy-tuesday/">https://nscrweb.netlify.app/posts/2022-01-25-nsc-r-tidy-tuesday/</a>
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->

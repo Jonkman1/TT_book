@@ -8,7 +8,8 @@ format:
 ---
 
 ## Introduction
-In this session, Sam Langton demonstrated long to wide (and wide to long) transformations using functions available in the tidyr package using data from the London Fire Brigade.
+
+In this session, Sam Langton demonstrated long to wide (and wide to long) transformations using functions available in the tidyr package using data from the London Fire Brigade [@s_langton_nsc-r_2022-1].
 
 ## Preparation
 
@@ -118,3 +119,5 @@ Remove things that might confuse people.
 #| echo: true
 rm(fire_clean_df, fire_df, tt_df, fire_wards_df)
 ```
+
+## References
