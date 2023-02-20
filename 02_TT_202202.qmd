@@ -187,7 +187,7 @@ Looks like we are good now! Imagine the following:
 #| warning: false
 #| echo: true
 
-df <- df %>% 
+df <- df |> 
   # Create new variable to define type of game based on number of players
   mutate(minplayers_fct = case_when(
     minplayers < 2 ~ "single player",
@@ -199,15 +199,15 @@ df <- df %>%
 ```{r}
 #| warning: false
 #| echo: true
-df %>% 
+df |> 
   # Select only relevant variables
   select(
     name,
     minplayers_fct,
     owned
-  ) %>% 
-  group_by(minplayers_fct) %>% 
-  slice_max(owned, n = 3) %>% 
+  ) |> 
+  group_by(minplayers_fct) |> 
+  slice_max(owned, n = 3) |> 
   knitr::kable()
 ```
 
@@ -236,7 +236,7 @@ df %>%
   # There seems to be three outliers that are best-sellers and also have high 
   # ratings
   ggrepel::geom_text_repel(
-    data = df %>% filter(owned > 150000),
+    data = df |> filter(owned > 150000),
     mapping = aes(label = name),
     color = "black"
     ) +

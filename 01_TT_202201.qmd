@@ -60,7 +60,7 @@ When you want to look at a specific subset with the product_name brewed coffee f
 ```{r}
 #| warning: false
 #| echo: true
-brew_df <- star_df %>% 
+brew_df <- star_df |>
   filter(str_detect(product_name, "brewed coffee"))
 ```
 
@@ -74,9 +74,9 @@ brew_df <- star_df %>%
 ```{r}
 #| warning: false
 #| echo: true
-big_ones_df <- star_df %>%
-  select(product_name, size, milk, whip, calories:trans_fat_g) %>% 
-  filter(size == "grande") %>% 
+big_ones_df <- star_df |>
+  select(product_name, size, milk, whip, calories:trans_fat_g) |> 
+  filter(size == "grande") |>
   mutate(whip_char = as.character(whip),
          milk_labs = recode(milk,
                             `0` = "no milk",
@@ -145,8 +145,8 @@ This is the grouping-way.
 ```{r}
 #| warning: false
 #| echo: true
-star_df %>%
-  group_by(whip) %>% 
+star_df |>
+  group_by(whip) |> 
   tally() 
 ```
 
@@ -166,8 +166,8 @@ Here we do some basic cleaning. We select six variables and look only at variabl
 ```{r}
 #| warning: false
 #| echo: true
-star_clean_df <- star_df %>%
-  select(product_name, size, milk, whip, calories, sugar_g) %>% 
+star_clean_df <- star_df |>
+  select(product_name, size, milk, whip, calories, sugar_g) |>
   filter(size == "grande") 
 ```
 
@@ -206,8 +206,8 @@ Then we plot the coffee of which the `whip`is 1.
 #| cap-location: margin
 #| fig-width: 6
 #| fig-height: 4
-star_clean_df %>%
-  filter(whip == 1) %>% 
+star_clean_df |>
+  filter(whip == 1) |>
   ggplot() +
   geom_point(mapping = aes(x = sugar_g, y = calories))
 ```
@@ -217,7 +217,7 @@ star_clean_df %>%
 For the next plot we first change the class of the variable `milk` into a character variable and save it as a different dataset.
 
 ```{r}
-star_clean_df <- star_clean_df %>% 
+star_clean_df <- star_clean_df |> 
   mutate(milk_char = as.character(milk))
 ```
 

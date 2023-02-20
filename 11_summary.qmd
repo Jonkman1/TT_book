@@ -1,5 +1,24 @@
 # Summary {.unnumbered}
 
-In summary, xxxx
+Data science is a huge field and it can be intimidating when you want to learn different aspects of it. Although there is no single book that can learn you everything, there are some very good ones to start with. 
+
+Another way to learn different aspects is to do analysing yourself. Take a dataset and try to answer different questions. Of course, but were to start if you have hardly data science experiences? A good way to learn it yourself is to follow different aspects of data analyse when someone with experiences explains these aspects. This is certainly instructive for people who have still little knowledge and skills about this, this is even instructive for people with more knowledge.Looking over the shoulders of experts is the goal of Tidy Tuesday meetings which are organized by the NSC-R team in recent years (1/2022-1/2023). 
+
+The lessons organized by the NSC-R-team where open for participation and the scripts of these meetings where put open-source on GitHub. This open-source html book puts together the meetings of this period. The scripts of the individual workshops are transferred to the  new scientific program `Quarto` and then they are standardized a bit. 
+
+Following these workshops you learn different aspects of the data science:
+- you learn how you can import data into the R-language;    
+- you learn how you can tidy the data in a consistent form;   
+- you learn how you can transform data so it becomes easier to analyse them;   
+- you learn how you can visualize different  aspects which makes it easier to interpret the results;   
+- you learn how to explore and describe the data and how you can answer different research questions by analyzing them and basic techniques are shown;   
+- you learn how to communicate the results to others, not only by the reports of the individual workshops but also by making this book of all the workshops given.
+
+Going through the workshops learns you more about modern data science and how you can program yourself to answer research questions. This book which was written and created with `Quarto` has the goal to:  
+- to expand your knowledge and skills to communicate research to a broader audience and decision makers;    
+- to expand you knowledge and skills in collaborating data science by sharing knowledge and skills, not only by the workshops themselves but also  by bringing all the knowledge together, to make it open for everyone and to show how every things was done;   
+- to create environments (among them workshops, open github-repositories, books and blogs) which show how modern data science can be done and to communicate this knowledge.
 
 
+Alltogether, this book learns you different tools and workflows using R 
+to do modern data science. 

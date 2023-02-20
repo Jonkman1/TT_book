@@ -15,10 +15,8 @@ The dataset for this Tidy Tuesday is about animal rescues! Alex Trinidad explore
 
 Install TT package (if necessary)
 
-```
-install.packages("tidytuesdayR")
-install.packages("tidyverse")
-```
+    install.packages("tidytuesdayR")
+    install.packages("tidyverse")
 
 ```{r}
 #| warning: false
@@ -65,8 +63,8 @@ Create a unique ID
 ```{r}
 #| warning: false
 #| echo: true
-mydata <- mydata %>% 
-  arrange(cal_year) %>% 
+mydata <- mydata |> 
+  arrange(cal_year) |> 
   mutate(uid = paste0(seq(1:n()), LETTERS, letters))
 ```
 
@@ -83,7 +81,7 @@ Select variables of interest.
 ```{r}
 #| warning: false
 #| echo: true
-mydataselection <- mydata %>% 
+mydataselection <- mydata |> 
   select(uid, date_time_of_call, type_of_incident, animal_group_parent, borough_code)
 ```
 
@@ -92,9 +90,9 @@ Show me the frequencies of different types of animal.
 ```{r}
 #| warning: false
 #| echo: true
-myfreq <- mydataselection %>% 
-  group_by(animal_group_parent) %>% 
-  summarise(freq = n()) %>% 
+myfreq <- mydataselection |> 
+  group_by(animal_group_parent) |> 
+  summarise(freq = n()) |> 
   arrange(-freq)
 myfreq
 ```
@@ -104,16 +102,16 @@ Remove unkonwn type of animals from the dataset.
 ```{r}
 #| warning: false
 #| echo: true
-mydataselection <- mydataselection %>% 
+mydataselection <- mydataselection |> 
   filter(!grepl("Unknown", animal_group_parent))
 ```
 
 ```{r}
 #| warning: false
 #| echo: true
-myfreq <- mydataselection %>% 
-  group_by(animal_group_parent) %>% 
-  summarise(freq = n()) %>% 
+myfreq <- mydataselection |> 
+  group_by(animal_group_parent) |> 
+  summarise(freq = n()) |> 
   arrange(-freq)
 
 ```
@@ -152,11 +150,11 @@ If not "date" format, transform ir
 ```{r}
 #| warning: false
 #| echo: true
-mydatadate <- mydataselection %>% 
+mydatadate <- mydataselection |> 
   mutate(datetime = lubridate::as_datetime(date_time_of_call, 
                                    format = "%d/%m/%Y %H:%M"))
 # # Non-lubridate Alternative
-# mydatadate <- mydataselection %>% 
+# mydatadate <- mydataselection |> 
 #   mutate(datetime = strptime(date_time_of_call,
 #                          format ="%d/%m/%Y %H:%M", 
 #                          tz = "Europe/London"))
@@ -168,7 +166,7 @@ Create separate variables for `day`, `month`, `year`, `hour`, `minute`, and `dat
 ```{r}
 #| warning: false
 #| echo: true
-mydatadate <- mydataselection %>% 
+mydatadate <- mydataselection |> 
   mutate(datetime = as_datetime(date_time_of_call,
                             format ="%d/%m/%Y %H:%M"),
          day = day(datetime),
@@ -186,8 +184,8 @@ How many cases do we have now per day?
 ```{r}
 #| warning: false
 #| echo: true
-caseperday <- mydatadate %>% 
-  group_by(date) %>% 
+caseperday <- mydatadate |> 
+  group_by(date) |> 
   summarise(resc_counts = n())
 ```
 
@@ -218,9 +216,9 @@ And how many cases do we have per year?
 #| fig-width: 6
 #| fig-height: 4
 
-mydatadate %>% 
+mydatadate |> 
   group_by(year) %>% 
-  summarise(resc_counts = n()) %>% 
+  summarise(resc_counts = n()) |> 
   ggplot() +
   aes(
     x = year,
@@ -234,8 +232,8 @@ Is there a rescue every day?
 ```{r}
 #| warning: false
 #| echo: true
-perday <- mydatadate %>% 
-          group_by(date) %>% 
+perday <- mydatadate |> 
+          group_by(date) |> 
           summarise(resc_counts = n())
 ```
 
@@ -270,16 +268,16 @@ Add missing dates to our data set.
 
 This will give an error because we need the same arguments We need the same arguments
 
-```{r}
+```
 #| warning: false
 #| echo: true
-missingdates <- missingdates %>% 
+missingdates <- missingdates |> 
   mutate(resc_counts = vector(mode = "numeric", length = length(.)))
 ```
 
 Add now the missing dates to our data set
 
-```{r}
+```
 #| warning: false
 #| echo: true
 fulldates <- rbind(perday, missingdates)
@@ -287,7 +285,7 @@ fulldates <- rbind(perday, missingdates)
 
 Are any date duplicated?
 
-```{r}
+```
 #| warning: false
 #| echo: true
 table(duplicated(fulldates$date))
@@ -298,7 +296,7 @@ Wim Bernasco's suggestion instead of using `anti_join()` and `rbind()`, use `lef
 ```{r}
 #| warning: false
 #| echo: true
-fulldates <- left_join(compdates, perday, by = "date") %>% 
+fulldates <- left_join(compdates, perday, by = "date") |> 
   replace(is.na(.), 0)
 ```
 
@@ -318,7 +316,7 @@ What week of the year did it happen?
 ```{r}
 #| warning: false
 #| echo: true
-fulldates <- fulldates %>% 
+fulldates <- fulldates |> 
   mutate(week = week(date))
 ```
 
@@ -327,7 +325,7 @@ What day of the week did it happen?
 ```{r}
 #| warning: false
 #| echo: true
-fulldates <- fulldates %>% 
+fulldates <- fulldates |> 
   mutate(weekday = wday(date, label = TRUE))
 ```
 
@@ -338,8 +336,8 @@ Plot by week.
 ```{r}
 #| warning: false
 #| echo: true
-byweek <- fulldates %>% 
-  group_by(year, week) %>% 
+byweek <- fulldates |> 
+  group_by(year, week) |> 
   summarise(resc_counts = sum(resc_counts))
 ```
 
@@ -363,15 +361,15 @@ First cat
 ```{r}
 #| warning: false
 #| echo: true
-cat <- mydatadate %>% 
-  filter(animal_group_parent == "cat") %>%  
-  group_by(date, animal_group_parent) %>% 
+cat <- mydatadate |> 
+  filter(animal_group_parent == "cat") |>  
+  group_by(date, animal_group_parent) |> 
   summarise(resc_counts = n())
 
 mdatecat <- anti_join(compdates, cat)
 
-fullcat <- rbind(cat, mdatecat) %>% 
-  mutate(animal_group_parent = "cat") %>% 
+fullcat <- rbind(cat, mdatecat) |> 
+  mutate(animal_group_parent = "cat") |> 
   replace(is.na(.),0)
 ```
 
@@ -381,7 +379,7 @@ Dog now.
 #| warning: false
 #| echo: true
 dog <- mydatadate %>% 
-  filter(animal_group_parent == "dog") %>%  
+  filter(animal_group_parent == "dog") |>  
   group_by(date, animal_group_parent) %>% 
   summarise(resc_counts = n())
 
@@ -584,5 +582,3 @@ ggplot(data = byyear) +
 ```
 
 # References
-
-

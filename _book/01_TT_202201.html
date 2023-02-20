@@ -223,27 +223,27 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./08_TT_202205.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Revenue and expenditure in sport</span></a>
+  <a href="./07_TT_202205.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Revenue and expenditure in sport</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./09_TT_202205.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Development of crime in population</span></a>
+  <a href="./08_TT_202205.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Development of crime in population</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./10_TT_202211.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Student mobility in Europe</span></a>
+  <a href="./09_TT_202211.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Student mobility in Europe</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./11_TT_202301.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">EDA on salary survey in different countries</span></a>
+  <a href="./10_TT_202301.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">EDA on salary survey in different countries</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./12_summary.html" class="sidebar-item-text sidebar-link">Summary</a>
+  <a href="./11_summary.html" class="sidebar-item-text sidebar-link">Summary</a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -403,7 +403,7 @@ $ caffeine_mg     &lt;dbl&gt; 130, 193, 260, 340, 15, 20, 25, 30, 155, 235, 310,
 <h2 data-number="1.5" class="anchored" data-anchor-id="subset-brewed-coffee."><span class="header-section-number">1.5</span> Subset brewed coffee.</h2>
 <p>When you want to look at a specific subset with the product_name brewed coffee for example you can define this as:.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>brew_df <span class="ot">&lt;-</span> star_df <span class="sc">%&gt;%</span> </span>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>brew_df <span class="ot">&lt;-</span> star_df <span class="sc">|&gt;</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">str_detect</span>(product_name, <span class="st">"brewed coffee"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
@@ -417,9 +417,9 @@ $ caffeine_mg     &lt;dbl&gt; 130, 193, 260, 340, 15, 20, 25, 30, 155, 235, 310,
 <li>Recode categories of <code>milk</code>from 0, 1, 2, 3, 4 5 into no milk, non-fat, 2% fat, soy, coconut, whole.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>big_ones_df <span class="ot">&lt;-</span> star_df <span class="sc">%&gt;%</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(product_name, size, milk, whip, calories<span class="sc">:</span>trans_fat_g) <span class="sc">%&gt;%</span> </span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(size <span class="sc">==</span> <span class="st">"grande"</span>) <span class="sc">%&gt;%</span> </span>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>big_ones_df <span class="ot">&lt;-</span> star_df <span class="sc">|&gt;</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(product_name, size, milk, whip, calories<span class="sc">:</span>trans_fat_g) <span class="sc">|&gt;</span> </span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(size <span class="sc">==</span> <span class="st">"grande"</span>) <span class="sc">|&gt;</span></span>
 <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">whip_char =</span> <span class="fu">as.character</span>(whip),</span>
 <span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">milk_labs =</span> <span class="fu">recode</span>(milk,</span>
 <span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>                            <span class="st">`</span><span class="at">0</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"no milk"</span>,</span>
@@ -482,8 +482,8 @@ $ caffeine_mg     &lt;dbl&gt; 130, 193, 260, 340, 15, 20, 25, 30, 155, 235, 310,
 </div>
 <p>This is the grouping-way.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>star_df <span class="sc">%&gt;%</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(whip) <span class="sc">%&gt;%</span> </span>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>star_df <span class="sc">|&gt;</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(whip) <span class="sc">|&gt;</span> </span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tally</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 x 2
@@ -510,8 +510,8 @@ $ caffeine_mg     &lt;dbl&gt; 130, 193, 260, 340, 15, 20, 25, 30, 155, 235, 310,
 <h2 data-number="1.10" class="anchored" data-anchor-id="basic-cleaning"><span class="header-section-number">1.10</span> Basic cleaning</h2>
 <p>Here we do some basic cleaning. We select six variables and look only at variables of which the <code>size</code> is grande. We call this dataset <code>star_clean</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>star_clean_df <span class="ot">&lt;-</span> star_df <span class="sc">%&gt;%</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(product_name, size, milk, whip, calories, sugar_g) <span class="sc">%&gt;%</span> </span>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>star_clean_df <span class="ot">&lt;-</span> star_df <span class="sc">|&gt;</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(product_name, size, milk, whip, calories, sugar_g) <span class="sc">|&gt;</span></span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(size <span class="sc">==</span> <span class="st">"grande"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
@@ -563,8 +563,8 @@ $ caffeine_mg     &lt;dbl&gt; 130, 193, 260, 340, 15, 20, 25, 30, 155, 235, 310,
 </div>
 <p>Then we plot the coffee of which the <code>whip</code>is 1.</p>
 <div class="cell page-columns page-full">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>star_clean_df <span class="sc">%&gt;%</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(whip <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span> </span>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>star_clean_df <span class="sc">|&gt;</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(whip <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">|&gt;</span></span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
 <span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> sugar_g, <span class="at">y =</span> calories))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display page-columns page-full">
@@ -581,7 +581,7 @@ $ caffeine_mg     &lt;dbl&gt; 130, 193, 260, 340, 15, 20, 25, 30, 155, 235, 310,
 <h2 data-number="1.12" class="anchored" data-anchor-id="change-milk-class."><span class="header-section-number">1.12</span> Change milk class.</h2>
 <p>For the next plot we first change the class of the variable <code>milk</code> into a character variable and save it as a different dataset.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>star_clean_df <span class="ot">&lt;-</span> star_clean_df <span class="sc">%&gt;%</span> </span>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>star_clean_df <span class="ot">&lt;-</span> star_clean_df <span class="sc">|&gt;</span> </span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">milk_char =</span> <span class="fu">as.character</span>(milk))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>

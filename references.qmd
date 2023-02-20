@@ -1,4 +1,27 @@
-
-
 # References {.unnumbered}
+
+
+
+Bernasco, W. (2022a, March). *NSC-R Workshops: NSC-R Tidy Tuesday. NSCR*. Retrieved from https://nscrweb.netlify.app/posts/2022-03-22-nsc-r-tidy-tuesday
+
+Bernasco, W. (2022b, May). *NSC-R Workshops: NSC-R Tidy Tuesday. NSCR*. Retrieved from https://nscrweb.netlify.app/posts/2022-05-24-nsc-r-tidy-tuesday
+
+Bernasco, W. (2022c, November). *NSC-R Workshops: NSC-R Tidy Tuesday. NSCR*. Retrieved from https://nscrweb.netlify.app/posts/2022-11-15-nsc-r-tidy-tuesday
+
+Moneva, A. (2022, February). *NSC-R Workshops: NSC-R Tidy Tuesday. NSCR*. Retrieved from https://nscrweb.netlify.app/posts/2022-02-08-nsc-r-tidy-tuesday
+
+
+Langton, S. (2022, January). *NSC-R Workshops: NSC-R Tidy Tuesday. NSCR*. Retrieved from https://nscrweb.netlify.app/posts/2022-01-11-nsc-r-tidy-tuesday/
+
+Langton, S. (2022, April). *NSC-R Workshops: NSC-R Tidy Tuesday. NSCR*. Retrieved from https://nscrweb.netlify.app/posts/2022-01-25-nsc-r-tidy-tuesday/
+
+Langton, S. (2022, January). *NSC-R Workshops: NSC-R Tidy Tuesday. NSCR*. Retrieved from https://nscrweb.netlify.app/posts/2022-04-05-nsc-r-tidy-tuesday
+
+Trinidad, A. (n.d.). *NSC-R Workshops: NSC-R Tidy Tuesday. NSCR*. Retrieved from https://nscrweb.netlify.app/posts/2022-02-22-nsc-r-tidy-tuesday
+
+Trinidad, A. (2022, May). *NSC-R Workshops: NSC-R Tidy Tuesday. NSCR*. Retrieved from https://nscrweb.netlify.app/posts/2022-05-03-nsc-r-tidy-tuesday
+
+Verlaan, T. (2022, March). *NSC-R Workshops: NSC-R Tidy Tuesday. NSCR*. Retrieved from https://nscrweb.netlify.app/posts/2022-03-08-nsc-r-tidy-tuesday
+
+Yasrebi-de Kom, F. (2023, January). *NSC-R Workshops: NSC-R Tidy Tuesday. NSCR*. Retrieved from https://nscrweb.netlify.app/posts/2023-01-24-nsc-r-tidy-tuesday
 

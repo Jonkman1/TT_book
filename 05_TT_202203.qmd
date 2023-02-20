@@ -8,21 +8,21 @@ format:
 ---
 
 ## Introduction
+
 Sports in general and football (soccer) in particular provides a sheer endless source of open data that can be explored at various levels (player, team, match, competition) and from various perspectives. In this workshop Wim Bernasco uses open data about football borrowed from a GitHub repository maintained by James Curley (James P. Curley (2016). More information [here](https://nscrweb.netlify.app/posts/2022-03-22-nsc-r-tidy-tuesday/) [@bernasco_nsc-r_2022]
 
-[1^]Wim Bernasco, Franziska Yasrebi-de Kom provided fertile suggestions on code and comments
+\[1\^\]Wim Bernasco, Franziska Yasrebi-de Kom provided fertile suggestions on code and comments
 
 ## Packages and data
 
 Install packages, the admin required to get going
 
-```
-#install.packages('tidyverse')
-    #install.packages('lubridate')
-    #install.packages('devtools')
-    #library(devtools)
-    #install_github("jalapic/engsoccerdata")
-```
+    #install.packages('tidyverse')
+        #install.packages('lubridate')
+        #install.packages('devtools')
+        #library(devtools)
+        #install_github("jalapic/engsoccerdata")
+
 Load libraries
 
 ```{r}
@@ -50,7 +50,7 @@ What type of dataset is `spain`? I hope a data.frame.
 ```{r}
 #| warning: false
 #| echo: true
-spain %>% class()
+spain |> class()
 ```
 
 Great, it is a data.frame
@@ -60,7 +60,7 @@ What are the names of the variables. I hope they are self-explanatory.
 ```{r}
 #| warning: false
 #| echo: true
-spain %>% names()
+spain |> names()
 ```
 
 Let us peek into the data.
@@ -68,7 +68,7 @@ Let us peek into the data.
 ```{r}
 #| warning: false
 #| echo: true
-spain %>% glimpse()
+spain |> glimpse()
 ```
 
 You should see something like this:
@@ -81,15 +81,15 @@ You should see something like this:
 
 This is much more intuitive, but it only works interactively/ Try it out yourself, but do not include the `View` function in your script
 
-    spain %>% View()
+    spain |> View()
 
 Alternatively, a quick look at the first 10 rows.
 
 ```{r}
 #| warning: false
 #| echo: true
-spain %>% 
-  select(Date, home, visitor, FT) %>% 
+spain |> 
+  select(Date, home, visitor, FT) |> 
   head(n = 10)
 ```
 
@@ -100,7 +100,7 @@ How many teams?
 ```{r}
 #| warning: false
 #| echo: true
-spain %>% count(home)
+spain |> count(home)
 ```
 
 Frequencies of variable-combinations
@@ -111,7 +111,7 @@ How many times did team A host team B? (Results not shown here, `output=false`, 
 #| warning: false
 #| echo: true
 #| output: false
-spain %>% count(home, visitor)
+spain |> count(home, visitor)
 ```
 
 Frequencies of match outcomes
@@ -119,7 +119,7 @@ Frequencies of match outcomes
 ```{r}
 #| warning: false
 #| echo: true
-spain %>% count(hgoal, vgoal)
+spain |> count(hgoal, vgoal)
 ```
 
 Same, but using the combined FT variable.
@@ -127,7 +127,7 @@ Same, but using the combined FT variable.
 ```{r}
 #| warning: false
 #| echo: true
-spain %>% count(FT)
+spain |> count(FT)
 ```
 
 Frequencies of a sum (total goals in match)
@@ -135,7 +135,7 @@ Frequencies of a sum (total goals in match)
 ```{r}
 #| warning: false
 #| echo: true
-spain %>% count(hgoal + vgoal)
+spain |> count(hgoal + vgoal)
 ```
 
 Frequencies of function work as well (year of match date).
@@ -143,7 +143,7 @@ Frequencies of function work as well (year of match date).
 ```{r}
 #| warning: false
 #| echo: true
-spain %>% count(year(Date))
+spain |> count(year(Date))
 ```
 
 Note: this works because R knows that 'Date' is a date
@@ -154,7 +154,7 @@ How can you know that R knows? Either: (1) type 'spain %\>% glimpse' and observe
 ```{r}
 #| warning: false
 #| echo: true
-spain %>% pull(Date) %>% class()
+spain |> pull(Date) |> class()
 ```
 
 What is this 'round' variable?
@@ -162,7 +162,7 @@ What is this 'round' variable?
 ```{r}
 #| warning: false
 #| echo: true
-spain %>% count(round)
+spain |> count(round)
 ```
 
 Apparently 90 matches ('phase2') are not regular La Liga matches. In subsequent analyses, we will not use these 90 matches. So we create a new dataframe excluding these 90 matches.
@@ -171,7 +171,7 @@ Apparently 90 matches ('phase2') are not regular La Liga matches. In subsequent 
 #| warning: false
 #| echo: true
 spain_league <-
-  spain %>%
+  spain |>
   filter(round=="league")
 ```
 
@@ -188,8 +188,8 @@ Key variables, just to check we have the variables we need and they look OK. Jus
 ```{r}
 #| warning: false
 #| echo: true
-spain_league %>%
-  select(Date, home, visitor, hgoal, vgoal) %>%
+spain_league |>
+  select(Date, home, visitor, hgoal, vgoal) |>
   head(n=10)
 ```
 
@@ -198,8 +198,8 @@ Same, but this time a random sample of rows.
 ```{r}
 #| warning: false
 #| echo: true
-spain_league %>%
-  select(Date, home, visitor, hgoal, vgoal) %>%
+spain_league |>
+  select(Date, home, visitor, hgoal, vgoal) |>
   slice_sample(n=10)
 ```
 
@@ -208,7 +208,7 @@ Once more, number of goals in match
 ```{r}
 #| warning: false
 #| echo: true
-spain_league %>% count(hgoal + vgoal)
+spain_league |> count(hgoal + vgoal)
 ```
 
 How did the number of goals per match develop over time?
@@ -221,11 +221,11 @@ How did the number of goals per match develop over time?
 #| cap-location: margin
 #| fig-width: 6
 #| fig-height: 4
-spain_league %>%
+spain_league |>
   # number of goals per match, and year of the match
   mutate(goals = hgoal+vgoal,
          year  = year(Date)
-  ) %>%
+  ) |>
   ggplot() + 
   geom_point(aes(x=year, y=goals))
 ```
@@ -240,12 +240,12 @@ Oeps, this was not what I had in mind. I need to aggregate first! The 'group_by'
 #| cap-location: margin
 #| fig-width: 6
 #| fig-height: 4
-spain_league %>%
+spain_league |>
   mutate(goals = hgoal + vgoal,
          year  = year(Date)
-  ) %>%
-  group_by(year) %>%
-  summarize(mean_goals_pm = mean(goals)) %>%
+  ) |>
+  group_by(year) |>
+  summarize(mean_goals_pm = mean(goals)) |>
   ggplot() + 
   geom_line(aes(x=year, y=mean_goals_pm))
 ```
@@ -257,7 +257,7 @@ Funny pattern. What about England? Do we have the same variables (yes!)
 ```{r}
 #| warning: false
 #| echo: true
-england %>% names()
+england |> names()
 ```
 
 ```{r}
@@ -268,13 +268,13 @@ england %>% names()
 #| cap-location: margin
 #| fig-width: 6
 #| fig-height: 4
-england %>%
+england |>
   # number of goals per match, and year of the match
   mutate(goals = hgoal+vgoal,
          year  = year(Date)
-  ) %>%
-  group_by(year) %>%
-  summarize(mean_goals_pm = mean(goals)) %>%
+  ) |>
+  group_by(year) |>
+  summarize(mean_goals_pm = mean(goals)) |>
   ggplot() + 
   geom_line(aes(x=year, y=mean_goals_pm))
 ```
@@ -285,11 +285,11 @@ England is were the game was invented (they say), so they have a longer history 
 #| warning: false
 #| echo: true
 spain_series <-
-  spain_league %>%
+  spain_league |>
   mutate(goals  = hgoal+vgoal,
          year   = year(Date)
-  ) %>%
-  group_by(year) %>%
+  ) |>
+  group_by(year) |>
   summarize(mean_goals_pm = mean(goals),
             # Define a constant for Spain
             country       = "Spain")
@@ -301,12 +301,12 @@ What des this look like? Do it yourself: `View(spain_series)`.
 #| warning: false
 #| echo: true
 england_series <-
-  england %>%
+  england |>
   # number of goals per match, and year of the match
   mutate(goals  = hgoal+vgoal,
          year   = year(Date)
-  ) %>%
-  group_by(year) %>%
+  ) |>
+  group_by(year) |>
   summarize(mean_goals_pm = mean(goals),
             # Define a constant for England
             country       = "England")
@@ -322,8 +322,8 @@ series <- bind_rows(spain_series, england_series)
 
 Take a look yourself (note that England started 1888, Spain in 1929)
 
-    series %>% 
-      arrange(year, country) %>% 
+    series |> 
+      arrange(year, country) |> 
       View()
       
 
@@ -337,7 +337,7 @@ Plot development in Spain and England in the same graph
 #| cap-location: margin
 #| fig-width: 6
 #| fig-height: 4
-series %>%
+series |>
   ggplot() +
   geom_line(aes(x=year, y=mean_goals_pm, color=country))
 ```
@@ -354,13 +354,13 @@ Back to Spain
 #| cap-location: margin
 #| fig-width: 6
 #| fig-height: 4
-spain_league %>%
+spain_league |>
   # number of goals per match, and year of the match
   mutate(goals = hgoal+vgoal,
          month  = month(Date)
-  ) %>%
-  group_by(month) %>%
-  summarize(mean_goals_pm = mean(goals)) %>%
+  ) |>
+  group_by(month) |>
+  summarize(mean_goals_pm = mean(goals)) |>
   ggplot() + 
   geom_point(aes(x=month, y=mean_goals_pm)) +
   scale_x_continuous(breaks=1:12)
@@ -376,13 +376,13 @@ Let us check how many we have in summer (June-August, numbers of games)
 #| cap-location: margin
 #| fig-width: 6
 #| fig-height: 4
-spain_league %>%
+spain_league |>
   mutate(goals = hgoal+vgoal,
          month  = month(Date)
-  ) %>%
-  group_by(month) %>%
+  ) |>
+  group_by(month) |>
   # This is how we count nr of rows (matches) per month
-  summarize(number_of_matches = n()) %>%
+  summarize(number_of_matches = n()) |>
   ggplot() + 
   geom_point(aes(x=month, y=number_of_matches)) +
   # this gives us a scale nicely labeled 1..12
@@ -399,17 +399,17 @@ Let us ignore June-August
 #| cap-location: margin
 #| fig-width: 6
 #| fig-height: 4
-spain_league %>%
+spain_league |>
   mutate(goals = hgoal+vgoal,
          month  = month(Date)
-  ) %>%
+  ) |>
   # this removes months 6,7 and 8 (June, July, August)
   #   the exclamation mark (!) means NOT , i.e.
   # !x means the same as (x == FALSE)  
-  filter(!(month %in% c(6:8))) %>%
-  group_by(month) %>%
+  filter(!(month %in% c(6:8))) |>
+  group_by(month) |>
   # This is how we count nr of rows (matches) per month
-  summarize(number_of_matches = n()) %>%
+  summarize(number_of_matches = n()) |>
   ggplot() + 
   geom_point(aes(x=month, y=number_of_matches)) +
   scale_x_continuous(breaks=1:12)
@@ -426,12 +426,12 @@ However, the differences are pretty small. This becomes clear when we set the sc
 #| cap-location: margin
 #| fig-width: 6
 #| fig-height: 4
-spain_league %>%
+spain_league |>
   mutate(goals = hgoal+vgoal,
-         month  = month(Date) ) %>%
-  filter(!(month %in% c(6:8))) %>%
-  group_by(month) %>%
-  summarize(mean_goals_pm = mean(goals)) %>%
+         month  = month(Date) ) |>
+  filter(!(month %in% c(6:8))) |>
+  group_by(month) |>
+  summarize(mean_goals_pm = mean(goals)) |>
   ggplot() + 
   geom_point(aes(x=month, y=mean_goals_pm)) +
   scale_x_continuous(breaks=1:12) + 
@@ -449,12 +449,12 @@ Or as a bar chart
 #| cap-location: margin
 #| fig-width: 6
 #| fig-height: 4
-spain_league %>%
+spain_league |>
   mutate(goals = hgoal+vgoal,
-         month  = month(Date) ) %>%
-  filter(!(month %in% c(6:8))) %>%
-  group_by(month) %>%
-  summarize(mean_goals_pm = mean(goals)) %>%
+         month  = month(Date) ) |>
+  filter(!(month %in% c(6:8))) |>
+  group_by(month) |>
+  summarize(mean_goals_pm = mean(goals)) |>
   ggplot() + 
   # geom_col rather than geom_point
   geom_col(aes(x=month, y=mean_goals_pm)) +
@@ -472,11 +472,11 @@ Let us create a custom version of the dataset for this analysis
 ```{r}
 #| warning: false
 #| echo: true
-spain_extended <- spain_league %>% 
+spain_extended <- spain_league |> 
   # Adding '-' in front of a variable means 'throw it away'
   #   or, in other words, 'do not select it'. If you use the -
   #   in select, variables not mentioned are retained.
-  select( -Season, -HT, -FT, -tier, -round, -group, -notes ) %>%
+  select( -Season, -HT, -FT, -tier, -round, -group, -notes ) |>
   mutate(goals = hgoal+vgoal,
          year  = year(Date),
          month  = month(Date),
@@ -494,7 +494,7 @@ Frequency of wins, losses and equal splits
 ```{r}
 #| warning: false
 #| echo: true
-spain_extended %>% count(result_discrete)
+spain_extended |> count(result_discrete)
 ```
 
 Intermezzo (added after the workshop meeting)
@@ -507,16 +507,16 @@ You may be familiar with the 'classic R' table function to create this table (pr
 table(spain_extended$result_discrete)
 ```
 
-If you prefer the classic table, the below will NOT work because there must always be a function after the pipe symbol (`%>%`) as the pipe symbol means "whatever" is returned by the function before `%>%` will become the first argument of the function after the `%>%`.And 'result_discrete' is not a function, but an object.
+If you prefer the classic table, the below will NOT work because there must always be a function after the pipe symbol (`|>`) as the pipe symbol means "whatever" is returned by the function before `|>` will become the first argument of the function after the `|>`.And 'result_discrete' is not a function, but an object.
 
-    spain_extended %>% result_discrete %>% table() 
+    spain_extended |> result_discrete |> table() 
 
 But this will work, because pull is a function that returns the variable `result_discrete` as a vector):
 
 ```{r}
 #| warning: false
 #| echo: true
-spain_extended %>% pull(result_discrete) %>% table()
+spain_extended |> pull(result_discrete) |> table()
 ```
 
 Frequency table with proportions.
@@ -524,9 +524,9 @@ Frequency table with proportions.
 ```{r}
 #| warning: false
 #| echo: true
-spain_extended %>%
-  group_by(result_discrete) %>%
-  summarize(frequency = n()) %>%
+spain_extended |>
+  group_by(result_discrete) |>
+  summarize(frequency = n()) |>
   mutate(proportion = frequency / sum(frequency))
 ```
 
@@ -540,10 +540,10 @@ Same thing, but now as a bar chart.
 #| cap-location: margin
 #| fig-width: 6
 #| fig-height: 4
-spain_extended %>%
-  group_by(result_discrete) %>%
-  summarize(frequency = n()) %>%
-  mutate(proportion = frequency / sum(frequency)) %>%
+spain_extended |>
+  group_by(result_discrete) |>
+  summarize(frequency = n()) |>
+  mutate(proportion = frequency / sum(frequency)) |>
   ggplot() +
   geom_col(aes(x=result_discrete, y=proportion), fill="blue")
 ```
@@ -555,8 +555,8 @@ Key descriptive variables.
 ```{r}
 #| warning: false
 #| echo: true
-spain_extended %>% 
-  select(goals_difference) %>% 
+spain_extended |> 
+  select(goals_difference) |> 
   summary()
 ```
 
@@ -573,7 +573,7 @@ Let us make a box plot
 #| cap-location: margin
 #| fig-width: 6
 #| fig-height: 4
-spain_extended %>% 
+spain_extended |> 
   ggplot() + 
   geom_boxplot(aes(x=goals_difference)) + 
   scale_x_continuous(breaks = seq(-10, 10,1))
@@ -593,10 +593,10 @@ Proportions of matches won, lost, equal split
 #| cap-location: margin
 #| fig-width: 6
 #| fig-height: 4
-spain_extended %>%
-  group_by(year, result_discrete) %>%
-  summarize(frequency = n()) %>%
-  mutate(proportion = frequency / sum(frequency)) %>%
+spain_extended |>
+  group_by(year, result_discrete) |>
+  summarize(frequency = n()) |>
+  mutate(proportion = frequency / sum(frequency)) |>
   ggplot() +
   geom_line(aes(x=year, y=proportion, color=result_discrete))
 ```
@@ -611,9 +611,9 @@ Goal count differences between home team and visitors
 #| cap-location: margin
 #| fig-width: 6
 #| fig-height: 4
-spain_extended %>%
-  group_by(year) %>%
-  summarize(home_visitors_difference = mean(goals_difference)) %>%
+spain_extended |>
+  group_by(year) |>
+  summarize(home_visitors_difference = mean(goals_difference)) |>
   ggplot() +
   geom_line(aes(x=year, y=home_visitors_difference))
 ```
@@ -621,4 +621,3 @@ spain_extended %>%
 Both graphs strongly suggest that home advantage decreased over the past century.
 
 ## References
-

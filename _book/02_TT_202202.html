@@ -223,27 +223,27 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./08_TT_202205.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Revenue and expenditure in sport</span></a>
+  <a href="./07_TT_202205.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Revenue and expenditure in sport</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./09_TT_202205.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Development of crime in population</span></a>
+  <a href="./08_TT_202205.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Development of crime in population</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./10_TT_202211.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Student mobility in Europe</span></a>
+  <a href="./09_TT_202211.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Student mobility in Europe</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./11_TT_202301.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">EDA on salary survey in different countries</span></a>
+  <a href="./10_TT_202301.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">EDA on salary survey in different countries</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./12_summary.html" class="sidebar-item-text sidebar-link">Summary</a>
+  <a href="./11_summary.html" class="sidebar-item-text sidebar-link">Summary</a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -304,7 +304,7 @@ div.csl-indent {
 
 <section id="introduction" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">2.1</span> Introduction</h2>
-<p>The dataset for this Tidy Tuesday is about board games! Asier Moneva explores the following research questions: “What are the top 3 best-selling board games by game type?” and “How do board game sales relate to online user ratings?”<span class="citation" data-cites="moneva_nsc-r_2022">(<a href="#ref-moneva_nsc-r_2022" role="doc-biblioref">Moneva 2022</a>)</span></p>
+<p>The dataset for this Tidy Tuesday is about board games! Asier Moneva explores the following research questions: “What are the top 3 best-selling board games by game type?” and “How do board game sales relate to online user ratings?”<span class="citation" data-cites="moneva_nsc-r_2022">(<a href="#ref-moneva_nsc-r_2022" role="doc-biblioref">Moneva, 2022</a>)</span></p>
 </section>
 <section id="load-packages" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="load-packages"><span class="header-section-number">2.2</span> Load packages</h2>
@@ -541,7 +541,7 @@ $ wishing                 &lt;dbl&gt; 9344, 7383, 5890, 12105, 8621, 6620, 5764,
 <li><p>What are the top 3 best-selling board games by game type?</p></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> </span>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span> </span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Create new variable to define type of game based on number of players</span></span>
 <span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">minplayers_fct =</span> <span class="fu">case_when</span>(</span>
 <span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>    minplayers <span class="sc">&lt;</span> <span class="dv">2</span> <span class="sc">~</span> <span class="st">"single player"</span>,</span>
@@ -550,15 +550,15 @@ $ wishing                 &lt;dbl&gt; 9344, 7383, 5890, 12105, 8621, 6620, 5764,
 <span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a>  ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span> </span>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span> </span>
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Select only relevant variables</span></span>
 <span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(</span>
 <span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>    name,</span>
 <span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>    minplayers_fct,</span>
 <span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>    owned</span>
-<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
-<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(minplayers_fct) <span class="sc">%&gt;%</span> </span>
-<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_max</span>(owned, <span class="at">n =</span> <span class="dv">3</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> </span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(minplayers_fct) <span class="sc">|&gt;</span> </span>
+<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_max</span>(owned, <span class="at">n =</span> <span class="dv">3</span>) <span class="sc">|&gt;</span> </span>
 <span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="table table-sm table-striped">
@@ -636,7 +636,7 @@ $ wishing                 &lt;dbl&gt; 9344, 7383, 5890, 12105, 8621, 6620, 5764,
 <span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># There seems to be three outliers that are best-sellers and also have high </span></span>
 <span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># ratings</span></span>
 <span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a>  ggrepel<span class="sc">::</span><span class="fu">geom_text_repel</span>(</span>
-<span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> df <span class="sc">%&gt;%</span> <span class="fu">filter</span>(owned <span class="sc">&gt;</span> <span class="dv">150000</span>),</span>
+<span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> df <span class="sc">|&gt;</span> <span class="fu">filter</span>(owned <span class="sc">&gt;</span> <span class="dv">150000</span>),</span>
 <span id="cb41-13"><a href="#cb41-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">label =</span> name),</span>
 <span id="cb41-14"><a href="#cb41-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"black"</span></span>
 <span id="cb41-15"><a href="#cb41-15" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
@@ -667,9 +667,9 @@ $ wishing                 &lt;dbl&gt; 9344, 7383, 5890, 12105, 8621, 6620, 5764,
 <h2 data-number="2.6" class="anchored" data-anchor-id="references"><span class="header-section-number">2.6</span> References</h2>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="refs" class="references csl-bib-body hanging-indent" data-line-spacing="2" role="doc-bibliography">
 <div id="ref-moneva_nsc-r_2022" class="csl-entry" role="doc-biblioentry">
-Moneva, A. 2022. <span>“<span>NSC</span>-<span>R</span> <span>Workshops</span>: <span>NSC</span>-<span>R</span> <span>Tidy</span> <span>Tuesday</span>.”</span> NSCR. <a href="https://nscrweb.netlify.app/posts/2022-02-08-nsc-r-tidy-tuesday/">https://nscrweb.netlify.app/posts/2022-02-08-nsc-r-tidy-tuesday/</a>.
+Moneva, A. (2022, February). <span>NSC</span>-<span>R</span> <span>Workshops</span>: <span>NSC</span>-<span>R</span> <span>Tidy</span> <span>Tuesday</span>. NSCR. Retrieved from <a href="https://nscrweb.netlify.app/posts/2022-02-08-nsc-r-tidy-tuesday/">https://nscrweb.netlify.app/posts/2022-02-08-nsc-r-tidy-tuesday/</a>
 </div>
 </div>
 </section>

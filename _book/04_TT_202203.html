@@ -223,27 +223,27 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./08_TT_202205.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Revenue and expenditure in sport</span></a>
+  <a href="./07_TT_202205.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Revenue and expenditure in sport</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./09_TT_202205.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Development of crime in population</span></a>
+  <a href="./08_TT_202205.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Development of crime in population</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./10_TT_202211.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Student mobility in Europe</span></a>
+  <a href="./09_TT_202211.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Student mobility in Europe</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./11_TT_202301.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">EDA on salary survey in different countries</span></a>
+  <a href="./10_TT_202301.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">EDA on salary survey in different countries</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./12_summary.html" class="sidebar-item-text sidebar-link">Summary</a>
+  <a href="./11_summary.html" class="sidebar-item-text sidebar-link">Summary</a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -301,7 +301,7 @@ div.csl-indent {
 
 <section id="introduction" class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">4.1</span> Introduction</h2>
-<p>In this meeting, Tim Verlaan explains what Sankey diagrams are, and how they can be created in R <span class="citation" data-cites="verlaan_nsc-rn_2022">(<a href="#ref-verlaan_nsc-rn_2022" role="doc-biblioref">Verlaan 2022</a>)</span></p>
+<p>In this meeting, Tim Verlaan explains what Sankey diagrams are, and how they can be created in R <span class="citation" data-cites="verlaan_nsc-rn_2022">(<a href="#ref-verlaan_nsc-rn_2022" role="doc-biblioref">Verlaan, 2022</a>)</span></p>
 </section>
 <section id="get-started" class="level2 page-columns page-full" data-number="4.2">
 <h2 data-number="4.2" class="anchored" data-anchor-id="get-started"><span class="header-section-number">4.2</span> Get started</h2>
@@ -362,7 +362,7 @@ div.csl-indent {
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> relig_income <span class="sc">%&gt;%</span></span>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> relig_income <span class="sc">|&gt;</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">!</span>religion, <span class="at">names_to =</span> <span class="st">'income'</span>, <span class="at">values_to =</span> <span class="st">'count'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
@@ -391,7 +391,7 @@ div.csl-indent {
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>billboard <span class="sc">%&gt;%</span></span>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>billboard <span class="sc">|&gt;</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> <span class="fu">starts_with</span>(<span class="st">'wk'</span>),</span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_drop_na =</span> <span class="cn">TRUE</span>,</span>
@@ -426,7 +426,7 @@ div.csl-indent {
 <div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>?mtcars</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> mtcars <span class="sc">|&gt;</span></span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">make_long</span>(cyl, vs, am, gear, carb)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell page-columns page-full">
@@ -448,9 +448,9 @@ div.csl-indent {
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>df1 <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(cyl, vs, am, gear, carb) <span class="sc">%&gt;%</span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="fu">everything</span>()) <span class="sc">%&gt;%</span></span>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>df1 <span class="ot">&lt;-</span> mtcars <span class="sc">|&gt;</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(cyl, vs, am, gear, carb) <span class="sc">|&gt;</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="fu">everything</span>()) <span class="sc">|&gt;</span></span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">next_x =</span> <span class="fu">lead</span>(.data<span class="sc">$</span>name),</span>
 <span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">next_node =</span> <span class="fu">lead</span>(.data<span class="sc">$</span>value)</span>
 <span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -460,9 +460,9 @@ div.csl-indent {
 <h1 data-number="5"><span class="header-section-number">5</span> References</h1>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="refs" class="references csl-bib-body hanging-indent" data-line-spacing="2" role="doc-bibliography">
 <div id="ref-verlaan_nsc-rn_2022" class="csl-entry" role="doc-biblioentry">
-Verlaan, T. 2022. <span>“<span>NSC</span>-<span>Rn</span> <span>Workshops</span>: <span>NSC</span>-<span>R</span> <span>Tidy</span> <span>Tuesday</span>.”</span> NSCR. <a href="https://nscrweb.netlify.app/posts/2022-03-08-nsc-r-tidy-tuesday/">https://nscrweb.netlify.app/posts/2022-03-08-nsc-r-tidy-tuesday/</a>.
+Verlaan, T. (2022, March). <span>NSC</span>-<span>Rn</span> <span>Workshops</span>: <span>NSC</span>-<span>R</span> <span>Tidy</span> <span>Tuesday</span>. NSCR. Retrieved from <a href="https://nscrweb.netlify.app/posts/2022-03-08-nsc-r-tidy-tuesday/">https://nscrweb.netlify.app/posts/2022-03-08-nsc-r-tidy-tuesday/</a>
 </div>
 </div>
 </section>

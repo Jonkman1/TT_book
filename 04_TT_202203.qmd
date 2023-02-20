@@ -44,7 +44,7 @@ pivot_longer(relig_income, !religion)
 ```{r}
 #| warning: false
 #| echo: true
-df <- relig_income %>%
+df <- relig_income |>
   pivot_longer(!religion, names_to = 'income', values_to = 'count')
 ```
 
@@ -58,7 +58,7 @@ billboard
 ```{r}
 #| warning: false
 #| echo: true
-billboard %>%
+billboard |>
   pivot_longer(
     cols = starts_with('wk'),
     values_drop_na = TRUE,
@@ -83,7 +83,7 @@ library(ggplot2)
 #| echo: true
 ?mtcars
 
-df <- mtcars %>%
+df <- mtcars |>
   make_long(cyl, vs, am, gear, carb)
 ```
 
@@ -104,14 +104,12 @@ ggplot(df, aes(x = x,
 ```
 
 ```{r}
-df1 <- mtcars %>%
-  select(cyl, vs, am, gear, carb) %>%
-  pivot_longer(everything()) %>%
+df1 <- mtcars |>
+  select(cyl, vs, am, gear, carb) |>
+  pivot_longer(everything()) |>
   mutate(next_x = lead(.data$name),
          next_node = lead(.data$value)
   )
 ```
 
 # References
-
-
