@@ -13,6 +13,7 @@ If you want your e-mail address on the mailing list of the NSC-R workshops, plea
 If you have suggestions for workshop topics, or are interested in presenting one, please send a message to [Wim Bernasco](wbernasco@nscr.nl), [Franziska Yasrebi-de Kom](FYasrebi@nscr.nl), [Sam Langton](slangton@nscr.nl), [Asier Moneva](amoneva@nscr.nl) or [Alex Trinidad](atrinidad@nscr.nl).
 
 ## This TT_book
+
 Last weeks Harrie Jonkman took the scripts of the eleven TidY-Tuesday workshops which were given in the period January 2022 till January 2023 and made ten chapters of them (the first short workshops are combined). He used the program `Quarto`for this. After he put all the parts together into a *Quarto-book*. He wanted to know how making and publishing such a book works. Of this proces he wrote a short blog on his [Harrieshoekje](https://harrieshoekjequarto.netlify.app/).
 
 [Harrie Jonkman](harriejonkman@xs4all.nl) developed the [NSC-R distill website](https://nscrweb.netlify.app/). He also developed this open-source html-book.
